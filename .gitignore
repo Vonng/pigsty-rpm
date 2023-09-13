@@ -1,0 +1,5 @@
+.idea/
+pigsty-rpm.iml
+
+.DS_Store
+*.rpm
