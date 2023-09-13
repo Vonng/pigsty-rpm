@@ -4,9 +4,10 @@ pigsty-rpm.iml
 .DS_Store
 *.rpm
 
+tmp/
 SOURCES/*.tar.gz
+SOURCES/*.tar.bz2
 RPMS/*.rpm
-
 RPMS/*.rpm
 SRPMS/*.rpm
 RPMS/el7.x86_64/*.rpm
