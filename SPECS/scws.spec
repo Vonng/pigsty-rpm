@@ -2,7 +2,6 @@ Name:           scws
 Version:        1.2.3
 Release:        PIGSTY1%{?dist}
 Summary:        Simple Chinese Word Segmentation
-
 License:        BSD
 URL:            http://www.xunsearch.com/scws/
 Source0:        http://www.xunsearch.com/scws/down/%{name}-%{version}.tar.bz2
@@ -12,8 +11,6 @@ Requires:       glibc
 
 %description
 SCWS (Simple Chinese Word Segmentation) is a high performance Chinese word segmentation utility.
-https://github.com/hightman/scws/blob/master/COPYING
-build with QA_RPATHS=$[ 0x0002 ] rpmbuild -ba ~/rpmbuild/SPECS/scws.spec
 
 %prep
 %setup -q
@@ -43,4 +40,4 @@ make install DESTDIR=%{buildroot}
 
 %changelog
 * Wed Sep 13 2023 Vonng <rh@vonng.com> - 1.2.3-1
-- Initial RPM release
+- Initial RPM release, used by Pigsty <https://pigsty.cc>
