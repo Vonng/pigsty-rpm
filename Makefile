@@ -51,7 +51,7 @@ pull-rpm:
 	rsync -avc build-el8:/tmp/pigsty-rpm/RPMS/  /data/pigsty-rpm/RPMS/el8.x86_64/
 	rsync -avc build-el9:/tmp/pigsty-rpm/RPMS/  /data/pigsty-rpm/RPMS/el9.x86_64/
 pull-srpm:
-	ssh build-el8 'sudo cp -r /root/rpmbuild/SRPM/* /tmp/pigsty-rpm/SRPM/'
+	ssh build-el8 'sudo cp -r /root/rpmbuild/SRPMS/* /tmp/pigsty-rpm/SRPMS/'
 	rsync -avc build-el8:/tmp/pigsty-rpm/SRPMS/ /data/pigsty-rpm/SRPMS/
 clean:
 	find . -type f -name .DS_Store -delete

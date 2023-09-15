@@ -12,8 +12,8 @@
 # Prepare
 #============================================
 # write pgdg srpm repo
-cat > /etc/yum.repos.d/pgdg15-srpm.repo <<-'EOF'
-[pgdg15-srpm]
+cat > /etc/yum.repos.d/pgdg-srpm.repo <<-'EOF'
+[pgdg-common-srpm]
 name = PostgreSQL 15 SRPM $releasever - $basearch
 baseurl=https://mirrors.tuna.tsinghua.edu.cn/postgresql/repos/yum/srpms/common/redhat/rhel-$releasever-x86_64/
 gpgcheck = 0
