@@ -162,11 +162,21 @@ pgml:
 #---------------------------------------------#
 hydra:
 	rm -rf /root/rpmbuild/RPMS/x86_64/hydra*.rpm;
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/hydra.spec
-	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/hydra.spec
-	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/hydra.spec
-	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/hydra.spec
+	PATH=/usr/pgsql-15/bin:$PATH rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/hydra.spec
+	PATH=/usr/pgsql-14/bin:$PATH rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/hydra.spec
+	PATH=/usr/pgsql-13/bin:$PATH rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/hydra.spec
+	PATH=/usr/pgsql-12/bin:$PATH rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/hydra.spec
 
+#---------------------------------------------#
+# pg_filedump (lz4-devel libzstd-devel)
+#---------------------------------------------#
+pg_filedump:
+	rm -rf /root/rpmbuild/RPMS/x86_64/hydra*.rpm;
+	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_filedump.spec
+	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_filedump.spec
+	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_filedump.spec
+	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_filedump.spec
+	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_filedump.spec
 
 #---------------------------------------------#
 # apache-age  (dnf install perl perl-FindBin)
