@@ -5,7 +5,7 @@
 
 Name:		%{sname}_%{pgmajorversion}
 Version:	0.0.1
-Release:	PIGSTY1%{?dist}
+Release:	1PIGSTY%{?dist}
 Summary:	PostgreSQL implementation of JSON Web Tokens
 License:	MIT
 URL:		https://github.com/michelp/%{sname}
@@ -31,7 +31,7 @@ PATH=%{pginstdir}/bin:$PATH make install DESTDIR=%{buildroot}
 %doc README.md
 %{pginstdir}/share/extension/%{pname}.control
 %{pginstdir}/share/extension/%{pname}*sql
-
+%exclude /usr/lib/.build-id/*
 
 %changelog
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 0.0.1

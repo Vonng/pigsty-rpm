@@ -14,7 +14,7 @@
 
 Name:		%{sname}_%{pgmajorversion}
 Version:	1.6.0
-Release:	PIGSTY1%{?dist}
+Release:	1PIGSTY%{?dist}
 Summary:	HNSW algorithm for vector similarity search in PostgreSQL.
 License:	MIT
 URL:		https://github.com/pramsey/%{sname}
@@ -76,6 +76,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %files llvmjit
    %{pginstdir}/lib/bitcode/*
 %endif
+%exclude /usr/lib/.build-id/*
 
 %changelog
 * Wed Sep 13 2023 Vonng <rh@vonng.com> - 1.6.0

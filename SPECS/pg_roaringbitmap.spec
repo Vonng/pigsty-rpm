@@ -14,7 +14,7 @@
 
 Name:		%{sname}_%{pgmajorversion}
 Version:	0.5.4
-Release:	PIGSTY1%{?dist}
+Release:	1PIGSTY%{?dist}
 Summary:	RoaringBitmap extension for PostgreSQL.
 License:	Apache-2.0
 URL:		https://github.com/ChenHuajun/%{sname}
@@ -73,6 +73,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %{pginstdir}/lib/%{pname}.so
 %{pginstdir}/share/extension/%{pname}.control
 %{pginstdir}/share/extension/%{pname}*sql
+%exclude /usr/lib/.build-id/*
 %if %llvm
 %files llvmjit
    %{pginstdir}/lib/bitcode/*

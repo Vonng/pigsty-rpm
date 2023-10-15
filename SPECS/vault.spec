@@ -5,7 +5,7 @@
 
 Name:		%{sname}_%{pgmajorversion}
 Version:	0.2.9
-Release:	PIGSTY1%{?dist}
+Release:	1PIGSTY%{?dist}
 Summary:	Extension for storing encrypted secrets in the Vault
 License:	Apache-2.0
 URL:		https://github.com/supabase/%{sname}
@@ -35,7 +35,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %doc README.md
 %{pginstdir}/share/extension/%{pname}.control
 %{pginstdir}/share/extension/%{pname}*sql
-
+%exclude /usr/lib/.build-id/*
 
 %changelog
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 0.2.9

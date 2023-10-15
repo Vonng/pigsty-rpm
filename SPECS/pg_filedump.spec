@@ -2,9 +2,9 @@
 %global sname pg_filedump
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
-Name:		%{sname}_%{pgmajorversion}
+Name:		%{sname}
 Version:	16.0
-Release:	PIGSTY1%{?dist}
+Release:	1PIGSTY%{?dist}
 Summary:	Display formatted contents of a PostgreSQL heap, index, or control file
 License:	GPL v2.0+
 URL:		https://github.com/df7cb/%{sname}
@@ -12,7 +12,6 @@ Source0:	https://github.com/df7cb/%{sname}/archive/refs/tags/REL_16_0.tar.gz
 #           https://github.com/df7cb/pg_filedump/archive/refs/tags/REL_16_0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
-Requires:	postgresql%{pgmajorversion}-server
 
 %description
 pg_filedump is a utility to format PostgreSQL heap/index/control files into a human-readable form.
@@ -25,12 +24,13 @@ You can format/dump the files several ways, as listed in the Invocation section,
 PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags}
 
 %install
-%{__rm} -rf %{buildroot}
-PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroot}
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/bin
+cp pg_filedump %{buildroot}/usr/bin/pg_filedump
 
 %files
-%doc README.md
-%{pginstdir}/bin/%{sname}
+/usr/bin/pg_filedump
+%exclude /usr/lib/.build-id/*
 
 %changelog
 * Sat Sep 23 2023 Vonng <rh@vonng.com> - 16.0

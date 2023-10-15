@@ -1,37 +1,8 @@
 #---------------------------------------------#
 # EL
 #---------------------------------------------#
-all: zhparser pg_embedding pg_roaringbitmap pg_tle pgsql-http age
-
-# el7 does not have pg 16 & pg_tle & pg_embedding
-el7:
-
-	QA_RPATHS=2 rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/zhparser.spec
-	QA_RPATHS=2 rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/zhparser.spec
-	QA_RPATHS=2 rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/zhparser.spec
-	QA_RPATHS=2 rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/zhparser.spec
-
-	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_roaringbitmap.spec
-	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_roaringbitmap.spec
-	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_roaringbitmap.spec
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_roaringbitmap.spec
-
-	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pgsql-http.spec
-
-	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/vault.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/vault.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/vault.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/vault.spec
-
-	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pgjwt.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pgjwt.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pgjwt.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pgjwt.spec
-
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/age.spec
+default:
+	echo "make make basic"
 
 #---------------------------------------------#
 # scws
@@ -42,7 +13,12 @@ scws:
 
 # scws is required when building zhparser
 scws-install:
-	rpm -ivh /root/rpmbuild/RPMS/x86_64/scws-1.2.3-PIGSTY1.el*.x86_64.rpm
+	yum remove -y scws || /bin/true
+	rpm -ivh /root/rpmbuild/RPMS/x86_64/scws-1.2.3-1PIGSTY.el*.x86_64.rpm
+
+# pure-C or pure-SQL extensions
+basic:
+	make zhparser pg_roaringbitmap pg_tle pgsql-http pgjwt vault hydra pg_filedump pg_net pointcloud # age
 
 #---------------------------------------------#
 # zhparser
@@ -55,16 +31,6 @@ zhparser:
 	QA_RPATHS=2 rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/zhparser.spec
 	QA_RPATHS=2 rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/zhparser.spec
 
-#---------------------------------------------#
-# pg_embedding (no el7)
-#---------------------------------------------#
-pg_embedding:
-	rm -rf /root/rpmbuild/RPMS/x86_64/pg_embedding*.rpm;
-	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_embedding.spec
-	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_embedding.spec
-	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_embedding.spec
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_embedding.spec
-	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_embedding.spec
 
 #---------------------------------------------#
 # pg_roaringbitmap
@@ -99,19 +65,6 @@ pgsql-http:
 	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pgsql-http.spec
 	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pgsql-http.spec
 
-
-#---------------------------------------------#
-# pg_net (no el7)
-#---------------------------------------------#
-pg_net:
-	rm -rf /root/rpmbuild/RPMS/x86_64/pg_net*.rpm;
-	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_net.spec
-	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_net.spec
-	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_net.spec
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_net.spec
-	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_net.spec
-
-
 #---------------------------------------------#
 # pgjwt
 #---------------------------------------------#
@@ -122,7 +75,6 @@ pgjwt:
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pgjwt.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pgjwt.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pgjwt.spec
-
 
 #---------------------------------------------#
 # vault
@@ -137,17 +89,67 @@ vault:
 
 
 #---------------------------------------------#
-# pg_graphql (PG15 only)
+# pointcloud
+#---------------------------------------------#
+pointcloud:
+	rm -rf /root/rpmbuild/RPMS/x86_64/pgjwt*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pointcloud.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pointcloud.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pointcloud.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pointcloud.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pointcloud.spec
+
+
+#---------------------------------------------#
+# hydra (lz4-devel libzstd-devel)
+#---------------------------------------------#
+hydra:
+	rm -rf /root/rpmbuild/RPMS/x86_64/hydra*.rpm;
+	PATH=/usr/pgsql-15/bin:/usr/bin/:$PATH rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/hydra.spec
+	PATH=/usr/pgsql-14/bin:/usr/bin/:$PATH rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/hydra.spec
+	PATH=/usr/pgsql-13/bin:/usr/bin/:$PATH rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/hydra.spec
+
+#---------------------------------------------#
+# pg_filedump (lz4-devel libzstd-devel)
+#---------------------------------------------#
+pg_filedump:
+	rm -rf /root/rpmbuild/RPMS/x86_64/pg_filedump*.rpm;
+	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_filedump.spec
+
+#---------------------------------------------#
+# apache-age  (dnf install perl perl-FindBin)
+# yum install gcc glibc glib-common readline readline-devel zlib zlib-devel flex bison
+#---------------------------------------------#
+age:
+	rm -rf /root/rpmbuild/RPMS/x86_64/age*.rpm;
+	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/age.spec
+
+#---------------------------------------------#
+# pg_net RUST
+#---------------------------------------------#
+pg_net:
+	rm -rf /root/rpmbuild/RPMS/x86_64/pg_net*.rpm;
+	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_net.spec
+	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_net.spec
+	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_net.spec
+	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_net.spec
+	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_net.spec
+
+#---------------------------------------------#
+# pg_graphql RUST
 #---------------------------------------------#
 pg_graphql:
-	rm -rf /root/rpmbuild/SOURCES/pg_graphql-pg15; cp -r /tmp/pg_graphql-1.3.0/target/release/pg_graphql-pg15 /root/rpmbuild/SOURCES/
-	rm -rf /root/rpmbuild/SOURCES/pg_graphql-pg14; cp -r /tmp/pg_graphql-1.3.0/target/release/pg_graphql-pg14 /root/rpmbuild/SOURCES/
+	rm -rf /root/rpmbuild/SOURCES/pg_graphql-pg16 /root/rpmbuild/SOURCES/pg_graphql-pg15 /root/rpmbuild/SOURCES/pg_graphql-pg14;
+	cp -r /root/pg_graphql-1.4.0/target/release/pg_graphql-pg16 /root/rpmbuild/SOURCES/;
+	cp -r /root/pg_graphql-1.4.0/target/release/pg_graphql-pg15 /root/rpmbuild/SOURCES/;
+	cp -r /root/pg_graphql-1.4.0/target/release/pg_graphql-pg14 /root/rpmbuild/SOURCES/;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_graphql.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_graphql.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_graphql.spec
 
 
 #---------------------------------------------#
-# pgml (PG15 only)
+# pgml RUST
 #---------------------------------------------#
 pgml:
 	rm -rf /root/rpmbuild/SOURCES/pgml-pg1*;
@@ -157,34 +159,6 @@ pgml:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pgml.spec
 
-#---------------------------------------------#
-# hydra (lz4-devel libzstd-devel)
-#---------------------------------------------#
-hydra:
-	rm -rf /root/rpmbuild/RPMS/x86_64/hydra*.rpm;
-	PATH=/usr/pgsql-15/bin:$PATH rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/hydra.spec
-	PATH=/usr/pgsql-14/bin:$PATH rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/hydra.spec
-	PATH=/usr/pgsql-13/bin:$PATH rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/hydra.spec
-	PATH=/usr/pgsql-12/bin:$PATH rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/hydra.spec
-
-#---------------------------------------------#
-# pg_filedump (lz4-devel libzstd-devel)
-#---------------------------------------------#
-pg_filedump:
-	rm -rf /root/rpmbuild/RPMS/x86_64/hydra*.rpm;
-	rpmbuild --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_filedump.spec
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_filedump.spec
-	rpmbuild --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_filedump.spec
-	rpmbuild --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_filedump.spec
-	rpmbuild --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_filedump.spec
-
-#---------------------------------------------#
-# apache-age  (dnf install perl perl-FindBin)
-# yum install gcc glibc glib-common readline readline-devel zlib zlib-devel flex bison
-#---------------------------------------------#
-age:
-	rm -rf /root/rpmbuild/RPMS/x86_64/age*.rpm;
-	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/age.spec
 
 #---------------------------------------------#
 # srpm
@@ -206,6 +180,30 @@ rm-srpm:
 	rm -rf  /root/rpmbuild/SRPMS/*
 rm-rpm:
 	rm -rf  /root/rpmbuild/RPMS/*
+
+
+
+#---------------------------------------------#
+# repo build
+#---------------------------------------------#
+repo8:
+	rm -rf /tmp/el8.x86_64; mkdir -p /tmp/el8.x86_64/debug
+	cp -r /root/rpmbuild/RPMS/x86_64/* /tmp/el8.x86_64/
+	cd /tmp/el8.x86_64/ && mv *debug*.rpm debug/
+	cd /tmp/el8.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/
+	cd /tmp/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/
+	chmod -R a+r /tmp/el8.x86_64/
+
+repo9:
+	rm -rf /tmp/el9.x86_64; mkdir -p /tmp/el9.x86_64/debug
+	cp -r /root/rpmbuild/RPMS/x86_64/* /tmp/el9.x86_64/
+	cd /tmp/el9.x86_64/ && mv *debug*.rpm debug/
+
+	cd /tmp/el9.x86_64/ && 	createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/
+
+	cd /tmp/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/
+	chmod -R a+r /tmp/el9.x86_64/
+
 
 #---------------------------------------------#
 # phony

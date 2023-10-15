@@ -1,5 +1,5 @@
-%global pname embedding
-%global sname pg_embedding
+%global pname pointcloud
+%global sname pointcloud
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 %ifarch ppc64 ppc64le s390 s390x armv7hl
@@ -13,19 +13,19 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.3.6
-Release:	PIGSTY1%{?dist}
-Summary:	HNSW algorithm for vector similarity search in PostgreSQL.
-License:	PostgreSQL
-URL:		https://github.com/neondatabase/%{sname}
-Source0:	https://github.com/neondatabase/%{sname}/archive/refs/tags/%{version}.tar.gz
-
+Version:	1.2.5
+Release:	1PIGSTY%{?dist}
+Summary:	A PostgreSQL extension for storing point cloud (LIDAR) data
+License:	BSD Like
+URL:		https://github.com/pgpointcloud/%{sname}
+Source0:	https://github.com/pgpointcloud/%{sname}/archive/refs/tags/%{version}.tar.gz
+#           https://github.com/pgpointcloud/pointcloud/archive/refs/tags/v1.2.5.tar.gz
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
 %description
-The pg_embedding extension enables the using the Hierarchical Navigable Small World (HNSW) algorithm for vector similarity search in PostgreSQL.
-This extension is based on ivf-hnsw implementation of HNSW the code for the current state-of-the-art billion-scale nearest neighbor search system
+A PostgreSQL extension for storing point cloud (LIDAR) data.
+See https://pgpointcloud.github.io/pointcloud/ for more information.
 
 %if %llvm
 %package llvmjit
@@ -59,6 +59,8 @@ This packages provides JIT support for %{sname}
 %setup -q -n %{sname}-%{version}
 
 %build
+PATH=%{pginstdir}/bin:$PATH ./autogen.sh
+PATH=%{pginstdir}/bin:$PATH ./configure
 PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags}
 
 %install
@@ -67,14 +69,18 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 
 %files
 %doc README.md
-%{pginstdir}/lib/%{pname}.so
+%{pginstdir}/lib/%{pname}*.so
 %{pginstdir}/share/extension/%{pname}.control
+%{pginstdir}/share/extension/%{pname}_postgis.control
 %{pginstdir}/share/extension/%{pname}*sql
+%exclude /usr/lib/.build-id/*
+
 %if %llvm
 %files llvmjit
    %{pginstdir}/lib/bitcode/*
 %endif
 
+
 %changelog
-* Wed Sep 13 2023 Vonng <rh@vonng.com> - 0.3.6
+* Wed Oct 11 2023 Vonng <rh@vonng.com> - 1.2.5
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

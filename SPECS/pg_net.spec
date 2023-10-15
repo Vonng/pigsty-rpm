@@ -13,13 +13,13 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.7.2
-Release:	PIGSTY1%{?dist}
+Version:	0.7.3
+Release:	1PIGSTY%{?dist}
 Summary:	A PostgreSQL extension that enables asynchronous (non-blocking) HTTP/HTTPS requests with SQL
 License:	Apache-2.0
 URL:		https://github.com/supabase/%{sname}
 Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/%{version}.tar.gz
-#           https://github.com/supabase/pg_net/archive/refs/tags/v0.7.2.tar.gz
+#           https://github.com/supabase/pg_net/archive/refs/tags/v0.7.3.tar.gz
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
@@ -76,7 +76,8 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %files llvmjit
    %{pginstdir}/lib/bitcode/*
 %endif
+%exclude /usr/lib/.build-id/*
 
 %changelog
-* Mon Sep 18 2023 Vonng <rh@vonng.com> - 0.7.2
+* Mon Sep 18 2023 Vonng <rh@vonng.com> - 0.7.3
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

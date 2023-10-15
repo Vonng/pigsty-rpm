@@ -15,7 +15,7 @@
 
 Name:		%{sname}_%{pgmajorversion}
 Version:	1.0.0
-Release:	PIGSTY1%{?dist}
+Release:	1PIGSTY%{?dist}
 Summary:	Hydra: Column-oriented Postgres. Add scalable analytics to your project in minutes.
 License:	Apache-2.0
 URL:		https://github.com/hydradatabase/%{sname}
@@ -76,7 +76,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %{pginstdir}/share/extension/%{pname}.control
 %{pginstdir}/share/extension/%{pname}*sql
 %{pginstdir}/include/server/citus_version.h
-
+%exclude /usr/lib/.build-id/*
 %if %llvm
 %files llvmjit
    %{pginstdir}/lib/bitcode/*
