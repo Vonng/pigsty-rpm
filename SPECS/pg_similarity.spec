@@ -1,5 +1,5 @@
-%global pname http
-%global sname pgsql-http
+%global pname pg_similarity
+%global sname pg_similarity
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 %ifarch ppc64 ppc64le s390 s390x armv7hl
@@ -13,21 +13,22 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.6.0
+Version:	1.0.0
 Release:	1PIGSTY%{?dist}
-Summary:	HTTP client for PostgreSQL, retrieve a web page from inside the database.
-License:	MIT
-URL:		https://github.com/pramsey/%{sname}
-Source0:	https://github.com/pramsey/%{sname}/archive/refs/tags/v%{version}.tar.gz
-#           https://github.com/pramsey/pgsql-http/archive/refs/tags/v1.6.0.tar.gz
+Summary:	set of functions and operators for executing similarity queries
+License:	BSD-3-Clause
+URL:		https://github.com/eulerto/%{sname}
+Source0:	https://github.com/eulerto/%{sname}/archive/refs/tags/pg_similarity-1.0.0.tar.gz
+#           https://github.com/eulerto/pg_similarity/archive/refs/tags/pg_similarity_1_0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
 %description
-Wouldn't it be nice to be able to write a trigger that called a web service? Either to get back a result,
- or to poke that service into refreshing itself against the new state of the database? This extension is for that.
-
+pg_similarity is an extension to support similarity queries on PostgreSQL.
+The implementation is tightly integrated in the RDBMS in the sense that it
+defines operators so instead of the traditional operators (= and <>)
+you can use ~~~ and ! (any of these operators represents a similarity function).
 
 %if %llvm
 %package llvmjit
@@ -61,11 +62,11 @@ This packages provides JIT support for %{sname}
 %setup -q -n %{sname}-%{version}
 
 %build
-PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags}
+PATH=%{pginstdir}/bin:$PATH %{__make} USE_PGXS=1 %{?_smp_mflags}
 
 %install
 %{__rm} -rf %{buildroot}
-PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroot}
+PATH=%{pginstdir}/bin:$PATH %{__make} USE_PGXS=1 %{?_smp_mflags} install DESTDIR=%{buildroot}
 
 %files
 %doc README.md
@@ -79,5 +80,5 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %exclude /usr/lib/.build-id/*
 
 %changelog
-* Wed Sep 13 2023 Vonng <rh@vonng.com> - 1.6.0
+* Mon Oct 16 2023 Vonng <rh@vonng.com> - 1.0.0
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

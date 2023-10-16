@@ -15,8 +15,8 @@
 Name:		%{sname}_%{pgmajorversion}
 Version:	1.0.0
 Release:	1PIGSTY%{?dist}
-Summary:	HNSW algorithm for vector similarity search in PostgreSQL.
-License:	MIT
+Summary:	PostgreSQL extension which implements similar images searching functionality.
+License:	PostgreSQL License
 URL:		https://github.com/postgrespro/%{sname}
 Source0:	https://github.com/postgrespro/%{sname}/archive/refs/tags/imgsmlr-1.0.0.tar.gz
 #           https://github.com/postgrespro/imgsmlr/archive/refs/heads/master.zip
@@ -25,9 +25,10 @@ BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
 %description
-Wouldn't it be nice to be able to write a trigger that called a web service? Either to get back a result,
- or to poke that service into refreshing itself against the new state of the database? This extension is for that.
-
+ImgSmlr method is based on Haar wavelet transform.
+The goal of ImgSmlr is not to provide most advanced state of art similar images searching methods.
+ImgSmlr was written as sample extension which illustrate how PostgreSQL
+extendability could cover such untypical tasks for RDBMS as similar images search.
 
 %if %llvm
 %package llvmjit

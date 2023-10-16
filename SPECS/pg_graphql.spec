@@ -6,7 +6,7 @@
 Name:		%{sname}_%{pgmajorversion}
 Version:	1.4.0
 Release:	1PIGSTY%{?dist}
-Summary:	pg_graphql adds GraphQL support to your PostgreSQL database.
+Summary:	GraphQL support to your PostgreSQL database.
 License:	Apache-2.0
 URL:		https://github.com/supabase/%{sname}
 Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/%{version}.tar.gz
