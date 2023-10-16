@@ -8,7 +8,8 @@ tmp/
 SOURCES/*.tar.gz
 SOURCES/*.tar.bz2
 RPMS/*.rpm
-RPMS/*.rpm
+RPMS/*/*.rpm
+RPMS/
 SRPMS/*.rpm
 RPMS/el7.x86_64/*.rpm
 RPMS/el8.x86_64/*.rpm

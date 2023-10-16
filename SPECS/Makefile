@@ -125,7 +125,7 @@ age:
 	rpmbuild --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/age.spec
 
 #---------------------------------------------#
-# pg_net RUST
+# pg_net
 #---------------------------------------------#
 pg_net:
 	rm -rf /root/rpmbuild/RPMS/x86_64/pg_net*.rpm;
@@ -187,6 +187,14 @@ rm-rpm:
 # repo build
 #---------------------------------------------#
 repo8:
+	rm -rf /tmp/el7.x86_64; mkdir -p /tmp/el7.x86_64/debug
+	cp -r /root/rpmbuild/RPMS/x86_64/* /tmp/el7.x86_64/
+	cd /tmp/el7.x86_64/ && mv *debug*.rpm debug/
+	cd /tmp/el7.x86_64/ && createrepo_c .
+	cd /tmp/el7.x86_64/debug && createrepo_c .
+	chmod -R a+r /tmp/el7.x86_64/
+
+repo8:
 	rm -rf /tmp/el8.x86_64; mkdir -p /tmp/el8.x86_64/debug
 	cp -r /root/rpmbuild/RPMS/x86_64/* /tmp/el8.x86_64/
 	cd /tmp/el8.x86_64/ && mv *debug*.rpm debug/
@@ -198,9 +206,7 @@ repo9:
 	rm -rf /tmp/el9.x86_64; mkdir -p /tmp/el9.x86_64/debug
 	cp -r /root/rpmbuild/RPMS/x86_64/* /tmp/el9.x86_64/
 	cd /tmp/el9.x86_64/ && mv *debug*.rpm debug/
-
 	cd /tmp/el9.x86_64/ && 	createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/
-
 	cd /tmp/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/
 	chmod -R a+r /tmp/el9.x86_64/
 
