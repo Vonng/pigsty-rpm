@@ -123,6 +123,17 @@ pg_similarity:
 
 
 #---------------------------------------------#
+# pg_bigm
+#---------------------------------------------#
+pg_bigm:
+	rm -rf /root/rpmbuild/RPMS/x86_64/imgsmlr*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba /root/rpmbuild/SPECS/pg_bigm.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba /root/rpmbuild/SPECS/pg_bigm.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba /root/rpmbuild/SPECS/pg_bigm.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pg_bigm.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba /root/rpmbuild/SPECS/pg_bigm.spec
+
+#---------------------------------------------#
 # hydra (lz4-devel libzstd-devel)
 #---------------------------------------------#
 hydra:
