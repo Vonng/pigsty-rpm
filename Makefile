@@ -88,6 +88,7 @@ pull:
 pull-sv:
 	cd /data/pigsty-rpm/RPMS;
 	mkdir -p el8.x86_64 el9.x86_64;
+	rsync -avc --delete build-el7:/tmp/el7.x86_64/ ./RPMS/el7.x86_64/
 	rsync -avc --delete build-el8:/tmp/el8.x86_64/ ./RPMS/el8.x86_64/
 	rsync -avc --delete build-el9:/tmp/el9.x86_64/ ./RPMS/el9.x86_64/
 

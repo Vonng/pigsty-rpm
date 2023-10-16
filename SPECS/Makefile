@@ -219,7 +219,7 @@ rm-rpm:
 #---------------------------------------------#
 # repo build
 #---------------------------------------------#
-repo8:
+repo7:
 	rm -rf /tmp/el7.x86_64; mkdir -p /tmp/el7.x86_64/debug
 	cp -r /root/rpmbuild/RPMS/x86_64/* /tmp/el7.x86_64/
 	cd /tmp/el7.x86_64/ && mv *debug*.rpm debug/
