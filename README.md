@@ -34,8 +34,10 @@ Download Sources
 - [pg_tle](https://github.com/aws/pg_tle/archive/refs/tags/v1.2.0.tar.gz)
 - [pgsql-http](https://github.com/pramsey/pgsql-http/archive/refs/tags/v1.6.0.tar.gz)
 - [pg_net](https://github.com/supabase/pg_net/archive/refs/tags/v0.7.2.tar.gz)
-
-
+- pointcloud
+- pgml
+- pg_similarity
+- pg
 
 ```bash
 yum install -y postgresql1*-server

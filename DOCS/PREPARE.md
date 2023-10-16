@@ -23,7 +23,7 @@ EOF
 
 # 安装编译工具，构建依赖，以及 PostgreSQL 各大版本
 yum groupinstall -y 'Development Tools' --nobest
-yum install -y pgdg-srpm-macros clang ccache rpm-build rpmdevtools postgresql1*-server flex bison libxml2-devel CUnit cmake postgresql1*-devel readline-devel zlib-devel lz4-devel libzstd-devel openssl-devel krb5-devel libcurl-devel 
+yum install -y pgdg-srpm-macros clang ccache rpm-build rpmdevtools postgresql1*-server flex bison libxml2-devel CUnit cmake postgresql1*-devel readline-devel zlib-devel lz4-devel libzstd-devel openssl-devel krb5-devel libcurl-devel gd-devel 
 rpmdev-setuptree  # 初始化 rpm 构建目录结构
 ```
 
