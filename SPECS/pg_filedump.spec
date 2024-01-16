@@ -8,7 +8,7 @@ Release:	1PIGSTY%{?dist}
 Summary:	Display formatted contents of a PostgreSQL heap, index, or control file
 License:	GPL v2.0+
 URL:		https://github.com/df7cb/%{sname}
-Source0:	https://github.com/df7cb/%{sname}/archive/refs/tags/REL_16_0.tar.gz
+Source0:	https://github.com/df7cb/%{sname}/archive/refs/tags/pg_filedump-REL_16_0.tar.gz
 #           https://github.com/df7cb/pg_filedump/archive/refs/tags/REL_16_0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27

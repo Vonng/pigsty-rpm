@@ -4,13 +4,13 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.4.0
+Version:	1.4.4
 Release:	1PIGSTY%{?dist}
 Summary:	GraphQL support to your PostgreSQL database.
 License:	Apache-2.0
 URL:		https://github.com/supabase/%{sname}
-Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/%{version}.tar.gz
-#           https://github.com/supabase/pg_graphql/archive/refs/tags/v1.4.0.tar.gz
+Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/pg_graphql-1.4.4.tar.gz
+#           https://github.com/supabase/pg_graphql/archive/refs/tags/v1.4.4.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
@@ -25,7 +25,7 @@ This enables any programming language that can connect to PostgreSQL to query th
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
 install -m 755 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_graphql.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql--1.4.0.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql--1.4.4.sql %{buildroot}%{pginstdir}/share/extension/
 install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
@@ -35,6 +35,8 @@ install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorv
 %exclude /usr/lib/.build-id
 
 %changelog
+* Thu Jan 11 2024 Vonng <rh@vonng.com> - 1.4.4
+- Bump version to v1.4.4
 * Wed Oct 11 2023 Vonng <rh@vonng.com> - 1.4.0
 - Bump version to v1.4.0
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 1.3.0

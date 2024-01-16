@@ -4,10 +4,10 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{pname}_%{pgmajorversion}
-Version:	2.7.9
+Version:	2.8.1
 Release:	1PIGSTY%{?dist}
-Summary:	pgml adds GraphQL support to your PostgreSQL database.
-License:	Apache-2.0
+Summary:	PostgresML is a complete MLOps platform in a PostgreSQL extension. Build simpler, faster and more scalable models right inside your database.
+License:	MIT license
 URL:		https://github.com/postgresml/postgresml
 Requires:	postgresql%{pgmajorversion}-server
 
@@ -27,5 +27,7 @@ cp -a ~/rpmbuild/SOURCES/pgml_15/usr/* $RPM_BUILD_ROOT/usr/
 %exclude /usr/lib/.build-id/*
 
 %changelog
+* Thu Jan 11 2024 Vonng <rh@vonng.com> - 2.8.1
+- Bump version to v2.8.1 with PG 16 support
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 2.7.9
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

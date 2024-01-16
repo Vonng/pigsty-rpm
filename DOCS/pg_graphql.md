@@ -30,7 +30,7 @@ EOF
 
 **Install pgrx**
 
-```bash
+```bashg
 cargo install --locked cargo-pgrx@0.10.2
 cargo pgrx init
 ```

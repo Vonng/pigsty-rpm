@@ -18,7 +18,7 @@ Release:	1PIGSTY%{?dist}
 Summary:	A PostgreSQL extension for storing point cloud (LIDAR) data
 License:	BSD Like
 URL:		https://github.com/pgpointcloud/%{sname}
-Source0:	https://github.com/pgpointcloud/%{sname}/archive/refs/tags/%{version}.tar.gz
+Source0:	https://github.com/pgpointcloud/%{sname}/archive/refs/tags/pointcloud-1.2.5.tar.gz
 #           https://github.com/pgpointcloud/pointcloud/archive/refs/tags/v1.2.5.tar.gz
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
