@@ -120,8 +120,6 @@ pg_similarity:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_similarity.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_similarity.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_similarity.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_similarity.spec
-
 
 #---------------------------------------------#
 # pg_bigm
@@ -187,12 +185,11 @@ pg_graphql:
 # pgml RUST
 #---------------------------------------------#
 pgml:
-	rm -rf ~/rpmbuild/SOURCES/pgml-pg1*;
-	cp -r /tmp/postgresml/pgml-extension/target/release/pgml-pg1* ~/rpmbuild/SOURCES/
+	#rm -rf ~/rpmbuild/SOURCES/pgml-pg1*;
+	#cp -r /tmp/postgresml/pgml-extension/target/release/pgml-pg1* ~/rpmbuild/SOURCES/
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgml.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgml.spec
 
 
 #---------------------------------------------#

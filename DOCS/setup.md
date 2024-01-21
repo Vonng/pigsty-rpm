@@ -30,7 +30,7 @@ Finally, install compiling tools, build deps and PG major versions
 
 ```bash
 sudo yum groupinstall --skip-broken -y 'Development Tools';
-sudo yum install -y pgdg-srpm-macros clang ccache rpm-build rpmdevtools postgresql1*-server flex bison postgresql1*-devel readline-devel zlib-devel lz4-devel libzstd-devel openssl-devel krb5-devel libcurl-devel libxml2-devel CUnit cmake;
+sudo yum install -y pgdg-srpm-macros clang ccache rpm-build rpmdevtools postgresql1*-server flex bison postgresql1*-devel readline-devel zlib-devel lz4-devel libzstd-devel openssl-devel krb5-devel libcurl-devel libxml2-devel gd-devel CUnit cmake;
 rpmdev-setuptree;
 ```
 
@@ -68,4 +68,24 @@ cargo pgrx init  # download postgres tarball
 
 # Sync Building Specs
 
+```bash
+make push       # push specs & sources to building machines
+
+cd ~rpmbuild/SPECS
+make scws
+make zhparser
+make pg_roaringbitmap
+make pg_tle
+make pgsql-http
+make pgjwt
+make vault
+make pointcloud
+make imgsmlr
+make pg_similarity
+make pg_bigm
+make hydra
+make pg_filedump
+make age
+
+```
 

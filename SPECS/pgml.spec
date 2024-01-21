@@ -18,7 +18,7 @@ PostgresML is a machine learning extension for PostgreSQL that enables you to pe
 %install
 %{__rm} -rf %{buildroot}
 mkdir -p %{buildroot}/usr
-cp -a ~/rpmbuild/SOURCES/pgml_15/usr/* $RPM_BUILD_ROOT/usr/
+cp -a ~/rpmbuild/SOURCES/pgml_%{pgmajorversion}/usr/* $RPM_BUILD_ROOT/usr/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -27,7 +27,7 @@ cp -a ~/rpmbuild/SOURCES/pgml_15/usr/* $RPM_BUILD_ROOT/usr/
 %exclude /usr/lib/.build-id/*
 
 %changelog
-* Thu Jan 11 2024 Vonng <rh@vonng.com> - 2.8.1
+* Fri Jan 19 2024 Vonng <rh@vonng.com> - 2.8.1
 - Bump version to v2.8.1 with PG 16 support
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 2.7.9
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

@@ -1,68 +1,36 @@
-# SSH ALIAS
-EL7=el7
-EL8=el8
-EL9=el9
-U22=ubuntu22
+EL7=build-el7
+EL8=build-el8
+EL9=build-el9
 
 #---------------------------------------------#
 # push to building machines
 #---------------------------------------------#
-pt: pt8 pt9
-pt7:
-	rsync -avc --delete ./SOURCES/ $(EL7):/root/rpmbuild/SOURCES/
-	rsync -avc --delete ./SPECS/   $(EL7):/root/rpmbuild/SPECS/
-pt8:
-	rsync -avc --delete ./SOURCES/ $(EL8):/root/rpmbuild/SOURCES/
-	rsync -avc --delete ./SPECS/   $(EL8):/root/rpmbuild/SPECS/
-pt9:
-	rsync -avc --delete ./SOURCES/ $(EL9):/root/rpmbuild/SOURCES/
-	rsync -avc --delete ./SPECS/   $(EL9):/root/rpmbuild/SPECS/
-pl: pl8 pl9
-pl7:
-	rsync -avc $(EL7):/root/rpmbuild/RPMS/x86_64/ RPMS/el7.x86_64/
-pl8:
-	rsync -avc $(EL8):/root/rpmbuild/RPMS/x86_64/ RPMS/el8.x86_64
-pl9:
-	rsync -avc $(EL9):/root/rpmbuild/RPMS/x86_64/ RPMS/el9.x86_64
-
-
-#---------------------------------------------#
-# push/pull changes on local host
-#---------------------------------------------#
-push: clean
-	rsync -avc --delete ./SOURCES/ sv:/data/pigsty-rpm/SOURCES/
-	rsync -avc --delete ./SPECS/   sv:/data/pigsty-rpm/SPECS/
-	scp Makefile sv:/data/pigsty-rpm/Makefile
-p7: push
-	ssh sv "cd /data/pigsty-rpm; make push7"
-p8: push
-	ssh sv "cd /data/pigsty-rpm; make push8"
-p9: push
-	ssh sv "cd /data/pigsty-rpm; make push9"
-pp: push
-	ssh sv "cd /data/pigsty-rpm; make push7"
-	ssh sv "cd /data/pigsty-rpm; make push8"
-	ssh sv "cd /data/pigsty-rpm; make push9"
-
-
-#---------------------------------------------#
-# push to building machines
-#---------------------------------------------#
+push: spec src
+spec:
+	rsync -avc --delete ./SPECS/   build-el7:~/rpmbuild/SPECS/
+	rsync -avc --delete ./SPECS/   build-el8:~/rpmbuild/SPECS/
+	rsync -avc --delete ./SPECS/   build-el9:~/rpmbuild/SPECS/
+src:
+	rsync -avc --delete ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
+	rsync -avc --delete ./SOURCES/ build-el8:~/rpmbuild/SOURCES/
+	rsync -avc --delete ./SOURCES/ build-el9:~/rpmbuild/SOURCES/
 push7:
-	ssh build-el7 'mkdir -p /tmp/pigsty-rpm/SOURCES /tmp/pigsty-rpm/SPECS'
-	rsync -avc --delete /data/pigsty-rpm/SOURCES/ build-el7:/tmp/pigsty-rpm/SOURCES/
-	rsync -avc --delete /data/pigsty-rpm/SPECS/   build-el7:/tmp/pigsty-rpm/SPECS/
-	ssh build-el7 'sudo rm -rf /root/rpmbuild/SOURCES/* /root/rpmbuild/SPECS/*; sudo cp -r /tmp/pigsty-rpm/SOURCES/* /root/rpmbuild/SOURCES/; sudo cp -r /tmp/pigsty-rpm/SPECS/* /root/rpmbuild/SPECS/'
+	ssh build-el7 'mkdir -p ~/rpmbuild/SOURCES ~/rpmbuild/SPECS'
+	rsync -avc --delete ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
+	rsync -avc --delete ./SPECS/   build-el7:~/rpmbuild/SPECS/
 push8:
-	ssh build-el8 'mkdir -p /tmp/pigsty-rpm/SOURCES /tmp/pigsty-rpm/SPECS'
-	rsync -avc --delete /data/pigsty-rpm/SOURCES/ build-el8:/tmp/pigsty-rpm/SOURCES/
-	rsync -avc --delete /data/pigsty-rpm/SPECS/   build-el8:/tmp/pigsty-rpm/SPECS/
-	ssh build-el8 'sudo rm -rf /root/rpmbuild/SOURCES/* /root/rpmbuild/SPECS/*; sudo cp -r /tmp/pigsty-rpm/SOURCES/* /root/rpmbuild/SOURCES/; sudo cp -r /tmp/pigsty-rpm/SPECS/* /root/rpmbuild/SPECS/'
+	ssh build-el8 'mkdir -p ~/rpmbuild/SOURCES ~/rpmbuild/SPECS'
+	rsync -avc --delete ./SOURCES/ build-el8:~/rpmbuild/SOURCES/
+	rsync -avc --delete ./SPECS/   build-el8:~/rpmbuild/SPECS/
 push9:
-	ssh build-el9 'mkdir -p /tmp/pigsty-rpm/SOURCES /tmp/pigsty-rpm/SPECS'
-	rsync -avc --delete /data/pigsty-rpm/SOURCES/ build-el9:/tmp/pigsty-rpm/SOURCES/
-	rsync -avc --delete /data/pigsty-rpm/SPECS/   build-el9:/tmp/pigsty-rpm/SPECS/
-	ssh build-el9 'sudo rm -rf /root/rpmbuild/SOURCES/* /root/rpmbuild/SPECS/*; sudo cp -r /tmp/pigsty-rpm/SOURCES/* /root/rpmbuild/SOURCES/; sudo cp -r /tmp/pigsty-rpm/SPECS/* /root/rpmbuild/SPECS/'
+	ssh build-el9 'mkdir -p ~/rpmbuild/SOURCES ~/rpmbuild/SPECS'
+	rsync -avc --delete ./SOURCES/ build-el9:~/rpmbuild/SOURCES/
+	rsync -avc --delete ./SPECS/   build-el9:~/rpmbuild/SPECS/
+
+#---------------------------------------------#
+# pull rpm from building machines
+#---------------------------------------------#
+
 save-rpm:
 	ssh -t build-el7 'sudo rm -rf /tmp/rpms/; mkdir /tmp/rpms; sudo cp -r /root/rpmbuild/RPMS/x86_64 /tmp/rpms'
 	ssh -t build-el8 'sudo rm -rf /tmp/rpms/; mkdir /tmp/rpms; sudo cp -r /root/rpmbuild/RPMS/x86_64 /tmp/rpms'

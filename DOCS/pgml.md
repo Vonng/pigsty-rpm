@@ -1,84 +1,52 @@
 # pgml
 
-https://postgresml.org/docs/guides/setup/v2/installation
+[Latest Guide](https://postgresml.org/docs/resources/developer-docs/installation) | [Old Guide](https://postgresml.org/docs/guides/setup/v2/installation)
 
+Install rust & dependencies
 
 ```bash
-cargo install cargo-pgrx --version 0.10.0
+cargo install cargo-pgrx --version 0.11.2
 cargo pgrx init
 ```
 
 ```bash
-yum install -y openblas* python3.11-devel
+yum install -y openblas* python3.11 python3.11-devel lld
+sudo alternatives --set python /usr/bin/python3.11
 ```
 
+
+Build for PG 14 / 15 / 16
 
 ```bash
-tar -xf ~/rpmbuild/SOURCES/postgresml-2.7.9.tar.gz -C ~/
-cd ~/postgresml-2.7.9/pgml-extension
+tar -xf ~/rpmbuild/SOURCES/postgresml-2.8.1.tar.gz -C ~/
+cd ~/postgresml-2.8.1/pgml-extension
+cd deps; rm -rf linfa;  git clone https://github.com/postgresml/linfa.git
 
-tar -xf ~/rpmbuild/SOURCES/postgresml.tar.gz -C ~/
-cd ~/postgresml/pgml-extension
-
-
-
+cd ../
 cargo pgrx install --release -v
 
-export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin
 cargo pgrx package # build pg 16
 
-export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin
 cargo pgrx package # build pg 15
 
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin
 cargo pgrx package # build pg 14
 
-
-
-
-
-virtualenv pgml-venv
-source pgml-venv/bin/activate
-cd /tmp/postgresml/pgml-extension
-
-
-export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
-cargo pgrx package # build pg 15
-
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
-cargo pgrx package # build pg 14
-
-export PATH=/usr/pgsql-13/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
-cargo pgrx package # build pg 13
-
-export PATH=/usr/pgsql-12/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
-cargo pgrx package # build pg 12
 ```
+export LDLIBS=-lstdc++fs
 
 
+Copying them into `rpmbuild/SOURCES`
 
+```bash
+rm -rf ~/rpmbuild/SOURCES/pgml* 
 
-
-
-
-
-
-
-brew "postgresql@15"
-brew "libomp"
-brew "llvm"
-brew "openblas"
-brew "python@3.11"
-brew "cmake"
-brew "pkg-config"
-brew "openssl"
-brew "virtualenv"
-
-yum install python3.11-pip
-
-ssh-copy-id root@42.193.127.40
-
-
+cp -r ~/postgresml/pgml-extension/target/release/pgml-pg16 ~/rpmbuild/SOURCES/pgml_16;
+cp -r ~/postgresml/pgml-extension/target/release/pgml-pg15 ~/rpmbuild/SOURCES/pgml_15;
+cp -r ~/postgresml/pgml-extension/target/release/pgml-pg14 ~/rpmbuild/SOURCES/pgml_14;
+```
 
 
 
@@ -171,8 +139,8 @@ rm -rf /root/rpmbuild/SOURCES/pgml_15
 mkdir -p /root/rpmbuild/SOURCES/pgml_15
 cd /root/rpmbuild/SOURCES/pgml_15;
 
-rpm2cpio /www/pigsty/postgresml_15-2.7.9-PIGSTY1.el8.x86_64.rpm | cpio -idmv
-rpm2cpio /www/pigsty/postgresml_15-2.7.9-PIGSTY1.el9.x86_64.rpm | cpio -idmv
+rpm2cpio /www/pigsty/postgresml_15-2.8.1-PIGSTY1.el8.x86_64.rpm | cpio -idmv
+rpm2cpio /www/pigsty/postgresml_15-2.8.1-PIGSTY1.el9.x86_64.rpm | cpio -idmv
 
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pgml.spec
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba /root/rpmbuild/SPECS/pgml.spec

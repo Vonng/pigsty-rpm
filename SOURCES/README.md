@@ -28,3 +28,10 @@ UPDATE 2024-01-11
 - [PostgresML](https://github.com/postgresml/postgresml/archive/refs/tags/v2.7.9.tar.gz) (RUST！)
 - [hydra](https://github.com/hydradatabase/hydra/archive/refs/tags/v1.0.0.tar.gz)
 - [pg_filedump](https://github.com/df7cb/pg_filedump/archive/refs/tags/REL_16_0.tar.gz)
+
+
+
+```bash
+wget https://github.com/amutu/zhparser/archive/refs/tags/V2.2.tar.gz 
+
+```
