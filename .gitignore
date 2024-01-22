@@ -5,8 +5,8 @@ pigsty-rpm.iml
 *.rpm
 
 tmp/
-SOURCES/*.tar.gz
-SOURCES/*.tar.bz2
+#SOURCES/*.tar.gz
+#SOURCES/*.tar.bz2
 RPMS/*.rpm
 RPMS/*/*.rpm
 RPMS/
