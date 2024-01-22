@@ -62,7 +62,11 @@ cargo install --locked cargo-pgrx@0.11.2
 cargo pgrx init  # download postgres tarball
 ```
 
+```bash
+export ALL_PROXY=http://192.168.0.104:8118
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init 
 
+```
 
 ----------
 
@@ -71,9 +75,12 @@ cargo pgrx init  # download postgres tarball
 ```bash
 make push       # push specs & sources to building machines
 
-cd ~rpmbuild/SPECS
+cd ~/rpmbuild/SPECS
+
 make scws
+make scws-install
 make zhparser
+
 make pg_roaringbitmap
 make pg_tle
 make pgsql-http
@@ -83,9 +90,15 @@ make pointcloud
 make imgsmlr
 make pg_similarity
 make pg_bigm
-make hydra
+make hydra        # el7: rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_filedump.spec
 make pg_filedump
 make age
-
+make pg_net
 ```
 
+RUST extensions
+
+```bash
+make pgml
+make pg_graphql
+```

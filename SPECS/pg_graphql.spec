@@ -24,9 +24,9 @@ This enables any programming language that can connect to PostgreSQL to query th
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_graphql.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql--1.4.4.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_graphql.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql--1.4.4.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -35,7 +35,7 @@ install -m 644 %{_sourcedir}/pg_graphql-pg%{pgmajorversion}/usr/pgsql-%{pgmajorv
 %exclude /usr/lib/.build-id
 
 %changelog
-* Thu Jan 11 2024 Vonng <rh@vonng.com> - 1.4.4
+* Mon Jan 22 2024 Vonng <rh@vonng.com> - 1.4.4
 - Bump version to v1.4.4
 * Wed Oct 11 2023 Vonng <rh@vonng.com> - 1.4.0
 - Bump version to v1.4.0

@@ -2,6 +2,16 @@ EL7=build-el7
 EL8=build-el8
 EL9=build-el9
 
+
+#---------------------------------------------#
+# sync to/from building server
+#---------------------------------------------#
+push-sv:
+	rsync -avc --delete ./ sv:/data/pigsty-rpm/
+pull-sv:
+	rsync -avc --delete sv:/data/pigsty-rpm/RPMS/ ./RPMS/
+
+
 #---------------------------------------------#
 # push to building machines
 #---------------------------------------------#
@@ -30,35 +40,33 @@ push9:
 #---------------------------------------------#
 # pull rpm from building machines
 #---------------------------------------------#
+pull: dirs pull7 pull8 pull9 adjust create
+purge:
+	rm -rf RPMS/*
+dirs:
+	mkdir -p RPMS/el7.x86_64/debug RPMS/el8.x86_64/debug RPMS/el9.x86_64/debug
+pull7:
+	rsync -avz build-el7:~/rpmbuild/RPMS/x86_64/ RPMS/el7.x86_64/
 
-save-rpm:
-	ssh -t build-el7 'sudo rm -rf /tmp/rpms/; mkdir /tmp/rpms; sudo cp -r /root/rpmbuild/RPMS/x86_64 /tmp/rpms'
-	ssh -t build-el8 'sudo rm -rf /tmp/rpms/; mkdir /tmp/rpms; sudo cp -r /root/rpmbuild/RPMS/x86_64 /tmp/rpms'
-	ssh -t build-el9 'sudo rm -rf /tmp/rpms/; mkdir /tmp/rpms; sudo cp -r /root/rpmbuild/RPMS/x86_64 /tmp/rpms'
-pigsty-rpm:
-	#ssh -t build-el7 'sudo mv -f /tmp/pigsty-rpm/RPMS/* /www/pigsty/'
-	ssh -t build-el8 'sudo mv -f /tmp/pigsty-rpm/RPMS/* /www/pigsty/'
-	ssh -t build-el9 'sudo mv -f /tmp/pigsty-rpm/RPMS/* /www/pigsty/'
-pull-rpm:
-	#rsync -avc build-el7:/tmp/pigsty-rpm/RPMS/  /data/pigsty-rpm/RPMS/el7.x86_64/
-	rsync --delete -avc build-el8:/tmp/rpms/  /data/pigsty-rpm/RPMS/el8.x86_64/
-	rsync --delete -avc build-el9:/tmp/rpms/  /data/pigsty-rpm/RPMS/el9.x86_64/
-pull-srpm:
-	ssh build-el8 'sudo cp -r /root/rpmbuild/SRPMS/* /tmp/pigsty-rpm/SRPMS/'
-	rsync -avc build-el8:/tmp/pigsty-rpm/SRPMS/ /data/pigsty-rpm/SRPMS/
-clean:
+pull8:
+	rsync -avz build-el8:~/rpmbuild/RPMS/x86_64/ RPMS/el8.x86_64/
+
+pull9:
+	rsync -avz build-el9:~/rpmbuild/RPMS/x86_64/ RPMS/el9.x86_64/
+adjust:
+	chown -R root:root RPMS
+	mv -f RPMS/el7.x86_64/*-debug* RPMS/el7.x86_64/debug/
+	mv -f RPMS/el8.x86_64/*-debug* RPMS/el8.x86_64/debug/
+	mv -f RPMS/el9.x86_64/*-debug* RPMS/el9.x86_64/debug/
+create:
+	cd RPMS/el7.x86_64/ && createrepo_c .;
+	cd RPMS/el7.x86_64/debug && createrepo_c .;
+	cd RPMS/el8.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	cd RPMS/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	cd RPMS/el9.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	cd RPMS/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+rmds:
 	find . -type f -name .DS_Store -delete
-
-pull:
-	ssh sv 'cd /data/pigsty-rpm; make pull-sv'
-	rsync -avc --delete sv:/data/pigsty-rpm/RPMS/ ./RPMS/
-
-pull-sv:
-	cd /data/pigsty-rpm/RPMS;
-	mkdir -p el8.x86_64 el9.x86_64;
-	rsync -avc --delete build-el7:/tmp/el7.x86_64/ ./RPMS/el7.x86_64/
-	rsync -avc --delete build-el8:/tmp/el8.x86_64/ ./RPMS/el8.x86_64/
-	rsync -avc --delete build-el9:/tmp/el9.x86_64/ ./RPMS/el9.x86_64/
 
 #---------------------------------------------#
 # publish

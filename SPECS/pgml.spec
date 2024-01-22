@@ -17,8 +17,11 @@ PostgresML is a machine learning extension for PostgreSQL that enables you to pe
 
 %install
 %{__rm} -rf %{buildroot}
-mkdir -p %{buildroot}/usr
-cp -a ~/rpmbuild/SOURCES/pgml_%{pgmajorversion}/usr/* $RPM_BUILD_ROOT/usr/
+install -d %{buildroot}%{pginstdir}/lib/
+install -d %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/pgml_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pgml.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/pgml_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgml--*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/pgml_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgml.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -27,7 +30,7 @@ cp -a ~/rpmbuild/SOURCES/pgml_%{pgmajorversion}/usr/* $RPM_BUILD_ROOT/usr/
 %exclude /usr/lib/.build-id/*
 
 %changelog
-* Fri Jan 19 2024 Vonng <rh@vonng.com> - 2.8.1
-- Bump version to v2.8.1 with PG 16 support
+* Mon Jan 22 2024 Vonng <rh@vonng.com> - 2.8.1
+- Bump version to v2.8.2 with PG 16 support
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 2.7.9
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

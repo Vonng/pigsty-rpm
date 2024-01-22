@@ -29,7 +29,7 @@ zhparser:
 	QA_RPATHS=2 rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/zhparser.spec
 	QA_RPATHS=2 rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/zhparser.spec
 	QA_RPATHS=2 rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/zhparser.spec
-	QA_RPATHS=2 rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/zhparser.spec
+	QA_RPATHS=2 rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/zhparser.spec   # not available on el7
 
 
 #---------------------------------------------#
@@ -41,7 +41,7 @@ pg_roaringbitmap:
 	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_roaringbitmap.spec
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_roaringbitmap.spec
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_roaringbitmap.spec
-	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_roaringbitmap.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_roaringbitmap.spec   # not available on el7
 
 #---------------------------------------------#
 # pg_tle (deps: krb5-devel) rename to v1.2.0 (no el7)
@@ -52,7 +52,7 @@ pg_tle:
 	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_tle.spec
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_tle.spec
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_tle.spec
-	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tle.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tle.spec   # not available on el7
 
 #---------------------------------------------#
 # pgsql-http (libcurl-devel) rename to v1.6.0.tar.gz
@@ -87,7 +87,6 @@ vault:
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/vault.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/vault.spec
 
-
 #---------------------------------------------#
 # pointcloud
 #---------------------------------------------#
@@ -99,9 +98,8 @@ pointcloud:
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pointcloud.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pointcloud.spec
 
-
 #---------------------------------------------#
-# imgsmlr
+# imgsmlr (12-15)
 #---------------------------------------------#
 imgsmlr:
 	rm -rf ~/rpmbuild/RPMS/x86_64/imgsmlr*.rpm;
@@ -110,9 +108,8 @@ imgsmlr:
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/imgsmlr.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/imgsmlr.spec
 
-
 #---------------------------------------------#
-# pg_similarity
+# pg_similarity (12-15)
 #---------------------------------------------#
 pg_similarity:
 	rm -rf ~/rpmbuild/RPMS/x86_64/imgsmlr*.rpm;
@@ -122,7 +119,7 @@ pg_similarity:
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_similarity.spec
 
 #---------------------------------------------#
-# pg_bigm
+# pg_bigm (12-15)
 #---------------------------------------------#
 pg_bigm:
 	rm -rf ~/rpmbuild/RPMS/x86_64/imgsmlr*.rpm;
@@ -130,7 +127,6 @@ pg_bigm:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_bigm.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_bigm.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_bigm.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bigm.spec
 
 #---------------------------------------------#
 # hydra (lz4-devel libzstd-devel)
@@ -158,7 +154,7 @@ age:
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/age.spec
 
 #---------------------------------------------#
-# pg_net
+# pg_net (el7 not available)
 #---------------------------------------------#
 pg_net:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_net*.rpm;
@@ -185,12 +181,11 @@ pg_graphql:
 # pgml RUST
 #---------------------------------------------#
 pgml:
-	#rm -rf ~/rpmbuild/SOURCES/pgml-pg1*;
+	rm -rf ~/rpmbuild/SOURCES/pgml-pg1*;
 	#cp -r /tmp/postgresml/pgml-extension/target/release/pgml-pg1* ~/rpmbuild/SOURCES/
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
-
 
 #---------------------------------------------#
 # srpm
@@ -212,8 +207,6 @@ rm-srpm:
 	rm -rf  ~/rpmbuild/SRPMS/*
 rm-rpm:
 	rm -rf  ~/rpmbuild/RPMS/*
-
-
 
 #---------------------------------------------#
 # repo build
