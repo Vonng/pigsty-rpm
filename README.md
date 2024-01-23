@@ -1,24 +1,24 @@
 # PostgreSQL Extensions for Pigsty
 
-|                                                              |        | SPEC                                                 | Comment             |
-| ------------------------------------------------------------ | ------ | ---------------------------------------------------- | ------------------- |
-| [scws](https://github.com/hightman/scws)                     | v1.2.3 | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
-| [zhparser](https://github.com/amutu/zhparser)                | v2.2   | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
+|                                                                    |        | SPEC                                                 | Comment             |
+|--------------------------------------------------------------------|--------|------------------------------------------------------|---------------------|
+| [scws](https://github.com/hightman/scws)                           | v1.2.3 | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
+| [zhparser](https://github.com/amutu/zhparser)                      | v2.2   | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
 | [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap) | v0.5.4 | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
-| [pg_tle](https://github.com/aws/pg_tle)                      | v1.2.0 | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
-| [pgsql-http](https://github.com/pramsey/pgsql-http)          | v1.6.0 | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
-| [pgjwt](https://github.com/michelp/pgjwt)                    | v0.0.1 | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
-| [vault](https://github.com/supabase/vault)                   | v0.2.9 | [vault.spec](SPECS/vault.spec)                       |                     |
-| [pointcloud](https://github.com/pgpointcloud/pointcloud)     | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
-| [imgsmlr](https://github.com/postgrespro/imgsmlr)            | v1.0.0 | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
-| [pg_similarity](https://github.com/eulerto/pg_similarity)    | v1.0.0 | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
-| [pg_bigm](https://github.com/pgbigm/pg_bigm)                 | v1.2   | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
-| [hydra](https://github.com/hydradatabase/)                   | v1.1.0 | [hydra.spec](SPECS/hydra.spec)                       |                     |
-| [pg_net](https://github.com/supabase/pg_net)                 | v0.7.3 | [pg_net.spec](SPECS/pg_net.spec)                     | no el7              |
-| https://github.com/df7cb/pg_filedump                         | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
-| [age](https://github.com/apache/age)                         | v1.4.0 | [age.spec](SPECS/age.spec)                           | el9 error           |
-| [pg_graphql](https://github.com/supabase/pg_graphql)         | v1.4.4 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**            |
-| [pgml](https://github.com/postgresml/postgresml)             | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**            |
+| [pg_tle](https://github.com/aws/pg_tle)                            | v1.2.0 | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
+| [pgsql-http](https://github.com/pramsey/pgsql-http)                | v1.6.0 | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
+| [pgjwt](https://github.com/michelp/pgjwt)                          | v0.0.1 | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
+| [vault](https://github.com/supabase/vault)                         | v0.2.9 | [vault.spec](SPECS/vault.spec)                       |                     |
+| [pointcloud](https://github.com/pgpointcloud/pointcloud)           | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
+| [imgsmlr](https://github.com/postgrespro/imgsmlr)                  | v1.0.0 | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
+| [pg_similarity](https://github.com/eulerto/pg_similarity)          | v1.0.0 | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
+| [pg_bigm](https://github.com/pgbigm/pg_bigm)                       | v1.2   | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
+| [hydra](https://github.com/hydradatabase/)                         | v1.1.0 | [hydra.spec](SPECS/hydra.spec)                       |                     |
+| [pg_net](https://github.com/supabase/pg_net)                       | v0.7.3 | [pg_net.spec](SPECS/pg_net.spec)                     | no el7              |
+| https://github.com/df7cb/pg_filedump                               | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
+| [age](https://github.com/apache/age)                               | v1.4.0 | [age.spec](SPECS/age.spec)                           | el9 error           |
+| [pg_graphql](https://github.com/supabase/pg_graphql)               | v1.4.4 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**            |
+| [pgml](https://github.com/postgresml/postgresml)                   | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**            |
 
 
 
@@ -316,4 +316,31 @@ Change `Cargo.toml`
 +++ cc = "1.0"
 ```
 
-<details>
+</details>
+
+
+
+----------------
+
+## Building `duckdb_fdw`
+
+Check duckdb release version: https://github.com/duckdb/duckdb/releases : [0.9.2](https://github.com/duckdb/duckdb/releases/tag/v0.9.2)
+
+- [libduckdb-linux-amd64.zip](https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-amd64.zip)
+- [libduckdb-linux-aarch64.zip](https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-aarch64.zip)
+- [libduckdb-osx-universal.zip](https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-osx-universal.zip)
+
+```bash
+git clone https://github.com/alitrack/duckdb_fdw
+cd duckdb_fdw
+
+curl -L https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-amd64.zip   -o libduckdb-linux-amd64.zip
+
+
+curl -L https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-osx-universal.zip -o libduckdb-osx-universal.zip
+unzip -d . libduckdb-osx-universal.zip
+cp libduckdb.dylib $(pg_config --libdir) 
+
+make USE_PGXS=1
+make install USE_PGXS=1
+```

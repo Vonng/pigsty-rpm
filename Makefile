@@ -9,7 +9,7 @@ EL9=build-el9
 push-sv:
 	rsync -avc --delete ./ sv:/data/pigsty-rpm/
 pull-sv:
-	rsync -avc --delete sv:/data/pigsty-rpm/RPMS/ ./RPMS/
+	rsync -avc sv:/data/pigsty-rpm/RPMS/ ./RPMS/
 
 
 #---------------------------------------------#
