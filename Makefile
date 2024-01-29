@@ -7,10 +7,12 @@ EL9=build-el9
 # sync to/from building server
 #---------------------------------------------#
 push-sv:
-	rsync -avc --delete ./ sv:/data/pigsty-rpm/
+	rsync -avc ./ sv:/data/pigsty-rpm/
+repo-sv:
+	ssh sv 'cd /data/pigsty-rpm && make create'
 pull-sv:
 	rsync -avc sv:/data/pigsty-rpm/RPMS/ ./RPMS/
-
+update: push-sv repo-sv pull-sv
 
 #---------------------------------------------#
 # push to building machines

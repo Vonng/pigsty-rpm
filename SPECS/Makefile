@@ -163,7 +163,7 @@ pg_filedump:
 #---------------------------------------------#
 age:
 	rm -rf ~/rpmbuild/RPMS/x86_64/age*.rpm;
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/age.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/age16.spec
 
 
 #---------------------------------------------#
@@ -225,7 +225,7 @@ el7:
 	PATH=/usr/pgsql-15/bin:/usr/bin/:$PATH rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/hydra.spec
 
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_filedump.spec
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/age.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/age15.spec
 
 el89: zhparser pg_roaringbitmap pg_tle pgsql-http pgjwt vault pointcloud imgsmlr pg_similarity pg_bigm hydra pg_net pg_filedump age
 

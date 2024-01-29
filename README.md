@@ -161,13 +161,22 @@ sudo yum groupinstall --skip-broken -y 'Development Tools';
 sudo yum install -y pgdg-srpm-macros clang ccache rpm-build rpmdevtools postgresql1*-server flex bison postgresql1*-devel readline-devel zlib-devel lz4-devel libzstd-devel openssl-devel krb5-devel libcurl-devel libxml2-devel gd-devel CUnit cmake;
 sudo yum install -y python3.11 python3.11-devel python3-virtualenv openssl openssl-devel cmake pkg-config libomp libomp-devel openblas* llvm llvm-devel lld openblas* ;
 sudo yum install -y createrepo_c createrepo modulemd-tools dnf-utils dnf-plugins-core yum-utils;
-sudo alternatives --set python /usr/bin/python3.11 # EL8 / EL9
+
 rpmdev-setuptree;
 ```
 
 ```bash
 sudo alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 2
 sudo alternatives --config python3
+```
+
+EL 9 Generic
+
+```bash
+# install FindBin in el9
+sudo dnf install cpanminus
+sudo cpanm FindBin
+perl -MFindBin -e 1
 ```
 
 ----------
