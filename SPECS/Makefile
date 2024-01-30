@@ -250,6 +250,25 @@ pgml:
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
 
 
+
+
+
+
+#---------------------------------------------#
+# duckdb & duckdb_fdw
+#---------------------------------------------#
+duckdb:
+	rpmbuild -ba ~/rpmbuild/SPECS/duckdb.spec
+	rpmbuild -ba ~/rpmbuild/SPECS/libduckdb.spec
+
+duckdb_fdw:
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+
+
 #---------------------------------------------#
 # srpm
 #---------------------------------------------#
