@@ -3,6 +3,7 @@
 |                                                                            |        | SPEC                                                 | Comment             |
 |----------------------------------------------------------------------------|--------|------------------------------------------------------|---------------------|
 | [scws](https://github.com/hightman/scws)                                   | v1.2.3 | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
+| [libduckdb](https://github.com/duckdb/duckdb)                              | v0.9.2 | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
 | [zhparser](https://github.com/amutu/zhparser)                              | v2.2   | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
 | [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)         | v0.5.4 | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
 | [pg_tle](https://github.com/aws/pg_tle)                                    | v1.2.0 | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
@@ -20,10 +21,10 @@
 | [age](https://github.com/apache/age)                                       | v1.5.0 | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
 | [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1   | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
 | [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.5.3 | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
-| [pg_bm25](https://github.com/paradedb/paradedb/tree/dev/pg_bm25)           | v0.5.3 | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**            |
-| [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.3 | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**            |
-| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.4.4 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**            |
-| [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**            |
+| [pg_bm25](https://github.com/paradedb/paradedb/tree/dev/pg_bm25)           | v0.5.3 | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**, 15,16     |
+| [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.3 | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
+| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.4.4 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
+| [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
 
 
 **TODOLIST**

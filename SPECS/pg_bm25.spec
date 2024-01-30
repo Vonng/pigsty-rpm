@@ -17,8 +17,8 @@ Requires:	postgresql%{pgmajorversion}-server
 
 %description
 pg_bm25 is a PostgreSQL extension that enables full text search over SQL tables using the BM25 algorithm,
- the state-of-the-art ranking function for full text search.
- It is built on top of Tantivy, the Rust-based alternative to Apache Lucene, using pgrx.
+the state-of-the-art ranking function for full text search.
+It is built on top of Tantivy, the Rust-based alternative to Apache Lucene, using pgrx.
 
 %install
 %{__rm} -rf %{buildroot}

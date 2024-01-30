@@ -202,9 +202,13 @@ Packaging:
 ```bash
 rm -rf ~/rpmbuild/SOURCES/pg_bm25_16;      cp -r ~/paradedb/target/release/pg_bm25-pg16      ~/rpmbuild/SOURCES/pg_bm25_16;
 rm -rf ~/rpmbuild/SOURCES/pg_analytics_16; cp -r ~/paradedb/target/release/pg_analytics-pg16 ~/rpmbuild/SOURCES/pg_analytics_16;
+rm -rf ~/rpmbuild/SOURCES/pg_bm25_15;      cp -r ~/paradedb/target/release/pg_bm25-pg15      ~/rpmbuild/SOURCES/pg_bm25_15;
+rm -rf ~/rpmbuild/SOURCES/pg_analytics_15; cp -r ~/paradedb/target/release/pg_analytics-pg15 ~/rpmbuild/SOURCES/pg_analytics_15;
 
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
+rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_bm25.spec
+rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 ```
 
 
