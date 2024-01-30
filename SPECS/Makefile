@@ -265,6 +265,7 @@ pgml:
 pg_bm25:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_bm25*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_bm25.spec
 
 #---------------------------------------------#
 # pg_analytics [RUST]
@@ -272,6 +273,7 @@ pg_bm25:
 pg_analytics:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_analytics*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 
 #---------------------------------------------#
 # pg_sparse

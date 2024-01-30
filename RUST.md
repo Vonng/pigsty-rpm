@@ -5,6 +5,8 @@
 - ParadeDB.Analytics: `pg_analytics`
 - ParadeDB.BM25: `pg_bm25`
 
+> ParadeDB.SVector: `pg_sparse`
+
 ----------
 
 ## Rust Setup
@@ -204,6 +206,8 @@ rm -rf ~/rpmbuild/SOURCES/pg_bm25_16;      cp -r ~/paradedb/target/release/pg_bm
 rm -rf ~/rpmbuild/SOURCES/pg_analytics_16; cp -r ~/paradedb/target/release/pg_analytics-pg16 ~/rpmbuild/SOURCES/pg_analytics_16;
 rm -rf ~/rpmbuild/SOURCES/pg_bm25_15;      cp -r ~/paradedb/target/release/pg_bm25-pg15      ~/rpmbuild/SOURCES/pg_bm25_15;
 rm -rf ~/rpmbuild/SOURCES/pg_analytics_15; cp -r ~/paradedb/target/release/pg_analytics-pg15 ~/rpmbuild/SOURCES/pg_analytics_15;
+
+cd ~/rpmbuild/SPECS; make pg_bm25 pg_analytics
 
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec

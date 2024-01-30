@@ -51,10 +51,8 @@ dirs:
 	mkdir -p RPMS/el7.x86_64/debug RPMS/el8.x86_64/debug RPMS/el9.x86_64/debug
 pull7:
 	rsync -avz build-el7:~/rpmbuild/RPMS/x86_64/ RPMS/el7.x86_64/
-
 pull8:
 	rsync -avz build-el8:~/rpmbuild/RPMS/x86_64/ RPMS/el8.x86_64/
-
 pull9:
 	rsync -avz build-el9:~/rpmbuild/RPMS/x86_64/ RPMS/el9.x86_64/
 adjust:
