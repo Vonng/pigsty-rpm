@@ -1,38 +1,38 @@
 # PostgreSQL Extensions for Pigsty
 
-|                                                                    |        | SPEC                                                 | Comment             |
-|--------------------------------------------------------------------|--------|------------------------------------------------------|---------------------|
-| [scws](https://github.com/hightman/scws)                           | v1.2.3 | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
-| [zhparser](https://github.com/amutu/zhparser)                      | v2.2   | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
-| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap) | v0.5.4 | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
-| [pg_tle](https://github.com/aws/pg_tle)                            | v1.2.0 | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
-| [pgsql-http](https://github.com/pramsey/pgsql-http)                | v1.6.0 | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
-| [pgjwt](https://github.com/michelp/pgjwt)                          | v0.0.1 | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
-| [vault](https://github.com/supabase/vault)                         | v0.2.9 | [vault.spec](SPECS/vault.spec)                       |                     |
-| [pointcloud](https://github.com/pgpointcloud/pointcloud)           | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
-| [imgsmlr](https://github.com/postgrespro/imgsmlr)                  | v1.0.0 | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
-| [pg_similarity](https://github.com/eulerto/pg_similarity)          | v1.0.0 | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
-| [pg_bigm](https://github.com/pgbigm/pg_bigm)                       | v1.2   | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
-| [hydra](https://github.com/hydradatabase/)                         | v1.1.0 | [hydra.spec](SPECS/hydra.spec)                       |                     |
-| [pg_net](https://github.com/supabase/pg_net)                       | v0.7.3 | [pg_net.spec](SPECS/pg_net.spec)                     | no el7              |
-| https://github.com/df7cb/pg_filedump                               | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
-| [age](https://github.com/apache/age)                               | v1.4.0 | [age.spec](SPECS/age.spec)                           | el9 error           |
-| [pg_graphql](https://github.com/supabase/pg_graphql)               | v1.4.4 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**            |
-| [pgml](https://github.com/postgresml/postgresml)                   | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**            |
-
+|                                                                            |        | SPEC                                                 | Comment             |
+|----------------------------------------------------------------------------|--------|------------------------------------------------------|---------------------|
+| [scws](https://github.com/hightman/scws)                                   | v1.2.3 | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
+| [zhparser](https://github.com/amutu/zhparser)                              | v2.2   | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
+| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)         | v0.5.4 | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
+| [pg_tle](https://github.com/aws/pg_tle)                                    | v1.2.0 | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
+| [pgsql-http](https://github.com/pramsey/pgsql-http)                        | v1.6.0 | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
+| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                        | v1.0.0 | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)             |                     |
+| [pgjwt](https://github.com/michelp/pgjwt)                                  | v0.0.1 | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
+| [vault](https://github.com/supabase/vault)                                 | v0.2.9 | [vault.spec](SPECS/vault.spec)                       |                     |
+| [pointcloud](https://github.com/pgpointcloud/pointcloud)                   | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
+| [imgsmlr](https://github.com/postgrespro/imgsmlr)                          | v1.0.0 | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
+| [pg_similarity](https://github.com/eulerto/pg_similarity)                  | v1.0.0 | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
+| [pg_bigm](https://github.com/pgbigm/pg_bigm)                               | v1.2   | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
+| [hydra](https://github.com/hydradatabase/)                                 | v1.1.0 | [hydra.spec](SPECS/hydra.spec)                       |                     |
+| [pg_net](https://github.com/supabase/pg_net)                               | v0.7.3 | [pg_net.spec](SPECS/pg_net.spec)                     | no el7              |
+| [pg_filedump](https://github.com/df7cb/pg_filedump)                        | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
+| [age](https://github.com/apache/age)                                       | v1.5.0 | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
+| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1   | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
+| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.5.3 | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
+| [pg_bm25](https://github.com/paradedb/paradedb/tree/dev/pg_bm25)           | v0.5.3 | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**            |
+| [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.3 | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**            |
+| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.4.4 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**            |
+| [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**            |
 
 
 **TODOLIST**
 
-- parquet_s3_fdw: https://github.com/pgspider/parquet_s3_fdw
 - pgsql-gzip: https://github.com/pramsey/pgsql-gzip
-- pg_svector: https://github.com/paradedb/paradedb/releases
-- pg_bm25: https://github.com/paradedb/paradedb/releases
 - zombodb: https://github.com/zombodb/zombodb
 - orioledb: https://github.com/orioledb/orioledb
-- duckdb_fdw: https://github.com/alitrack/duckdb_fdw
-
-https://github.com/pgspider/parquet_s3_fdw/archive/refs/tags/v1.1.0.tar.gz
+- parquet_fdw: https://github.com/adjust/parquet_fdw
+- parquet_s3_fdw: https://github.com/pgspider/parquet_s3_fdw
 
 ----------
 
@@ -191,141 +191,5 @@ cd ~/rpmbuild/SPECS       # enter building context
 make scws scws-install    # scws & zhparser
 make el7                  # build el7 packages
 make el89                 # build el8/el9 packages
-make pgml                 # build pgml with RUST
-make pg_graphql           # build pg_graphql with RUST
-
 make pull                 # retrieve built packages
 ```
-
-
-----------
-
-## Rust Setup
-
-Setup rust with [Tsinghua](https://mirrors.tuna.tsinghua.edu.cn/help/rustup/) [mirror](https://mirrors.tuna.tsinghua.edu.cn/help/rustup/):
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source "$HOME/.cargo/env"
-env RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable
-
-mkdir -vp ${CARGO_HOME:-$HOME/.cargo};
-cat > ${CARGO_HOME:-$HOME/.cargo}/config << EOF
-[source.crates-io]
-replace-with = 'mirror'
-
-[source.mirror]
-registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
-EOF
-```
-
-Install the *latest* version of [`pgrx`](https://github.com/pgcentralfoundation/pgrx) and perform `cargo init`
-
-```bash
-cargo install --locked cargo-pgrx@0.11.2
-HTTPS_PROXY=http://xxxx  cargo pgrx init 
-```
-
-----------
-
-## Building `pg_graphql`
-
-```bash
-tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.4.4.tar.gz -C ~/ ; cd ~/pg_graphql-1.4.4
-
-export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package; 
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_16; cp -r ~/pg_graphql-1.4.4/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
-rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
- 
-export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package;
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_15; cp -r ~/pg_graphql-1.4.4/target/release/pg_graphql-pg15 ~/rpmbuild/SOURCES/pg_graphql_15;
-rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
-
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package;
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_14; cp -r ~/pg_graphql-1.4.4/target/release/pg_graphql-pg14 ~/rpmbuild/SOURCES/pg_graphql_14;
-rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
-```
-
-----------------
-
-## Building `pgml`
-
-Download Dependencies
-
-```bash
-sudo yum install python3.11 python3.11-devel python3-virtualenv openssl openssl-devel cmake pkg-config libomp libomp-devel openblas* llvm llvm-devel lld openblas*
-sudo alternatives --set python /usr/bin/python3.11
-cargo install cargo-pgrx --version 0.11.2
-cargo pgrx init
-
-git clone --recursive https://github.com/postgresml/postgresml.git
-cd postgresml; git checkout v2.8.1; 
-cd ~/postgresml/pgml-extension
-HTTPS_PROXY=http://xxx cargo update
-```
-
-```bash
-# build pg 16
-export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-HTTPS_PROXY=http:/xxx cargo pgrx package # build pg 16
-rm -rf ~/rpmbuild/SOURCES/pgml_16; cp -r ~/postgresml/pgml-extension/target/release/pgml-pg16 ~/rpmbuild/SOURCES/pgml_16;
-rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgml.spec
-
-# build pg 15
-export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-HTTPS_PROXY=http://xxx cargo pgrx package; 
-rm -rf ~/rpmbuild/SOURCES/pgml_15; cp -r ~/postgresml/pgml-extension/target/release/pgml-pg15 ~/rpmbuild/SOURCES/pgml_15;
-rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgml.spec
-
-# build pg 14
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-HTTPS_PROXY=http:/xxx cargo pgrx package;
-rm -rf ~/rpmbuild/SOURCES/pgml_14; cp -r ~/postgresml/pgml-extension/target/release/pgml-pg14 ~/rpmbuild/SOURCES/pgml_14;
-rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
-```
-
-https://postgresml.org/docs/guides/setup/v2/installation
-
-```bash
-virtualenv pgml-venv
-source pgml-venv/bin/activate
-pip install -r pgml-venv/requirements.txt
-pip install -r pgml-venv/requirements-xformers.txt --no-dependencies
-
-shared_preload_libraries = 'pgml,pg_stat_statements'
-pgml.venv = '/absolute/path/to/your/pgml-venv'
-```
-
-
-<details><summary>EL 8.9 Ad Hoc Building Steps</summary>
-
-PostgresML Use C++ 17 features, you have to use GCC 10+ with static link to compile it on RockyLinux 7.x
-
-```bash
-sudo dnf install gcc-toolset-13
-source /opt/rh/gcc-toolset-13/enable
-export CC=/opt/rh/gcc-toolset-13/root/usr/bin/gcc
-export CXX=/opt/rh/gcc-toolset-13/root/usr/bin/g++
-export LD_LIBRARY_PATH=/opt/rh/gcc-toolset-13/root/usr/lib64:$LD_LIBRARY_PATH
-```
-
-Change `build.rs`:
-
-```bash
-fn main() {
-+++    println!("cargo:rustc-link-lib=static=stdc++fs");
-+++    println!("cargo:rustc-link-search=native=/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13");
-}
-```
-
-Change `Cargo.toml`
-
-```bash
-[build-dependencies]
-+++ cc = "1.0"
-```
-
-</details>
-
-
-

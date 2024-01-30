@@ -250,7 +250,6 @@ pg_graphql:
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec
 
-
 #---------------------------------------------#
 # pgml [RUST]
 #---------------------------------------------#
@@ -260,7 +259,29 @@ pgml:
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
 
+#---------------------------------------------#
+# pg_bm25 [RUST]
+#---------------------------------------------#
+pg_bm25:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_bm25*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
 
+#---------------------------------------------#
+# pg_analytics [RUST]
+#---------------------------------------------#
+pg_analytics:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_analytics*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
+
+#---------------------------------------------#
+# pg_sparse
+#---------------------------------------------#
+pg_sparse:
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_sparse.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_sparse.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_sparse.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_sparse.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_sparse.spec
 
 #---------------------------------------------#
 # duckdb & duckdb_fdw

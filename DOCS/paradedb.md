@@ -1,5 +1,6 @@
 # ParadeDB
 
+https://github.com/paradedb/paradedb/tree/dev/pg_analytics
 
 ```bash
 
