@@ -13,6 +13,8 @@ repo-sv:
 pull-sv:
 	rsync -avc sv:/data/pigsty-rpm/RPMS/ ./RPMS/
 update: push-sv repo-sv pull-sv
+pushss: push-sv
+	ssh sv 'cd /data/pigsty-rpm && make push'
 
 #---------------------------------------------#
 # push to building machines

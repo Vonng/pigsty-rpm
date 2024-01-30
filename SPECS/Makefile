@@ -55,7 +55,7 @@ pg_tle:
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tle.spec   # not available on el7
 
 #---------------------------------------------#
-# pgsql-http (libcurl-devel) rename to v1.6.0.tar.gz
+# pgsql-http (libcurl-devel)
 #---------------------------------------------#
 pgsql-http:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pgsql-http*.rpm;
@@ -64,6 +64,17 @@ pgsql-http:
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql-http.spec
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql-http.spec
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsql-http.spec
+
+#---------------------------------------------#
+# pgsql-gzip
+#---------------------------------------------#
+pgsql-gzip:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgsql-gzip*.rpm;
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
 
 #---------------------------------------------#
 # pgjwt
@@ -248,9 +259,6 @@ pgml:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgml.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
-
-
-
 
 
 
