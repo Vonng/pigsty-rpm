@@ -36,6 +36,7 @@ replace-with = 'mirror'
 
 [source.mirror]
 registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+EOF
 ```
 
 
@@ -45,7 +46,7 @@ YOU **MUST** Pass `HTTPS_PROXY` as following:
 
 ```bash
 cargo install --locked cargo-pgrx@0.11.2
-HTTPS_PROXY=http://xxxx  cargo pgrx init 
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init 
 ```
 
 
@@ -54,21 +55,21 @@ HTTPS_PROXY=http://xxxx  cargo pgrx init
 
 ## Building `pg_graphql`
 
-The latest version of `pg_graphql` is `v1.4.4`, which is compatible with `pg14`, `pg15` and `pg16`.
+The latest version of `pg_graphql` is `v1.5.0`, which is compatible with `pg14`, `pg15` and `pg16`.
 
 ```bash
-tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.4.4.tar.gz -C ~/ ; cd ~/pg_graphql-1.4.4
+tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.5.0.tar.gz -C ~/ ; cd ~/pg_graphql-1.5.0
 
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package; 
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_16; cp -r ~/pg_graphql-1.4.4/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
+rm -rf ~/rpmbuild/SOURCES/pg_graphql_16; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
  
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package;
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_15; cp -r ~/pg_graphql-1.4.4/target/release/pg_graphql-pg15 ~/rpmbuild/SOURCES/pg_graphql_15;
+rm -rf ~/rpmbuild/SOURCES/pg_graphql_15; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg15 ~/rpmbuild/SOURCES/pg_graphql_15;
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
 
 export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package;
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_14; cp -r ~/pg_graphql-1.4.4/target/release/pg_graphql-pg14 ~/rpmbuild/SOURCES/pg_graphql_14;
+rm -rf ~/rpmbuild/SOURCES/pg_graphql_14; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg14 ~/rpmbuild/SOURCES/pg_graphql_14;
 rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
 ```
 
@@ -159,15 +160,15 @@ Change `Cargo.toml`
 
 ## Building `pg_bm25` & `pg_analytics`
 
-The latest version of `pg_bm25` is `v0.5.3`, which is compatible with `pg16` only.
+The latest version of `pg_bm25` is `v0.5.6`, which is compatible with `pg16` only.
 
 Tutorial: https://github.com/paradedb/paradedb/tree/dev/pg_analytics
 
 ```bash
 git clone --recursive https://github.com/paradedb/paradedb.git
-git checkout v0.5.3; 
+git checkout v0.5.6;
 
-HTTPS_PROXY=http://xxx cargo update
+HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 ```
 
 Switch to the latest version of Rust:

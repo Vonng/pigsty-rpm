@@ -8,6 +8,8 @@ EL9=build-el9
 #---------------------------------------------#
 push-sv:
 	rsync -avc ./ sv:/data/pigsty-rpm/
+pushd-sv:
+	rsync -avc --delete ./ sv:/data/pigsty-rpm/
 repo-sv:
 	ssh sv 'cd /data/pigsty-rpm && make create'
 pull-sv:
