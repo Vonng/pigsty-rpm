@@ -279,6 +279,7 @@ pg_analytics:
 # pg_sparse
 #---------------------------------------------#
 pg_sparse:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_sparse*.rpm;
 	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_sparse.spec
 	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_sparse.spec
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_sparse.spec
@@ -288,8 +289,8 @@ pg_sparse:
 #---------------------------------------------#
 # duckdb & duckdb_fdw
 #---------------------------------------------#
-duckdb:
-	rpmbuild -ba ~/rpmbuild/SPECS/duckdb.spec
+libduckdb:
+	rm -rf ~/rpmbuild/RPMS/x86_64/libduckdb*.rpm;
 	rpmbuild -ba ~/rpmbuild/SPECS/libduckdb.spec
 
 duckdb_fdw:
