@@ -4,18 +4,18 @@
 
 ## Building `duckdb_fdw`
 
-Check duckdb release version: https://github.com/duckdb/duckdb/releases : [0.9.2](https://github.com/duckdb/duckdb/releases/tag/v0.9.2)
+Check duckdb release version: https://github.com/duckdb/duckdb/releases : [0.10.0](https://github.com/duckdb/duckdb/releases/tag/v0.10.0)
 
-- [libduckdb-linux-amd64.zip](https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-amd64.zip)
-- [libduckdb-linux-aarch64.zip](https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-aarch64.zip)
-- [libduckdb-osx-universal.zip](https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-osx-universal.zip)
+- [libduckdb-linux-amd64.zip](https://github.com/duckdb/duckdb/releases/download/v0.10.0/libduckdb-linux-amd64.zip)
+- [libduckdb-linux-aarch64.zip](https://github.com/duckdb/duckdb/releases/download/v0.10.0/libduckdb-linux-aarch64.zip)
+- [libduckdb-osx-universal.zip](https://github.com/duckdb/duckdb/releases/download/v0.10.0/libduckdb-osx-universal.zip)
 
 ```bash
 git clone https://github.com/alitrack/duckdb_fdw
 cd duckdb_fdw
 
 # linux libduckdb
-curl -L https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-amd64.zip   -o libduckdb-linux-amd64.zip
+curl -L https://github.com/duckdb/duckdb/releases/download/v0.10.0/libduckdb-linux-amd64.zip   -o libduckdb-linux-amd64.zip
 unzip -d . libduckdb-linux-amd64.zip
 cp libduckdb.so $(pg_config --libdir)
 
@@ -49,7 +49,7 @@ duckdb_fdw:
 
 ```bash
 # darwin libduckdb
-curl -L https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-osx-universal.zip -o libduckdb-osx-universal.zip
+curl -L https://github.com/duckdb/duckdb/releases/download/v0.10.0/libduckdb-osx-universal.zip -o libduckdb-osx-universal.zip
 unzip -d . libduckdb-osx-universal.zip
 cp libduckdb.dylib $(pg_config --libdir)
 ```
