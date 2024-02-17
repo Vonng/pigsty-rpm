@@ -4,13 +4,13 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.5.3
+Version:	0.5.6
 Release:	1PIGSTY%{?dist}
 Summary:	Full text search over SQL tables using the BM25 algorithm
 License:	GNU Affero General Public License v3.0
 URL:		https://github.com/paradedb/paradedb/tree/dev/%{sname}
-#Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/pg_bm25-0.5.3.tar.gz
-#           https://github.com/supabase/pg_bm25/archive/refs/tags/v0.5.3.tar.gz
+#Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/pg_bm25-0.5.6.tar.gz
+#           https://github.com/supabase/pg_bm25/archive/refs/tags/v0.5.6.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server

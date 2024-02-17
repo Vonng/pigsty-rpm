@@ -162,9 +162,31 @@ EL 9 Generic
 ```bash
 # install FindBin in el9
 sudo dnf install cpanminus
-sudo cpanm FindBin
-perl -MFindBin -e 1
+sudo cpanm FindBin; perl -MFindBin -e 1
 ```
+
+
+----------
+
+## Provisioning Alternative
+
+```bash
+make rpm
+./node.yml -i files/pigsty/el-build.yml
+
+sudo yum groupinstall --skip-broken -y 'Development Tools';    # skip broken on EL8
+rpmdev-setuptree;
+
+sudo alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 2
+sudo alternatives --config python3
+sudo cpanm FindBin; perl -MFindBin -e 1     # EL9
+
+make pushd-sv   # on local
+make push       # on sv
+```
+
+
+
 
 ----------
 
