@@ -35,5 +35,6 @@ install -m 644 %{_sourcedir}/pg_bm25_%{pgmajorversion}/usr/pgsql-%{pgmajorversio
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.5.6
 * Mon Jan 29 2024 Vonng <rh@vonng.com> - 0.5.3
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

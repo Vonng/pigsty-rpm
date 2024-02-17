@@ -13,7 +13,7 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.5.3
+Version:	0.5.6
 Release:	1PIGSTY%{?dist}
 Summary:	pgvector for sparse vectors
 License:	PostgreSQL License
@@ -89,5 +89,6 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %exclude %{pginstdir}/lib/bitcode/*
 
 %changelog
+* Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.5.6
 * Mon Jan 29 2024 Vonng <rh@vonng.com> - 0.5.3
 - Initial RPM release, used by Pigsty <https://pigsty.cc>
