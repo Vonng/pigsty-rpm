@@ -60,15 +60,18 @@ The latest version of `pg_graphql` is `v1.5.0`, which is compatible with `pg14`,
 ```bash
 tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.5.0.tar.gz -C ~/ ; cd ~/pg_graphql-1.5.0
 
-export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package; 
+export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv; 
 rm -rf ~/rpmbuild/SOURCES/pg_graphql_16; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
  
-export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package;
+export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv;
 rm -rf ~/rpmbuild/SOURCES/pg_graphql_15; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg15 ~/rpmbuild/SOURCES/pg_graphql_15;
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
 
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;cargo pgrx package;
+export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv;
 rm -rf ~/rpmbuild/SOURCES/pg_graphql_14; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg14 ~/rpmbuild/SOURCES/pg_graphql_14;
 rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
 ```
@@ -183,21 +186,18 @@ Build `pg_bm25` & `pg_analytics`:
 
 ```bash
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_bm25;
-HTTPS_PROXY=http://xxx cargo pgrx package; 
-
-cd ~/paradedb/pg_analytics;
-HTTPS_PROXY=http://xxx cargo pgrx package; 
+cd ~/paradedb/pg_bm25; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
+cd ~/paradedb/pg_analytics; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
 
 # PG15 (optional)
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 cd ~/paradedb/pg_bm25; cargo pgrx package; 
-cd ~/paradedb/pg_analytics; cargo pgrx package;
+cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
 
 # PG14 (optional)
 export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 cd ~/paradedb/pg_bm25; cargo pgrx package; 
-cd ~/paradedb/pg_analytics; cargo pgrx package;
+cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
 ```
 
 Packaging:
@@ -208,7 +208,7 @@ rm -rf ~/rpmbuild/SOURCES/pg_analytics_16; cp -r ~/paradedb/target/release/pg_an
 rm -rf ~/rpmbuild/SOURCES/pg_bm25_15;      cp -r ~/paradedb/target/release/pg_bm25-pg15      ~/rpmbuild/SOURCES/pg_bm25_15;
 rm -rf ~/rpmbuild/SOURCES/pg_analytics_15; cp -r ~/paradedb/target/release/pg_analytics-pg15 ~/rpmbuild/SOURCES/pg_analytics_15;
 
-cd ~/rpmbuild/SPECS; make pg_bm25 pg_analytics
+cd ~/rpmbuild/SPECS; make pg_bm25 pg_analytics;
 
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec

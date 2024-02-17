@@ -25,7 +25,7 @@ This enables any programming language that can connect to PostgreSQL to query th
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
 install -m 755 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_graphql.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql--1.4.4.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql-*.sql %{buildroot}%{pginstdir}/share/extension/
 install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql.control %{buildroot}%{pginstdir}/share/extension/
 
 %files

@@ -176,6 +176,9 @@ age:
 	rm -rf ~/rpmbuild/RPMS/x86_64/age*.rpm;
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/age16.spec
 
+age15:
+	rm -rf ~/rpmbuild/RPMS/x86_64/age*.rpm;
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/age15.spec
 
 #---------------------------------------------#
 # EL7
