@@ -1,5 +1,5 @@
 Name:           libduckdb
-Version:        0.10.0
+Version:        0.9.2
 Release:        1PIGSTY%{?dist}
 Summary:        In-process SQL OLAP Database Management System
 License:        MIT License
@@ -7,7 +7,7 @@ URL:            https://github.com/duckdb/duckdb/
 Source0:        libduckdb.so
 
 # cd ~/rpmbuild/SOURCES
-# curl -L https://github.com/duckdb/duckdb/releases/download/v0.10.0/libduckdb-linux-amd64.zip -o libduckdb-linux-amd64.zip
+# curl -L https://github.com/duckdb/duckdb/releases/download/v0.9.2/libduckdb-linux-amd64.zip -o libduckdb-linux-amd64.zip
 # unzip -d . libduckdb-linux-amd64.zip
 
 %description
@@ -35,6 +35,5 @@ install -m 0755 %{SOURCE0} %{buildroot}/usr/lib64
 /sbin/ldconfig
 
 %changelog
-* Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.10.0
 * Tue Jan 30 2024 Vonng <rh@vonng.com> - 0.9.2-1PIGSTY
 - Initial RPM release, used by Pigsty <https://pigsty.cc>

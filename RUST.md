@@ -21,14 +21,11 @@ Setup rust with [Tsinghua](https://mirrors.tuna.tsinghua.edu.cn/help/rustup/) [m
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
-EOF
 ```
 
 Setup Mirror in Mainland China:
 
 ```bash
-env RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable
-
 mkdir -vp ${CARGO_HOME:-$HOME/.cargo};
 cat > ${CARGO_HOME:-$HOME/.cargo}/config << EOF
 [source.crates-io]
@@ -37,6 +34,7 @@ replace-with = 'mirror'
 [source.mirror]
 registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
 EOF
+env RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable
 ```
 
 
@@ -169,7 +167,7 @@ Tutorial: https://github.com/paradedb/paradedb/tree/dev/pg_analytics
 
 ```bash
 git clone --recursive https://github.com/paradedb/paradedb.git
-git checkout v0.5.6;
+cd ~/paradedb; git checkout v0.5.6;
 
 HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 ```
@@ -191,11 +189,6 @@ cd ~/paradedb/pg_analytics; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx pac
 
 # PG15 (optional)
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_bm25; cargo pgrx package; 
-cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
-
-# PG14 (optional)
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 cd ~/paradedb/pg_bm25; cargo pgrx package; 
 cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
 ```
