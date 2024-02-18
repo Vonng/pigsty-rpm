@@ -89,13 +89,13 @@ cargo pgrx init
 git clone --recursive https://github.com/postgresml/postgresml.git
 cd postgresml; git checkout v2.8.1; 
 cd ~/postgresml/pgml-extension
-HTTPS_PROXY=http://xxx cargo update
+HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 ```
 
 ```bash
 # build pg 16
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-HTTPS_PROXY=http://xxx cargo pgrx package # build pg 16
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv; # build pg 16
 rm -rf ~/rpmbuild/SOURCES/pgml_16; cp -r ~/postgresml/pgml-extension/target/release/pgml-pg16 ~/rpmbuild/SOURCES/pgml_16;
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgml.spec
 
@@ -141,8 +141,8 @@ Change `build.rs`:
 
 ```bash
 fn main() {
-+++    println!("cargo:rustc-link-lib=static=stdc++fs");
-+++    println!("cargo:rustc-link-search=native=/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13");
+    println!("cargo:rustc-link-lib=static=stdc++fs");
+    println!("cargo:rustc-link-search=native=/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13");
 }
 ```
 
