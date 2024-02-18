@@ -1,6 +1,6 @@
 ## History
 
-- 2024-02-17 : libduckdb 0.9.2 -> 0.10.0
+- 2024-02-18 : pg_tle 1.2.0 -> 1.3.4
 - 2024-02-17 : paradedb (pg_analytics, pg_bm25, pg_sparse) 0.5.3 -> 0.5.6
 - 2024-02-17 : hydra columnar 1.1.0 -> 1.1.1
 - 2024-02-17 : supabase.pg_net 0.7.3 -> 0.8.0

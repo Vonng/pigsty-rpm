@@ -14,7 +14,10 @@ repo-sv:
 	ssh sv 'cd /data/pigsty-rpm && make create'
 pull-sv:
 	rsync -avc sv:/data/pigsty-rpm/RPMS/ ./RPMS/
+pulld-sv:
+	rsync --delete -avc sv:/data/pigsty-rpm/RPMS/ ./RPMS/
 update: push-sv repo-sv pull-sv
+updated: pushd-sv repo-sv pulld-sv
 pushss: push-sv
 	ssh sv 'cd /data/pigsty-rpm && make push'
 
@@ -64,11 +67,11 @@ adjust:
 	mv -f RPMS/el9.x86_64/*-debug* RPMS/el9.x86_64/debug/
 create:
 	cd RPMS/el7.x86_64/ && createrepo_c .;
-	cd RPMS/el7.x86_64/debug && createrepo_c .;
 	cd RPMS/el8.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
-	cd RPMS/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 	cd RPMS/el9.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
-	cd RPMS/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	#cd RPMS/el7.x86_64/debug && createrepo_c .;
+	#cd RPMS/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	#cd RPMS/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 rmds:
 	find . -type f -name .DS_Store -delete
 

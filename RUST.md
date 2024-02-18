@@ -189,7 +189,7 @@ cd ~/paradedb/pg_analytics; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx pac
 
 # PG15 (optional)
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_bm25; cargo pgrx package; 
+cd ~/paradedb/pg_bm25; cargo pgrx package -vvv; 
 cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
 ```
 

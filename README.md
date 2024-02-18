@@ -1,30 +1,30 @@
 # PostgreSQL Extensions for Pigsty
 
-|                                                                            |         | SPEC                                                 | Comment             |
-|----------------------------------------------------------------------------|---------|------------------------------------------------------|---------------------|
-| [scws](https://github.com/hightman/scws)                                   | v1.2.3  | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
-| [libduckdb](https://github.com/duckdb/duckdb)                              | v0.10.0 | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
-| [zhparser](https://github.com/amutu/zhparser)                              | v2.2    | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
-| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)         | v0.5.4  | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
-| [pg_tle](https://github.com/aws/pg_tle)                                    | v1.2.0  | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
-| [pgsql-http](https://github.com/pramsey/pgsql-http)                        | v1.6.0  | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
-| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                        | v1.0.0  | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)             |                     |
-| [pgjwt](https://github.com/michelp/pgjwt)                                  | v0.0.1  | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
-| [vault](https://github.com/supabase/vault)                                 | v0.2.9  | [vault.spec](SPECS/vault.spec)                       |                     |
-| [pointcloud](https://github.com/pgpointcloud/pointcloud)                   | v1.2.5  | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
-| [imgsmlr](https://github.com/postgrespro/imgsmlr)                          | v1.0.0  | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
-| [pg_similarity](https://github.com/eulerto/pg_similarity)                  | v1.0.0  | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
-| [pg_bigm](https://github.com/pgbigm/pg_bigm)                               | v1.2    | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
-| [hydra](https://github.com/hydradatabase/)                                 | v1.1.1  | [hydra.spec](SPECS/hydra.spec)                       |                     |
-| [pg_net](https://github.com/supabase/pg_net)                               | v0.8.0  | [pg_net.spec](SPECS/pg_net.spec)                     | no el7              |
-| [pg_filedump](https://github.com/df7cb/pg_filedump)                        | v16.0   | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
-| [age](https://github.com/apache/age)                                       | v1.5.0  | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
-| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1    | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
-| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.5.6  | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
-| [pg_bm25](https://github.com/paradedb/paradedb/tree/dev/pg_bm25)           | v0.5.6  | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**, 15,16     |
-| [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.6  | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
-| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.0  | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
-| [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1  | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
+|                                                                            |        | SPEC                                                 | Comment             |
+|----------------------------------------------------------------------------|--------|------------------------------------------------------|---------------------|
+| [scws](https://github.com/hightman/scws)                                   | v1.2.3 | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
+| [libduckdb](https://github.com/duckdb/duckdb)                              | v0.9.2 | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
+| [zhparser](https://github.com/amutu/zhparser)                              | v2.2   | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
+| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)         | v0.5.4 | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
+| [pg_tle](https://github.com/aws/pg_tle)                                    | v1.3.4 | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
+| [pgsql-http](https://github.com/pramsey/pgsql-http)                        | v1.6.0 | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
+| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                        | v1.0.0 | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)             |                     |
+| [pgjwt](https://github.com/michelp/pgjwt)                                  | v0.0.1 | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
+| [vault](https://github.com/supabase/vault)                                 | v0.2.9 | [vault.spec](SPECS/vault.spec)                       |                     |
+| [pointcloud](https://github.com/pgpointcloud/pointcloud)                   | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
+| [imgsmlr](https://github.com/postgrespro/imgsmlr)                          | v1.0.0 | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
+| [pg_similarity](https://github.com/eulerto/pg_similarity)                  | v1.0.0 | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
+| [pg_bigm](https://github.com/pgbigm/pg_bigm)                               | v1.2   | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
+| [hydra](https://github.com/hydradatabase/)                                 | v1.1.1 | [hydra.spec](SPECS/hydra.spec)                       |                     |
+| [pg_net](https://github.com/supabase/pg_net)                               | v0.8.0 | [pg_net.spec](SPECS/pg_net.spec)                     | no el7, el9 fix     |
+| [pg_filedump](https://github.com/df7cb/pg_filedump)                        | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
+| [age](https://github.com/apache/age)                                       | v1.5.0 | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
+| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1   | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
+| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.5.6 | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
+| [pg_bm25](https://github.com/paradedb/paradedb/tree/dev/pg_bm25)           | v0.5.6 | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**, 15,16     |
+| [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.6 | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
+| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.0 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
+| [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
 
 
 **TODOLIST**
