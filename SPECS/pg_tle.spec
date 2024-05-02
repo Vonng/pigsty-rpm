@@ -13,13 +13,13 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.3.4
+Version:	1.4.0
 Release:	1PIGSTY%{?dist}
 Summary:	Trusted Language Extensions for PostgreSQL
 License:	Apache-2.0
 URL:		https://github.com/aws/%{sname}
-Source0:	https://github.com/aws/%{sname}/archive/refs/tags/pg_tle-1.3.4.tar.gz
-#           https://github.com/aws/pg_tle/archive/refs/tags/v1.3.4.tar.gz
+Source0:	https://github.com/aws/%{sname}/archive/refs/tags/pg_tle-1.4.0.tar.gz
+#           https://github.com/aws/pg_tle/archive/refs/tags/v1.4.0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
@@ -81,6 +81,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %endif
 
 %changelog
+* Sat Apr 27 2024 Vonng <rh@vonng.com> - 1.4.0
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 1.3.4
 * Wed Sep 13 2023 Vonng <rh@vonng.com> - 1.2.0
 - Initial RPM release, used by Pigsty <https://pigsty.cc>
