@@ -18,7 +18,7 @@ Release:	1PIGSTY%{?dist}
 Summary:	duckdb_fdw extension for PostgreSQL.
 License:	MIT License
 URL:		https://github.com/alitrack/%{sname}
-Source0:	https://github.com/alitrack/%{sname}/archive/refs/tags/duckdb_fdw.tar.gz
+Source0:	https://github.com/alitrack/%{sname}/archive/refs/tags/duckdb_fdw-1.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server libduckdb
@@ -57,7 +57,7 @@ This packages provides JIT support for %{sname}
 
 
 %prep
-%setup -q -n %{sname}
+%setup -q -n %{sname}-%{version}
 
 %build
 USE_PGXS=1 PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags}
