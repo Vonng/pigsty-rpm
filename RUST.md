@@ -3,7 +3,7 @@
 - PostgresML: `pgml`
 - Supabase.GraphQL: `pg_graphl`
 - ParadeDB.Analytics: `pg_analytics`
-- ParadeDB.BM25: `pg_bm25`
+- ParadeDB.BM25: `pg_search`
 
 > ParadeDB.SVector: `pg_sparse`
 
@@ -43,7 +43,7 @@ Install the *latest* version of [`pgrx`](https://github.com/pgcentralfoundation/
 YOU **MUST** Pass `HTTPS_PROXY` as following:
 
 ```bash
-cargo install --locked cargo-pgrx@0.11.2
+cargo install --locked cargo-pgrx@0.11.4
 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init 
 ```
 
@@ -53,24 +53,24 @@ HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init
 
 ## Building `pg_graphql`
 
-The latest version of `pg_graphql` is `v1.5.0`, which is compatible with `pg14`, `pg15` and `pg16`.
+The latest version of `pg_graphql` is `v1.5.3`, which is compatible with `pg14`, `pg15` and `pg16`.
 
 ```bash
-tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.5.0.tar.gz -C ~/ ; cd ~/pg_graphql-1.5.0
+tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.5.3.tar.gz -C ~/ ; cd ~/pg_graphql-1.5.3
 
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv; 
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_16; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
+rm -rf ~/rpmbuild/SOURCES/pg_graphql_16; cp -r ~/pg_graphql-1.5.3/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
  
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv;
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_15; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg15 ~/rpmbuild/SOURCES/pg_graphql_15;
+rm -rf ~/rpmbuild/SOURCES/pg_graphql_15; cp -r ~/pg_graphql-1.5.3/target/release/pg_graphql-pg15 ~/rpmbuild/SOURCES/pg_graphql_15;
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
 
 export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv;
-rm -rf ~/rpmbuild/SOURCES/pg_graphql_14; cp -r ~/pg_graphql-1.5.0/target/release/pg_graphql-pg14 ~/rpmbuild/SOURCES/pg_graphql_14;
+rm -rf ~/rpmbuild/SOURCES/pg_graphql_14; cp -r ~/pg_graphql-1.5.3/target/release/pg_graphql-pg14 ~/rpmbuild/SOURCES/pg_graphql_14;
 rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec ;
 ```
 
@@ -84,6 +84,8 @@ The latest version of `pgml` is `v2.8.1`, which is compatible with `pg14`, `pg15
 sudo yum install python3.11 python3.11-devel python3-virtualenv openssl openssl-devel cmake pkg-config libomp libomp-devel openblas* llvm llvm-devel lld openblas*
 sudo alternatives --set python /usr/bin/python3.11
 cargo install cargo-pgrx --version 0.11.2
+# cargo install cargo-pgrx --version 0.12.0-alpha.1
+
 cargo pgrx init
 
 git clone --recursive https://github.com/postgresml/postgresml.git
@@ -159,15 +161,24 @@ Change `Cargo.toml`
 
 ----------
 
-## Building `pg_bm25` & `pg_analytics`
+## Building `pg_search` & `pg_analytics`
 
-The latest version of `pg_bm25` is `v0.5.6`, which is compatible with `pg16` only.
+The latest version of `pg_search` is `v0.5.6`, which is compatible with `pg16` only.
 
 Tutorial: https://github.com/paradedb/paradedb/tree/dev/pg_analytics
 
+
+```bash
+# ssh -T git@github.com
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+```
+
 ```bash
 git clone --recursive https://github.com/paradedb/paradedb.git
-cd ~/paradedb; git checkout v0.5.6;
+cd ~/paradedb; git checkout v0.6.1;
 
 HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 ```
@@ -180,32 +191,33 @@ rustup override set nightly
 cargo install --locked cargo-pgrx --version 0.11.2
 ```
 
-Build `pg_bm25` & `pg_analytics`:
+Build `pg_search` & `pg_analytics`:
 
 ```bash
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_bm25; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
+cd ~/paradedb/pg_search; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
 cd ~/paradedb/pg_analytics; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
 
 # PG15 (optional)
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_bm25; cargo pgrx package -vvv; 
+cd ~/paradedb/pg_search; cargo pgrx package -vvv; 
 cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
 ```
 
 Packaging:
 
 ```bash
-rm -rf ~/rpmbuild/SOURCES/pg_bm25_16;      cp -r ~/paradedb/target/release/pg_bm25-pg16      ~/rpmbuild/SOURCES/pg_bm25_16;
-rm -rf ~/rpmbuild/SOURCES/pg_analytics_16; cp -r ~/paradedb/target/release/pg_analytics-pg16 ~/rpmbuild/SOURCES/pg_analytics_16;
-rm -rf ~/rpmbuild/SOURCES/pg_bm25_15;      cp -r ~/paradedb/target/release/pg_bm25-pg15      ~/rpmbuild/SOURCES/pg_bm25_15;
-rm -rf ~/rpmbuild/SOURCES/pg_analytics_15; cp -r ~/paradedb/target/release/pg_analytics-pg15 ~/rpmbuild/SOURCES/pg_analytics_15;
+rm -rf ~/rpmbuild/SOURCES/pg_search_16;      cp -r ~/paradedb/target/release/pg_search-pg16      ~/rpmbuild/SOURCES/pg_search_16;
+rm -rf ~/rpmbuild/SOURCES/pg_analytics_16;   cp -r ~/paradedb/target/release/pg_analytics-pg16   ~/rpmbuild/SOURCES/pg_analytics_16;
+rm -rf ~/rpmbuild/SOURCES/pg_search_15;      cp -r ~/paradedb/target/release/pg_search-pg15      ~/rpmbuild/SOURCES/pg_search_15;
+rm -rf ~/rpmbuild/SOURCES/pg_analytics_15;   cp -r ~/paradedb/target/release/pg_analytics-pg15   ~/rpmbuild/SOURCES/pg_analytics_15;
 
-cd ~/rpmbuild/SPECS; make pg_bm25 pg_analytics;
+cd ~/rpmbuild/SPECS;
+make pg_search pg_analytics;
 
-rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
+rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_search.spec
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
-rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_bm25.spec
+rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_search.spec
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 ```
 

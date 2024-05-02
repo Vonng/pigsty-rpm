@@ -20,11 +20,13 @@
 | [pg_filedump](https://github.com/df7cb/pg_filedump)                        | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
 | [age](https://github.com/apache/age)                                       | v1.5.0 | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
 | [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1   | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
-| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.5.6 | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
-| [pg_bm25](https://github.com/paradedb/paradedb/tree/dev/pg_bm25)           | v0.5.6 | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**, 15,16     |
+| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.6.1 | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
+| [pg_search](https://github.com/paradedb/paradedb/tree/dev/pg_search)       | v0.6.1 | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**, 15,16     |
 | [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.6 | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
-| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.0 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
+| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.2 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
 | [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
+`
+TODO: pgml 2.8.2 / pg_graphql 1.5.1 / pg_net? / libduckdb 0.10.0 , duckdb_fdw / paradedb 0.5.9
 
 
 **TODOLIST**
@@ -33,6 +35,19 @@
 - orioledb: https://github.com/orioledb/orioledb
 - parquet_fdw: https://github.com/adjust/parquet_fdw
 - parquet_s3_fdw: https://github.com/pgspider/parquet_s3_fdw
+
+- [md5hash](https://github.com/tvondra/md5hash)
+- [plrql](https://github.com/kaspermarstal/plprql)
+
+**CHANGELIST**
+
+pg_tle: v1.3.4 -> v1.4.0
+hydra: v1.1.1 -> v1.1.2
+duckdb_fdw: v1.1.0 recompile
+pgml: v2.8.1 -> v2.8.2
+pg_graphql: 1.5.0 -> 1.5.2
+pg_search, pg_analytics, pg_sparse: 0.5.6 -> 0.6.1
+
 
 
 ----------
@@ -172,7 +187,7 @@ sudo cpanm FindBin; perl -MFindBin -e 1
 
 ```bash
 make rpm
-./node.yml -i files/pigsty/el-build.yml
+./node.yml -i files/pigsty/rpmbuild.yml
 
 sudo yum groupinstall --skip-broken -y 'Development Tools';    # skip broken on EL8
 rpmdev-setuptree;

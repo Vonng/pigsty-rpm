@@ -265,7 +265,7 @@ pgml:
 #---------------------------------------------#
 # pg_bm25 [RUST]
 #---------------------------------------------#
-pg_bm25:
+pg_search:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_bm25*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_bm25.spec
