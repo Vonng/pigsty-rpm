@@ -14,12 +14,12 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.1.1
+Version:	1.1.2
 Release:	1PIGSTY%{?dist}
 Summary:	Hydra: Column-oriented Postgres. Add scalable analytics to your project in minutes.
 License:	Apache-2.0
 URL:		https://github.com/hydradatabase/%{sname}
-Source0:	https://github.com/hydradatabase/hydra/archive/refs/tags/hydra-1.1.1.tar.gz
+Source0:	https://github.com/hydradatabase/hydra/archive/refs/tags/hydra-1.1.2.tar.gz
 #           https://github.com/hydradatabase/hydra/archive/refs/tags/v1.1.1.tar.gz
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
@@ -83,6 +83,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %endif
 
 %changelog
+* Sat Apr 27 2024 Vonng <rh@vonng.com> - 1.1.2
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 1.1.1
 * Thu Jan 11 2024 Vonng <rh@vonng.com> - 1.1.0
 * Sat Sep 23 2023 Vonng <rh@vonng.com> - 1.0.0
