@@ -44,7 +44,7 @@ pg_roaringbitmap:
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_roaringbitmap.spec   # not available on el7
 
 #---------------------------------------------#
-# pg_tle (deps: krb5-devel) rename to v1.2.0 (no el7)
+# pg_tle (deps: krb5-devel) rename to v1.4.0
 #---------------------------------------------#
 pg_tle:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_tle*.rpm;
@@ -259,6 +259,13 @@ duckdb_fdw:
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
 
 #---------------------------------------------#
+# pg_tde
+#---------------------------------------------#
+pg_tde:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_tde*.rpm;
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tde.spec
+
+#---------------------------------------------#
 # md5hash
 #---------------------------------------------#
 md5hash:
@@ -305,8 +312,8 @@ pgml:
 #---------------------------------------------#
 pg_search:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_bm25*.rpm;
-	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_bm25.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_bm25.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_search.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_search.spec
 
 #---------------------------------------------#
 # pg_analytics [RUST]
@@ -342,6 +349,69 @@ wrappers:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/wrappers.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/wrappers.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/wrappers.spec
+
+#---------------------------------------------#
+# pgmq [RUST]
+#---------------------------------------------#
+pgmq:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgmq*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgmq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgmq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgmq.spec
+
+#---------------------------------------------#
+# pg_tier [RUST]
+#---------------------------------------------#
+pg_tier:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_tier*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tier.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_tier.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_tier.spec
+
+#---------------------------------------------#
+# pg_vectorize [RUST]
+#---------------------------------------------#
+pg_vectorize:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_vectorize*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_vectorize.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_vectorize.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_vectorize.spec
+
+#---------------------------------------------#
+# pg_later [RUST]
+#---------------------------------------------#
+pg_later:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_later*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_later.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_later.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_later.spec
+
+#---------------------------------------------#
+# plprql [RUST]
+#---------------------------------------------#
+plprql:
+	rm -rf ~/rpmbuild/RPMS/x86_64/plprql*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/plprql.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/plprql.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/plprql.spec
+
+#---------------------------------------------#
+# pg_idkit [RUST]
+#---------------------------------------------#
+pg_idkit:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_idkit*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_idkit.spec
+
+#---------------------------------------------#
+# pgsmcrypto [RUST]
+#---------------------------------------------#
+pgsmcrypto:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgsmcrypto*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
+
+
 
 
 #---------------------------------------------#
