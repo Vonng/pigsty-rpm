@@ -34,4 +34,4 @@ cp pg_filedump %{buildroot}/usr/bin/pg_filedump
 
 %changelog
 * Sat Sep 23 2023 Vonng <rh@vonng.com> - 16.0
-- Initial RPM release, used by Pigsty <https://pigsty.cc>
+- Initial RPM release, used by Pigsty <https://pigsty.io>

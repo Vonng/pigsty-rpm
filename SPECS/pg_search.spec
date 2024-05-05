@@ -38,4 +38,4 @@ install -m 644 %{_sourcedir}/pg_search_%{pgmajorversion}/usr/pgsql-%{pgmajorvers
 * Sat Apr 27 2024 Vonng <rh@vonng.com> - 0.6.1
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.5.6
 * Mon Jan 29 2024 Vonng <rh@vonng.com> - 0.5.3
-- Initial RPM release, used by Pigsty <https://pigsty.cc>
+- Initial RPM release, used by Pigsty <https://pigsty.io>

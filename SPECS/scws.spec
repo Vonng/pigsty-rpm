@@ -40,4 +40,4 @@ make install DESTDIR=%{buildroot}
 
 %changelog
 * Wed Sep 13 2023 Vonng <rh@vonng.com> - 1.2.3-1PIGSTY
-- Initial RPM release, used by Pigsty <https://pigsty.cc>
+- Initial RPM release, used by Pigsty <https://pigsty.io>

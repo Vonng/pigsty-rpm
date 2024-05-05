@@ -245,13 +245,51 @@ el89: zhparser pg_roaringbitmap pg_tle pgsql-http pgjwt vault pointcloud imgsmlr
 
 
 #---------------------------------------------#
-# pg_graphql [RUST]
+# duckdb & duckdb_fdw
 #---------------------------------------------#
-pg_graphql:
-	rm -rf ~/rpmbuild/RPMS/x86_64/pg_graphql*.rpm;
-	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_graphql.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec
+libduckdb:
+	rm -rf ~/rpmbuild/RPMS/x86_64/libduckdb*.rpm;
+	rpmbuild -ba ~/rpmbuild/SPECS/libduckdb.spec
+
+duckdb_fdw:
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+
+#---------------------------------------------#
+# md5hash
+#---------------------------------------------#
+md5hash:
+	rm -rf ~/rpmbuild/RPMS/x86_64/md5hash*.rpm;
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/md5hash.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/md5hash.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/md5hash.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/md5hash.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/md5hash.spec
+
+#---------------------------------------------#
+# pg_dirtyread
+#---------------------------------------------#
+pg_dirtyread:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_dirtyread*.rpm;
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_dirtyread.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_dirtyread.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_dirtyread.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_dirtyread.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_dirtyread.spec
+
+#---------------------------------------------#
+# plv8
+#---------------------------------------------#
+plv8:
+	rm -rf ~/rpmbuild/RPMS/x86_64/plv8*.rpm;
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/plv8.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/plv8.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/plv8.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/plv8.spec
+
 
 #---------------------------------------------#
 # pgml [RUST]
@@ -263,7 +301,7 @@ pgml:
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgml.spec
 
 #---------------------------------------------#
-# pg_bm25 [RUST]
+# pg_search [RUST]
 #---------------------------------------------#
 pg_search:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_bm25*.rpm;
@@ -279,29 +317,31 @@ pg_analytics:
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 
 #---------------------------------------------#
-# pg_sparse
+# pg_graphql [RUST]
 #---------------------------------------------#
-pg_sparse:
-	rm -rf ~/rpmbuild/RPMS/x86_64/pg_sparse*.rpm;
-	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_sparse.spec
-	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_sparse.spec
-	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_sparse.spec
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_sparse.spec
-	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_sparse.spec
+pg_graphql:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_graphql*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_graphql.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_graphql.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_graphql.spec
 
 #---------------------------------------------#
-# duckdb & duckdb_fdw
+# pg_jsonschema [RUST]
 #---------------------------------------------#
-libduckdb:
-	rm -rf ~/rpmbuild/RPMS/x86_64/libduckdb*.rpm;
-	rpmbuild -ba ~/rpmbuild/SPECS/libduckdb.spec
+pg_jsonschema:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_jsonschema*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
 
-duckdb_fdw:
-	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
-	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
-	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
-	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
+#---------------------------------------------#
+# wrappers [RUST]
+#---------------------------------------------#
+wrappers:
+	rm -rf ~/rpmbuild/RPMS/x86_64/wrappers*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/wrappers.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/wrappers.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/wrappers.spec
 
 
 #---------------------------------------------#
