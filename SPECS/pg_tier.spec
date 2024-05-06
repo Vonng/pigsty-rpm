@@ -12,6 +12,7 @@ URL:		https://github.com/tembo-io/pg_tier/%{sname}
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
+Recommends: parquet_s3_fdw_%{pgmajorversion}
 
 %description
 A Postgres extension to tier data to external storage

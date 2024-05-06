@@ -16,18 +16,18 @@ This package contains dependency libs for parquet_s3_fdw.
 %build
 
 %install
-mkdir -p %{buildroot}/usr/local/lib64
-cp -a %{_sourcedir}/libarrow-s3/* %{buildroot}/usr/local/lib64/
+mkdir -p %{buildroot}/usr/lib64
+cp -a %{_sourcedir}/libarrow-s3/* %{buildroot}/usr/lib64/
 
 %files
-/usr/local/lib64/libaws-cpp-sdk-core.so
-/usr/local/lib64/libaws-cpp-sdk-s3.so
-/usr/local/lib64/libarrow.so.1700.0.0
-/usr/local/lib64/libparquet.so.1700.0.0
-/usr/local/lib64/libarrow.so
-/usr/local/lib64/libarrow.so.1700
-/usr/local/lib64/libparquet.so
-/usr/local/lib64/libparquet.so.1700
+/usr/lib64/libaws-cpp-sdk-core.so
+/usr/lib64/libaws-cpp-sdk-s3.so
+/usr/lib64/libarrow.so.1700.0.0
+/usr/lib64/libparquet.so.1700.0.0
+/usr/lib64/libarrow.so
+/usr/lib64/libarrow.so.1700
+/usr/lib64/libparquet.so
+/usr/lib64/libparquet.so.1700
 
 %post
 /sbin/ldconfig

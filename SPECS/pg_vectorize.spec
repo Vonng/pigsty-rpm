@@ -12,7 +12,8 @@ URL:		https://github.com/tembo-io/pg_vectorize/%{sname}
 #           https://github.com/tembo-io/pg_vectorize/archive/refs/tags/v0.15.0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
-Requires:	postgresql%{pgmajorversion}-server
+Requires:	postgresql%{pgmajorversion}-server pgmq_%{pgmajorversion} >= 1.1.1
+Recommends: pg_cron_%{pgmajorversion}
 
 %description
 Postgres Message Queue (pg_vectorize) -- A lightweight message queue. Like AWS SQS and RSMQ but on Postgres.

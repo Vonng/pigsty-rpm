@@ -217,7 +217,7 @@ make pg_search pg_analytics;
 
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_search.spec
 rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
-rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_search.spec
+rpmbuild --without debuginfo --define "pgmajorversion 15" -b[pgrx_pgcentralfoundation_ce9c076b5d3e84baf3eb56475277f699228f4160.json](..%2F..%2Fpgrx_pgcentralfoundation_ce9c076b5d3e84baf3eb56475277f699228f4160.json)a ~/rpmbuild/SPECS/pg_search.spec
 rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 ```
 
@@ -227,3 +227,46 @@ The `pg_sparse` extension is a common C extension.
 ```bash
 cd ~/paradedb; tar -zcf ~/rpmbuild/SOURCES/pg_sparse.tar.gz pg_sparse
 ```
+
+
+
+
+
+
+```bash
+export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+
+export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+
+export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+
+cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pg_tier;                  HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pg_vertorize/extension;   HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pg_later;                 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/plrql/plrql;              HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pgsmcrypto;               HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pg_idkit                  HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pg_jsonschema;            HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/pg_graphql;               HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+cd ~/wrappers/wrappers;        HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
+
+# pgrx 0.10.2
+cd ~/pgdd;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
+cd ~/pg_tiktoken;              HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv;
+cd ~/prometheus_fdw;           HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv;
+```
+
+
+
+- [md5hash](https://github.com/tvondra/md5hash)
+- [plrql](https://github.com/kaspermarstal/plprql)
+- [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-alpha)
+
+
+- [pgmq](https://github.com/tembo-io/pgmq)
+- [pg_tier](https://github.com/tembo-io/pg_tier)
+- [pg_vertorize](https://github.com/tembo-io/pg_vectorize)
+- [pg_later](https://github.com/tembo-io/pg_later)
+- [prometheus_fdw](https://github.com/tembo-io/prometheus_fdw)
+- [plv8](https://github.com/plv8/plv8)

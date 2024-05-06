@@ -25,9 +25,6 @@
 | [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.6 | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
 | [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.2 | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
 | [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1 | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
-`
-TODO: pgml 2.8.2 / pg_graphql 1.5.1 / pg_net? / libduckdb 0.10.0 , duckdb_fdw / paradedb 0.5.9
-
 
 **TODOLIST**
 
@@ -35,9 +32,11 @@ TODO: pgml 2.8.2 / pg_graphql 1.5.1 / pg_net? / libduckdb 0.10.0 , duckdb_fdw / 
 - orioledb: https://github.com/orioledb/orioledb
 - parquet_fdw: https://github.com/adjust/parquet_fdw
 - parquet_s3_fdw: https://github.com/pgspider/parquet_s3_fdw
+- [plv8](https://github.com/plv8/plv8)
+- [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-alpha)
+- [md5hash](https://github.com/tvondra/md5hash) 1.0.1
+- [pg_dirtyread](https://github.com/df7cb/pg_dirtyread) 2.6
 
-- [md5hash](https://github.com/tvondra/md5hash)
-- [plrql](https://github.com/kaspermarstal/plprql)
 
 **CHANGELIST**
 
@@ -216,4 +215,27 @@ make scws scws-install    # scws & zhparser
 make el7                  # build el7 packages
 make el89                 # build el8/el9 packages
 make pull                 # retrieve built packages
+```
+
+
+## Plv8
+
+```bash
+cp -r ~/plv8 ~/rpmbuild/SOURCE/plv8_16
+
+export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+cd plv8; make
+
+
+export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+cd plv8_15; make
+cp -r ~/plv8 ~/rpmbuild/SOURCE/plv8_15
+
+export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
+cd plv8_14; make
+cp -r ~/plv8 ~/rpmbuild/SOURCE/plv8_15
+
+rpmbuild --define "pgmajorversion 16"  -ba ~/rpmbuild/SPECS/plv8.spec
+rpmbuild --define "pgmajorversion 15"  -ba ~/rpmbuild/SPECS/plv8.spec
+rpmbuild --define "pgmajorversion 14"  -ba ~/rpmbuild/SPECS/plv8.spec
 ```

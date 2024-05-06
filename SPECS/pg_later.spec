@@ -12,7 +12,7 @@ URL:		https://github.com/tembo-io/pg_later/%{sname}
 #           https://github.com/tembo-io/pg_later/archive/refs/tags/v0.1.0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
-Requires:	postgresql%{pgmajorversion}-server
+Requires:	postgresql%{pgmajorversion}-server pgmq_%{pgmajorversion} >= 1.1.1
 
 %description
 Execute SQL now and get the results later.

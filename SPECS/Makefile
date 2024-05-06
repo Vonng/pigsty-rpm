@@ -297,6 +297,19 @@ plv8:
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/plv8.spec
 	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/plv8.spec
 
+#---------------------------------------------#
+# libarrow-s3
+#---------------------------------------------#
+libarrow-s3:
+	rm -rf ~/rpmbuild/RPMS/x86_64/libarrow-s3*.rpm;
+	rpmbuild -ba ~/rpmbuild/SPECS/libarrow-s3.spec
+
+#---------------------------------------------#
+# parquet_s3_fdw
+#---------------------------------------------#
+parquet_s3_fdw:
+	rm -rf ~/rpmbuild/RPMS/x86_64/parquet_s3_fdw*.rpm;
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/parquet_s3_fdw.spec
 
 #---------------------------------------------#
 # pgml [RUST]
@@ -311,7 +324,7 @@ pgml:
 # pg_search [RUST]
 #---------------------------------------------#
 pg_search:
-	rm -rf ~/rpmbuild/RPMS/x86_64/pg_bm25*.rpm;
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_search*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_search.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_search.spec
 
@@ -340,6 +353,8 @@ pg_jsonschema:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_jsonschema.spec
 
 #---------------------------------------------#
 # wrappers [RUST]
@@ -358,6 +373,9 @@ pgmq:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgmq.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgmq.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgmq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgmq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgmq.spec
+
 
 #---------------------------------------------#
 # pg_tier [RUST]
@@ -365,8 +383,6 @@ pgmq:
 pg_tier:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_tier*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tier.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_tier.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_tier.spec
 
 #---------------------------------------------#
 # pg_vectorize [RUST]
@@ -385,6 +401,7 @@ pg_later:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_later.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_later.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_later.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_later.spec
 
 #---------------------------------------------#
 # plprql [RUST]
@@ -394,13 +411,20 @@ plprql:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/plprql.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/plprql.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/plprql.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/plprql.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/plprql.spec
 
 #---------------------------------------------#
 # pg_idkit [RUST]
 #---------------------------------------------#
 pg_idkit:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_idkit*.rpm;
+	rm -rf ~/rpmbuild/RPMS/x86_64/plprql*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_idkit.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_idkit.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_idkit.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_idkit.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_idkit.spec
 
 #---------------------------------------------#
 # pgsmcrypto [RUST]
@@ -410,7 +434,30 @@ pgsmcrypto:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsmcrypto.spec
 
+#---------------------------------------------#
+# pgdd [RUST]
+#---------------------------------------------#
+pgdd:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgdd*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgdd.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgdd.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgdd.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgdd.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgdd.spec
+
+#---------------------------------------------#
+# pg_tiktoken [RUST]
+#---------------------------------------------#
+pg_tiktoken:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_tiktoken*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
 
 
 

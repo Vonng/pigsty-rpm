@@ -24,12 +24,16 @@ pushss: push-sv
 #---------------------------------------------#
 # push to building machines
 #---------------------------------------------#
-push: spec src
+push: spec srcd
 spec:
 	rsync -avc --delete ./SPECS/   build-el7:~/rpmbuild/SPECS/
 	rsync -avc --delete ./SPECS/   build-el8:~/rpmbuild/SPECS/
 	rsync -avc --delete ./SPECS/   build-el9:~/rpmbuild/SPECS/
 src:
+	rsync -avc ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
+	rsync -avc ./SOURCES/ build-el8:~/rpmbuild/SOURCES/
+	rsync -avc ./SOURCES/ build-el9:~/rpmbuild/SOURCES/
+srcd:
 	rsync -avc --delete ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
 	rsync -avc --delete ./SOURCES/ build-el8:~/rpmbuild/SOURCES/
 	rsync -avc --delete ./SOURCES/ build-el9:~/rpmbuild/SOURCES/
@@ -49,7 +53,7 @@ push9:
 #---------------------------------------------#
 # pull rpm from building machines
 #---------------------------------------------#
-pull: dirs pull7 pull8 pull9 adjust create
+pull: dirs pull8 pull9 adjust create
 purge:
 	rm -rf RPMS/*
 dirs:
@@ -62,16 +66,16 @@ pull9:
 	rsync -avz build-el9:~/rpmbuild/RPMS/x86_64/ RPMS/el9.x86_64/
 adjust:
 	chown -R root:root RPMS
-	mv -f RPMS/el7.x86_64/*-debug* RPMS/el7.x86_64/debug/
+	#mv -f RPMS/el7.x86_64/*-debug* RPMS/el7.x86_64/debug/
 	mv -f RPMS/el8.x86_64/*-debug* RPMS/el8.x86_64/debug/
 	mv -f RPMS/el9.x86_64/*-debug* RPMS/el9.x86_64/debug/
 create:
-	cd RPMS/el7.x86_64/ && createrepo_c .;
+	#cd RPMS/el7.x86_64/ && createrepo_c .;
 	cd RPMS/el8.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 	cd RPMS/el9.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
-	#cd RPMS/el7.x86_64/debug && createrepo_c .;
-	#cd RPMS/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
-	#cd RPMS/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	##cd RPMS/el7.x86_64/debug && createrepo_c .;
+	cd RPMS/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
+	cd RPMS/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 rmds:
 	find . -type f -name .DS_Store -delete
 
