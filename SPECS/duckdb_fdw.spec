@@ -21,7 +21,7 @@ URL:		https://github.com/alitrack/%{sname}
 Source0:	https://github.com/alitrack/%{sname}/archive/refs/tags/duckdb_fdw-1.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
-Requires:	postgresql%{pgmajorversion}-server libduckdb
+Requires:	postgresql%{pgmajorversion}-server libduckdb >= 0.10.2
 
 %description
 DuckDB Foreign Data Wrapper for PostgreSQL
