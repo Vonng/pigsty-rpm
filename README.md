@@ -1,41 +1,59 @@
 # PostgreSQL Extensions for Pigsty
 
-|                                                                            |         | SPEC                                                 | Comment             |
-|----------------------------------------------------------------------------|---------|------------------------------------------------------|---------------------|
-| [scws](https://github.com/hightman/scws)                                   | v1.2.3  | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
-| [libduckdb](https://github.com/duckdb/duckdb)                              | v0.10.2 | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
-| [zhparser](https://github.com/amutu/zhparser)                              | v2.2    | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
-| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)         | v0.5.4  | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
-| [pg_tle](https://github.com/aws/pg_tle)                                    | v1.3.4  | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
-| [pgsql-http](https://github.com/pramsey/pgsql-http)                        | v1.6.0  | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
-| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                        | v1.0.0  | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)             |                     |
-| [pgjwt](https://github.com/michelp/pgjwt)                                  | v0.0.1  | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
-| [vault](https://github.com/supabase/vault)                                 | v0.2.9  | [vault.spec](SPECS/vault.spec)                       |                     |
-| [pointcloud](https://github.com/pgpointcloud/pointcloud)                   | v1.2.5  | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
-| [imgsmlr](https://github.com/postgrespro/imgsmlr)                          | v1.0.0  | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
-| [pg_similarity](https://github.com/eulerto/pg_similarity)                  | v1.0.0  | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
-| [pg_bigm](https://github.com/pgbigm/pg_bigm)                               | v1.2    | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
-| [hydra](https://github.com/hydradatabase/)                                 | v1.1.1  | [hydra.spec](SPECS/hydra.spec)                       |                     |
-| [pg_net](https://github.com/supabase/pg_net)                               | v0.9.1  | [pg_net.spec](SPECS/pg_net.spec)                     | no el7, el9 fix     |
-| [pg_filedump](https://github.com/df7cb/pg_filedump)                        | v16.0   | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
-| [age](https://github.com/apache/age)                                       | v1.5.0  | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
-| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1    | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
-| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.6.1  | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
-| [pg_search](https://github.com/paradedb/paradedb/tree/dev/pg_search)       | v0.6.1  | [pg_search.spec](SPECS/pg_bm25.spec)                 | **RUST**, 15,16     |
-| [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.6  | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
-| [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.2  | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
-| [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1  | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
+| Extension Name                                                       |              | SPEC                                                 | Comment             |
+|----------------------------------------------------------------------|--------------|------------------------------------------------------|---------------------|
+| [scws](https://github.com/hightman/scws)                             | v1.2.3       | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
+| [libduckdb](https://github.com/duckdb/duckdb)                        | v0.10.2      | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
+| [zhparser](https://github.com/amutu/zhparser)                        | v2.2         | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
+| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)   | v0.5.4       | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
+| [pg_tle](https://github.com/aws/pg_tle)                              | v1.3.4       | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
+| [pgsql-http](https://github.com/pramsey/pgsql-http)                  | v1.6.0       | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
+| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                  | v1.0.0       | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)             |                     |
+| [pgjwt](https://github.com/michelp/pgjwt)                            | v0.0.1       | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
+| [vault](https://github.com/supabase/vault)                           | v0.2.9       | [vault.spec](SPECS/vault.spec)                       |                     |
+| [pointcloud](https://github.com/pgpointcloud/pointcloud)             | v1.2.5       | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
+| [imgsmlr](https://github.com/postgrespro/imgsmlr)                    | v1.0.0       | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
+| [pg_similarity](https://github.com/eulerto/pg_similarity)            | v1.0.0       | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
+| [pg_bigm](https://github.com/pgbigm/pg_bigm)                         | v1.2         | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
+| [hydra](https://github.com/hydradatabase/)                           | v1.1.1       | [hydra.spec](SPECS/hydra.spec)                       |                     |
+| [pg_net](https://github.com/supabase/pg_net)                         | v0.9.1       | [pg_net.spec](SPECS/pg_net.spec)                     | no el7, el9 fix     |
+| [pg_filedump](https://github.com/df7cb/pg_filedump)                  | v16.0        | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
+| [age](https://github.com/apache/age)                                 | v1.5.0       | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
+| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                 | v1.1         | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
+| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse) | v0.6.1       | [pg_sparse.spec](SPECS/pg_svector.spec)              | *Obsolete*          |
+| [plv8](https://github.com/plv8/plv8)                                 | v3.2.2       | [plv8.spec](SPECS/plv8)                              |                     |
+| [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-alpha)     | v1.0.0-alpha | [pg_tde.spec](SPECS/pg_tde)                          |                     |
+| [md5hash](https://github.com/tvondra/md5hash)                        | v1.0.1       | [md5hash.spec](SPECS/md5hash)                        |                     |
+| [pg_dirtyread](https://github.com/df7cb/pg_dirtyread)                | v2.6         | [pg_dirtyread.spec](SPECS/pg_dirtyread)              |                     |
+
+
+Check [`pgrx`](pgrx.md) for RUST extensions
+
+| Vendor        | Name                                                                       | Version | PGRX           | License                                                                     | PG Ver         | Deps                 |
+|---------------|----------------------------------------------------------------------------|---------|----------------|-----------------------------------------------------------------------------|----------------|----------------------|
+| PostgresML    | [pgml](https://github.com/postgresml/postgresml)                           | v2.8.2  | v0.11.3        | [MIT](https://github.com/postgresml/postgresml/blob/master/MIT-LICENSE.txt) | 16,15,14       |                      |
+| ParadeDB      | [pg_search](https://github.com/paradedb/paradedb/tree/dev/pg_search)       | v0.7.0  | v0.11.3        | [AGPLv3](https://github.com/paradedb/paradedb/blob/dev/LICENSE)             | 16,15          |                      |
+| ParadeDB      | [pg_lakehouse](https://github.com/paradedb/paradedb/tree/dev/pg_lakehouse) | v0.7.0  | v0.11.3        | [AGPLv3](https://github.com/paradedb/paradedb/blob/dev/LICENSE)             | 16,15          |                      |
+| ParadeDB      | [pg_analytics](https://github.com/paradedb/pg_analytics)                   | v0.6.1  | v0.12.0-alpha0 | [AGPLv3](https://github.com/paradedb/paradedb/blob/dev/LICENSE)             | 16,15          |                      |
+| Supabase      | [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.4  | v0.11.3        | [Apache-2.0](https://github.com/supabase/pg_graphql/blob/master/LICENSE)    | 16,15          |                      |
+| Supabase      | [pg_jsonschema](https://github.com/supabase/pg_jsonschema)                 | v0.3.1  | v0.11.3        | [Apache-2.0](https://github.com/supabase/pg_jsonschema/blob/master/LICENSE) | 16,15,14,13,12 |                      |
+| Supabase      | [wrappers](https://github.com/supabase/wrappers)                           | v0.3.1  | v0.11.3        | [Apache-2.0](https://github.com/supabase/wrappers/blob/main/LICENSE)        | 16,15,14       |                      |
+| Tembo         | [pgmq](https://github.com/tembo-io/pgmq)                                   | v1.5.2  | v0.11.3        | [PostgreSQL](https://github.com/tembo-io/pgmq)                              | 16,15,14,13,12 |                      |
+| Tembo         | [pg_tier](https://github.com/tembo-io/pg_tier)                             | v0.0.3  | v0.11.3        | [Apache-2.0](https://github.com/tembo-io/pg_tier/blob/main/LICENSE)         | 16             | pgmq, parquet_s3_fdw |
+| Tembo         | [pg_vectorize](https://github.com/tembo-io/pg_vectorize)                   | v0.15.0 | v0.11.3        | [PostgreSQL](https://github.com/tembo-io/pg_vectorize/blob/main/LICENSE)    | 16,15,14       | pgmq, pg_cron        |
+| Tembo         | [pg_later](https://github.com/tembo-io/pg_later)                           | v0.1.0  | v0.11.3        | [PostgreSQL](https://github.com/tembo-io/pg_later/blob/main/LICENSE)        | 16,15,14,13    | pgmq                 |
+| VADOSWARE     | [pg_idkit](https://github.com/VADOSWARE/pg_idkit)                          | v0.2.3  | v0.11.3        | [Apache-2.0](https://github.com/VADOSWARE/pg_idkit/blob/main/LICENSE)       | 16,15,14,13,12 |                      |
+| kaspermarstal | [plprql](https://github.com/kaspermarstal/plprql)                          | v0.1.0  | v0.11.4        | [Apache-2.0](https://github.com/kaspermarstal/plprql/blob/main/LICENSE)     | 16,15,14,13,12 |                      |
+| pgsmcrypto    | [pgsmcrypto](https://github.com/zhuobie/pgsmcrypto)                        | v0.1.0  | v0.11.3        | [MIT](https://github.com/zhuobie/pgsmcrypto/blob/main/LICENSE)              | 16,15,14,13,12 |                      |
+| kelvich       | [pg_tiktoken](https://github.com/kelvich/pg_tiktoken)                      | v0.0.1  | v0.10.2        | [Apache-2.0](https://github.com/kelvich/pg_tiktoken/blob/main/LICENSE)      | 16,15,14,13,12 |                      |
+| rustprooflabs | [pgdd](https://github.com/rustprooflabs/pgdd)                              | v0.5.2  | v0.10.2        | [MIT](https://github.com/zhuobie/pgsmcrypto/blob/main/LICENSE)              | 16,15,14,13,12 |                      |
+
 
 **TODOLIST**
 
 - zombodb: https://github.com/zombodb/zombodb
 - orioledb: https://github.com/orioledb/orioledb
 - parquet_fdw: https://github.com/adjust/parquet_fdw
-- parquet_s3_fdw: https://github.com/pgspider/parquet_s3_fdw
-- [plv8](https://github.com/plv8/plv8)
-- [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-alpha)
-- [md5hash](https://github.com/tvondra/md5hash) 1.0.1
-- [pg_dirtyread](https://github.com/df7cb/pg_dirtyread) 2.6
 
 
 **CHANGELIST**

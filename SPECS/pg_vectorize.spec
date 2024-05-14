@@ -6,7 +6,7 @@
 Name:		%{sname}_%{pgmajorversion}
 Version:	0.15.0
 Release:	1PIGSTY%{?dist}
-Summary:	A lightweight message queue. Like AWS SQS and RSMQ but on Postgres.
+Summary:	The simplest way to orchestrate vector search on Postgres
 License:	Apache-2.0
 URL:		https://github.com/tembo-io/pg_vectorize/%{sname}
 #           https://github.com/tembo-io/pg_vectorize/archive/refs/tags/v0.15.0.tar.gz
@@ -16,12 +16,8 @@ Requires:	postgresql%{pgmajorversion}-server pgmq_%{pgmajorversion} >= 1.1.1
 Recommends: pg_cron_%{pgmajorversion}
 
 %description
-Postgres Message Queue (pg_vectorize) -- A lightweight message queue. Like AWS SQS and RSMQ but on Postgres.
-Lightweight - No background worker or external dependencies, just Postgres functions packaged in an extension
-Guaranteed "exactly once" delivery of messages to a consumer within a visibility timeout
-API parity with AWS SQS and RSMQ
-Messages stay in the queue until explicitly removed
-Messages can be archived, instead of deleted, for long-term retention and replayability
+A Postgres extension that automates the transformation and orchestration of text to embeddings and provides hooks into the most popular LLMs.
+This allows you to do vector search and build LLM applications on existing data with as little as two function calls.
 
 %install
 %{__rm} -rf %{buildroot}

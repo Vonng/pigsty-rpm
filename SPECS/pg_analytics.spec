@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.7.0
+Version:	0.6.1
 Release:	1PIGSTY%{?dist}
 Summary:	Accelerates analytical query processing inside Postgres
 License:	GNU Affero General Public License v3.0
@@ -42,7 +42,6 @@ install -m 644 %{_sourcedir}/pg_analytics_%{pgmajorversion}/usr/pgsql-%{pgmajorv
 %exclude /usr/lib/.build-id
 
 %changelog
-* Sat May 15 2024 Vonng <rh@vonng.com> - 0.7.0
 * Sat Apr 27 2024 Vonng <rh@vonng.com> - 0.6.1
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.5.6
 * Mon Jan 29 2024 Vonng <rh@vonng.com> - 0.5.3

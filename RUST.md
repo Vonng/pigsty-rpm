@@ -53,10 +53,10 @@ HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init
 
 ## Building `pg_graphql`
 
-The latest version of `pg_graphql` is `v1.5.3`, which is compatible with `pg14`, `pg15` and `pg16`.
+The latest version of `pg_graphql` is `v1.5.4`, which is compatible with `pg14`, `pg15` and `pg16`.
 
 ```bash
-tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.5.3.tar.gz -C ~/ ; cd ~/pg_graphql-1.5.3
+tar -xf ~/rpmbuild/SOURCES/pg_graphql-1.5.4.tar.gz -C ~/ ; cd ~/pg_graphql-1.5.4
 
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -vvv; 
@@ -178,7 +178,7 @@ Host github.com
 
 ```bash
 git clone --recursive https://github.com/paradedb/paradedb.git
-cd ~/paradedb; git checkout v0.6.1;
+cd ~/paradedb; git checkout v0.7.0;
 
 HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 ```
@@ -195,13 +195,15 @@ Build `pg_search` & `pg_analytics`:
 
 ```bash
 export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_search; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
-cd ~/paradedb/pg_analytics; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
+cd ~/paradedb/pg_search;    HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
+cd ~/paradedb/pg_analytics; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv;
+cd ~/paradedb/pg_lakehouse; HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv; 
 
 # PG15 (optional)
 export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/paradedb/pg_search; cargo pgrx package -vvv; 
-cd ~/paradedb/pg_analytics; cargo pgrx package  -vvv;
+cd ~/paradedb/pg_search;    cargo pgrx package -vvv; 
+cd ~/paradedb/pg_analytics; cargo pgrx package -vvv;
+cd ~/paradedb/pg_lakehouse; cargo pgrx package -vvv;
 ```
 
 Packaging:
