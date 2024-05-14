@@ -4,13 +4,11 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.6.1
+Version:	0.7.0
 Release:	1PIGSTY%{?dist}
-Summary:	accelerates analytical query processing inside Postgres
+Summary:	Accelerates analytical query processing inside Postgres
 License:	GNU Affero General Public License v3.0
 URL:		https://github.com/paradedb/paradedb/tree/dev/%{sname}
-#Source0:	https://github.com/supabase/%{sname}/archive/refs/tags/pg_analytics-0.6.1.tar.gz
-#           https://github.com/supabase/pg_analytics/archive/refs/tags/v0.6.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
@@ -44,6 +42,7 @@ install -m 644 %{_sourcedir}/pg_analytics_%{pgmajorversion}/usr/pgsql-%{pgmajorv
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat May 15 2024 Vonng <rh@vonng.com> - 0.7.0
 * Sat Apr 27 2024 Vonng <rh@vonng.com> - 0.6.1
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.5.6
 * Mon Jan 29 2024 Vonng <rh@vonng.com> - 0.5.3

@@ -21,7 +21,7 @@
 | [age](https://github.com/apache/age)                                       | v1.5.0  | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
 | [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                       | v1.1    | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
 | [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse)       | v0.6.1  | [pg_sparse.spec](SPECS/pg_svector.spec)              |                     |
-| [pg_search](https://github.com/paradedb/paradedb/tree/dev/pg_search)       | v0.6.1  | [pg_bm25.spec](SPECS/pg_bm25.spec)                   | **RUST**, 15,16     |
+| [pg_search](https://github.com/paradedb/paradedb/tree/dev/pg_search)       | v0.6.1  | [pg_search.spec](SPECS/pg_bm25.spec)                 | **RUST**, 15,16     |
 | [pg_analytics](https://github.com/paradedb/paradedb/tree/dev/pg_analytics) | v0.5.6  | [pg_analytics.spec](SPECS/pg_analytics.spec)         | **RUST**, 15,16     |
 | [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.2  | [pg_graphql.spec](SPECS/pg_graphql.spec)             | **RUST**, 12-16     |
 | [pgml](https://github.com/postgresml/postgresml)                           | v2.8.1  | [pgml.spec](SPECS/pgml.spec)                         | **RUST**, 14-16     |
