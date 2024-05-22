@@ -27,6 +27,56 @@ Check dependent packages on [Insight - Dependency graph - Dependents](https://gi
 | rustprooflabs | [pgdd](https://github.com/rustprooflabs/pgdd)                              | v0.5.2  | v0.10.2        | [MIT](https://github.com/zhuobie/pgsmcrypto/blob/main/LICENSE)              | 16,15,14,13,12 |                      |
 
 
+----------
+
+## Provision
+
+```bash
+make rpm      # use the vagrant rpm spec, add upstream 
+./node.yml -i files/pigsty/rpmbuild.yml -t node_repo,node_pkg
+
+# manual install on el8:
+sudo yum groupinstall --skip-broken -y 'Development Tools';    # skip broken on EL8 
+
+# create dev structure
+rpmdev-setuptreepm
+```
+
+----------
+
+## Prepare 
+
+Setup rust & pgrx
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+```
+
+Setup Mirror in Mainland China:
+
+```bash
+mkdir -vp ${CARGO_HOME:-$HOME/.cargo};
+cat > ${CARGO_HOME:-$HOME/.cargo}/config << EOF
+[source.crates-io]
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
+EOF
+env RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable
+```
+
+Install the *latest* version of [`pgrx`](https://github.com/pgcentralfoundation/pgrx) and perform `cargo init`
+
+YOU **MUST** Pass `HTTPS_PROXY` as following:
+
+```bash
+cargo install --locked cargo-pgrx@0.11.4
+HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init
+```
+
+
 ## Build
 
 ```bash
@@ -78,28 +128,6 @@ cd ~/paradedb/pg_search;       HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx 
 cd ~/paradedb/pg_lakehouse;    HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15
 cd ~/pg_analytics/;            HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15
 
-export PATH=/usr/pgsql-16/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13,12
-cd ~/pg_tier;                  HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16
-cd ~/pg_vertorize/extension;   HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14
-cd ~/pg_later;                 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13
-
-export PATH=/usr/pgsql-15/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13,12
-cd ~/pg_vertorize/extension;   HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14
-cd ~/pg_later;                 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13
-
-export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13,12
-cd ~/pg_vertorize/extension;   HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14
-cd ~/pg_later;                 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13
-
-export PATH=/usr/pgsql-13/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13,12
-cd ~/pg_later;                 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13
-
-export PATH=/usr/pgsql-12/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;
-cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14,13,12
 ```
 
 ## Package
@@ -180,103 +208,30 @@ make pg_graphql pg_jsonschema wrappers pgmq pg_tier pg_later pg_vectorize pg_idk
 make pgdd pg_tiktoken
 ```
 
-
-## Intro
-
-这两天搞了不少新扩展进 Pigsty：
-
-- plv8: 使用 Javascript 编写存储过程与函数 
-- md5hash: 存储二进制 MD5/Sha 摘要 
-- pg_dirtyread: 读取未提交的脏数据
-- pg_tde: PostgreSQL 透明加密存储引擎插件 
-- pg_branch: CoW 数据库集簇分叉插件 
-- pg_idkit: 生成各种各样的数据库 UUID
-- plrql: 在PG中用 RQL 过程语言查询数据
-- pgsmcrypto: 提供国密算法支持 SM2/3/4
-- pg_tiktoken: 计算OpenAI Token消耗 
-- pgdd: 使用SQL查看数据目录元数据
-- parquet_s3_fdw: PG变湖仓，读写 S3/MinIO Parquet
-- pgmq: 在 PostgreSQL 中实现消息队列扩展
-- pg_tier: PG分级存储扩展，冷数据转储S3 Parquet
-- pg_vectorize: 向量 RAG 服务封装
-- pg_later: 发起 SQL 请求并异步获取结果
-- wrappers：Supabase 提供的 FDW 大礼包
-  - 读写：BigQuery，ClickHouse，Stripe
-  - 只读：Firebase，Airtable，S3，Logflare，Auth0，SQLServer，Redis，AWS Cognito）
-- pg_jsonschema: 验证 JSON 的模式
-- pg_search: 提供基于 BM25 算法的  ElasticSearch 全文检索能力
-
-
-
-SQL读取rch  rchPrometheus 数据的 prometheus_fdw
-来自Supabase的额外扩展
-Supabase 提供的强大的 FDW 捆绑包 
-Supabase 提供的验证JSON模式的 pg_jsonschema
-Supabase 的 GraphQL 扩展插件 pg_graphql 升级 1.5.4
-ParadeDB 的 BM25 扩展升级为 pg_search 0.6.1
-
-
-
-cd ~/pgmq;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pg_tier;                  HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pg_vectorize/extension;   HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pg_later;                 HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/plrql/plrql;              HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pgsmcrypto;               HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pg_idkit                  HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pg_jsonschema;            HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pg_graphql;               HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/wrappers/wrappers;        HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vv;
-cd ~/pgdd;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv;
-cd ~/pg_tiktoken;              HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv;
-cd ~/prometheus_fdw;           HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -vvv;
-
-
-## TODO
-
-pg_branch
+Example: build paradedb extensions
 
 ```bash
-git clone git@github.com:NAlexPear/pg_branch.git
-| NAlexPear     | [pg_branch](https://github.com/NAlexPear/pg_branch)                        | v3      | v0.10.2 | [MIT](https://github.com/NAlexPear/pg_branch/blob/main/LICENSE)             | **RUST**, 15-16        |
-#cd ~/pg_branch;                HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;
-```
+#---------------------------------------------#
+# pg_search [RUST]
+#---------------------------------------------#
+pg_search:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_search*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_search.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_search.spec
 
-- [prometheus_fdw](https://github.com/tembo-io/prometheus_fdw)
-  | Tembo         | [prometheus_fdw](https://github.com/tembo-io/prometheus_fdw)               | v0.1.5  | v0.9.7  | [PostgreSQL](https://github.com/tembo-io/prometheus_fdw/blob/main/LICENSE)  | 16,15,14       |                      |
+#---------------------------------------------#
+# pg_analytics [RUST]
+#---------------------------------------------#
+pg_analytics:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_analytics*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 
-
-
-
-----------
-
-## Setup rust & pgrx
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source "$HOME/.cargo/env"
-```
-
-Setup Mirror in Mainland China:
-
-```bash
-mkdir -vp ${CARGO_HOME:-$HOME/.cargo};
-cat > ${CARGO_HOME:-$HOME/.cargo}/config << EOF
-[source.crates-io]
-replace-with = 'mirror'
-
-[source.mirror]
-registry = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/"
-EOF
-env RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable
-```
-
-
-Install the *latest* version of [`pgrx`](https://github.com/pgcentralfoundation/pgrx) and perform `cargo init`
-
-YOU **MUST** Pass `HTTPS_PROXY` as following:
-
-```bash
-cargo install --locked cargo-pgrx@0.11.4
-HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init
+#---------------------------------------------#
+# pg_lakehouse [RUST]
+#---------------------------------------------#
+pg_lakehouse:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_lakehouse*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_lakehouse.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_lakehouse.spec
 ```
