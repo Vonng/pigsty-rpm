@@ -70,10 +70,10 @@ adjust:
 	mv -f RPMS/el8.x86_64/*-debug* RPMS/el8.x86_64/debug/
 	mv -f RPMS/el9.x86_64/*-debug* RPMS/el9.x86_64/debug/
 create:
-	#cd RPMS/el7.x86_64/ && createrepo_c .;
+	cd RPMS/el7.x86_64/ && createrepo_c .;
 	cd RPMS/el8.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 	cd RPMS/el9.x86_64/ && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
-	##cd RPMS/el7.x86_64/debug && createrepo_c .;
+	cd RPMS/el7.x86_64/debug && createrepo_c .;
 	cd RPMS/el8.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 	cd RPMS/el9.x86_64/debug && createrepo_c . && repo2module -s stable . modules.yaml && modifyrepo_c --mdtype=modules modules.yaml repodata/;
 rmds:

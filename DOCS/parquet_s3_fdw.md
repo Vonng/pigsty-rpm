@@ -28,6 +28,7 @@ make -j8
 
 
 
+-------
 
 ## AWS CPP SDK
 
@@ -46,6 +47,8 @@ make -j8
 
 
 
+-------
+
 ## prepare
 
 ```bash
@@ -56,9 +59,6 @@ cp -d ~/arrow/cpp/release/release/*                                          ~/l
 rm -rf *.a
 
 sudo yum install patchelf
-
-
-
 patchelf --remove-rpath libarrow.so.1700.0.0
 patchelf --remove-rpath libparquet.so.1700.0.0
 patchelf --remove-rpath libaws-cpp-sdk-core.so

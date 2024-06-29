@@ -83,13 +83,16 @@ The latest version of `pgml` is `v2.8.1`, which is compatible with `pg14`, `pg15
 ```bash
 sudo yum install python3.11 python3.11-devel python3-virtualenv openssl openssl-devel cmake pkg-config libomp libomp-devel openblas* llvm llvm-devel lld openblas*
 sudo alternatives --set python /usr/bin/python3.11
-cargo install cargo-pgrx --version 0.11.2
-# cargo install cargo-pgrx --version 0.12.0-alpha.1
+
+sudo alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+sudo alternatives --set python3 /usr/bin/python3.11
+
+cargo install cargo-pgrx --version 0.11.3
 
 cargo pgrx init
 
 git clone --recursive https://github.com/postgresml/postgresml.git
-cd postgresml; git checkout v2.8.1; 
+cd postgresml; git checkout v2.9.1; 
 cd ~/postgresml/pgml-extension
 HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 ```
