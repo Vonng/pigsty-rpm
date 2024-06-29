@@ -13,14 +13,13 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.0
+Version:	1.0.0
 Release:	1PIGSTY%{?dist}
 Summary:	Experimental encrypted access method for PostgreSQ
 License:	Apache-2.0
 URL:		https://github.com/Percona-Lab/%{sname}
-Source0:	https://github.com/Percona-Lab/%{sname}/somepath/pg_tde-1.0.tar.gz
-#           https://github.com/aws/pg_tle/archive/refs/tags/v1.4.0.tar.gz
-
+Source0:	https://github.com/Percona-Lab/%{sname}/somepath/pg_tde-1.0.0.tar.gz
+#           https://github.com/Percona-Lab/pg_tde/archive/refs/tags/1.0.0-beta.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
@@ -80,5 +79,6 @@ PATH=%{pginstdir}/bin:$PATH %{__make} USE_PGXS=1 %{?_smp_mflags} install DESTDIR
 %endif
 
 %changelog
-* Sun May 5 2024 Vonng <rh@vonng.com> - 1.0
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 1.0.0-beta
+* Sun May 5 2024 Vonng <rh@vonng.com> - 1.0-alpha
 - Initial RPM release, used by Pigsty <https://pigsty.io>
