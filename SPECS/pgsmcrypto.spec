@@ -22,9 +22,9 @@ China National SM algorithm extension for PostgreSQL. SM2 / SM3 / SM4
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pgsmcrypto_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pgsmcrypto.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pgsmcrypto_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgsmcrypto-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pgsmcrypto_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgsmcrypto.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so

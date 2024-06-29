@@ -21,9 +21,9 @@ pg_idkit is a Postgres extension for generating many popular types of identifier
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_idkit_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_idkit.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_idkit_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_idkit-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_idkit_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_idkit.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so

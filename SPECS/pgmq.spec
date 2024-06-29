@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.1.1
+Version:	1.2.1
 Release:	1PIGSTY%{?dist}
 Summary:	A lightweight message queue. Like AWS SQS and RSMQ but on Postgres.
 License:	Apache-2.0
@@ -26,9 +26,9 @@ Messages can be archived, instead of deleted, for long-term retention and replay
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pgmq_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pgmq.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pgmq_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgmq-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pgmq_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgmq.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -37,5 +37,6 @@ install -m 644 %{_sourcedir}/pgmq_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 1.2.1
 * Sun May 5 2024 Vonng <rh@vonng.com> - 1.1.1
 - Initial RPM release, used by Pigsty <https://pigsty.io>

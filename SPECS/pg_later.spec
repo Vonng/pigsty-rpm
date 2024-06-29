@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.1.0
+Version:	0.1.1
 Release:	1PIGSTY%{?dist}
 Summary:	Execute SQL now and get the results later.
 License:	Apache-2.0
@@ -23,9 +23,9 @@ A postgres extension to execute queries asynchronously. Built on pgmq.
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_later_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_later.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_later_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_later-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_later_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_later.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -34,5 +34,6 @@ install -m 644 %{_sourcedir}/pg_later_%{pgmajorversion}/usr/pgsql-%{pgmajorversi
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 0.1.1
 * Sun May 5 2024 Vonng <rh@vonng.com> - 0.1.0
 - Initial RPM release, used by Pigsty <https://pigsty.io>

@@ -34,9 +34,9 @@ Redis: A FDW for Redis which supports data read only.
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/wrappers_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/wrappers-%{version}.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/wrappers_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/wrappers-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/wrappers_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/wrappers.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}-%{version}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}-%{version}.so

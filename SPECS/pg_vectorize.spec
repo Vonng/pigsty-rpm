@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.15.0
+Version:	0.16.0
 Release:	1PIGSTY%{?dist}
 Summary:	The simplest way to orchestrate vector search on Postgres
 License:	Apache-2.0
@@ -23,9 +23,9 @@ This allows you to do vector search and build LLM applications on existing data 
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/vectorize_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/vectorize.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/vectorize_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/vectorize-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/vectorize_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/vectorize.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -34,5 +34,6 @@ install -m 644 %{_sourcedir}/vectorize_%{pgmajorversion}/usr/pgsql-%{pgmajorvers
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 0.16.0
 * Sun May 5 2024 Vonng <rh@vonng.com> - 0.15.0
 - Initial RPM release, used by Pigsty <https://pigsty.io>

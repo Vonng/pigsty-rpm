@@ -473,6 +473,14 @@ pg_tiktoken:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_tiktoken.spec
 
+#---------------------------------------------#
+# pgvectorscale [RUST]
+#---------------------------------------------#
+pgvectorscale:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgvectorscale*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgvectorscale.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgvectorscale.spec
+
 
 
 #---------------------------------------------#

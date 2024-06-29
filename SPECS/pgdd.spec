@@ -23,9 +23,9 @@ See the full project documentation: https://rustprooflabs.github.io/pgdd/ for mo
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pgdd_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pgdd.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pgdd_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgdd-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pgdd_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pgdd.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so

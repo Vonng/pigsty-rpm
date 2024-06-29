@@ -20,9 +20,9 @@ Postgres extension that does input tokenization using OpenAI's tiktoken.
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_tiktoken_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_tiktoken.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_tiktoken_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_tiktoken-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_tiktoken_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_tiktoken.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so

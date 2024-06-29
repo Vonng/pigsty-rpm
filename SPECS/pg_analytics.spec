@@ -31,9 +31,9 @@ pgrx, the framework for creating Postgres extensions in Rust
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_analytics_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_analytics.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_analytics_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_analytics*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_analytics_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_analytics.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so

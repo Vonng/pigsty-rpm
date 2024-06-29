@@ -25,9 +25,9 @@ PRQL introduces a pipeline concept (similar to Unix pipes) that transforms data 
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/plprql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/plprql.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/plprql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/plprql-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/plprql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/plprql.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so

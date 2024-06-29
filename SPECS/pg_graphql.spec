@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.5.4
+Version:	1.5.6
 Release:	1PIGSTY%{?dist}
 Summary:	GraphQL support to your PostgreSQL database.
 License:	Apache-2.0
@@ -24,9 +24,9 @@ This enables any programming language that can connect to PostgreSQL to query th
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_graphql.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_graphql.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -35,6 +35,7 @@ install -m 644 %{_sourcedir}/pg_graphql_%{pgmajorversion}/usr/pgsql-%{pgmajorver
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 1.5.6
 * Sun May 5 2024 Vonng <rh@vonng.com> - 1.5.4
 * Sat Apr 27 2024 Vonng <rh@vonng.com> - 1.5.3
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 1.5.0

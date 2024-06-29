@@ -21,9 +21,9 @@ A Postgres extension to tier data to external storage
 %{__rm} -rf %{buildroot}
 install -d %{buildroot}%{pginstdir}/lib/
 install -d %{buildroot}%{pginstdir}/share/extension/
-install -m 755 %{_sourcedir}/pg_tier_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/pg_tier.so %{buildroot}%{pginstdir}/lib/
-install -m 644 %{_sourcedir}/pg_tier_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_tier-*.sql %{buildroot}%{pginstdir}/share/extension/
-install -m 644 %{_sourcedir}/pg_tier_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/pg_tier.control %{buildroot}%{pginstdir}/share/extension/
+install -m 755 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/lib/%{pname}.so %{buildroot}%{pginstdir}/lib/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}-*.sql %{buildroot}%{pginstdir}/share/extension/
+install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversion}/share/extension/%{pname}.control %{buildroot}%{pginstdir}/share/extension/
 
 %files
 %{pginstdir}/lib/%{pname}.so
@@ -32,5 +32,6 @@ install -m 644 %{_sourcedir}/pg_tier_%{pgmajorversion}/usr/pgsql-%{pgmajorversio
 %exclude /usr/lib/.build-id
 
 %changelog
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 0.0.4
 * Sun May 5 2024 Vonng <rh@vonng.com> - 0.0.3
 - Initial RPM release, used by Pigsty <https://pigsty.io>
