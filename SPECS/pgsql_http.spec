@@ -1,5 +1,5 @@
 %global pname http
-%global sname pgsql-http
+%global sname pgsql_http
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 %ifarch ppc64 ppc64le s390 s390x armv7hl
@@ -58,7 +58,7 @@ This packages provides JIT support for %{sname}
 
 
 %prep
-%setup -q -n %{sname}-%{version}
+%setup -q -n pgsql-http-%{version}
 
 %build
 PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags}

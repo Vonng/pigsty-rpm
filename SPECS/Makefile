@@ -18,7 +18,7 @@ scws-install:
 
 # pure-C or pure-SQL extensions
 basic:
-	make zhparser pg_roaringbitmap pg_tle pgsql-http pgjwt vault hydra pg_filedump pg_net pointcloud # age
+	make zhparser pg_roaringbitmap pg_tle pgsql_http pgjwt vault hydra pg_filedump pg_net pointcloud # age
 
 #---------------------------------------------#
 # zhparser
@@ -55,26 +55,26 @@ pg_tle:
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_tle.spec   # not available on el7
 
 #---------------------------------------------#
-# pgsql-http (libcurl-devel)
+# pgsql_http (libcurl-devel)
 #---------------------------------------------#
-pgsql-http:
-	rm -rf ~/rpmbuild/RPMS/x86_64/pgsql-http*.rpm;
-	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsql-http.spec
+pgsql_http:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgsql_http*.rpm;
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsql_http.spec
 
 #---------------------------------------------#
-# pgsql-gzip
+# pgsql_gzip
 #---------------------------------------------#
-pgsql-gzip:
-	rm -rf ~/rpmbuild/RPMS/x86_64/pgsql-gzip*.rpm;
-	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
-	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
-	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
-	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsql-gzip.spec
+pgsql_gzip:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pgsql_gzip*.rpm;
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql_gzip.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql_gzip.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql_gzip.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql_gzip.spec
+	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgsql_gzip.spec
 
 #---------------------------------------------#
 # pgjwt
@@ -199,10 +199,10 @@ el7:
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_tle.spec
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_tle.spec
 
-	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql-http.spec
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql-http.spec
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pgsql_http.spec
+	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pgsql_http.spec
 
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pgjwt.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pgjwt.spec
@@ -238,10 +238,11 @@ el7:
 	PATH=/usr/pgsql-14/bin:/usr/bin/:$PATH rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/hydra.spec
 	PATH=/usr/pgsql-15/bin:/usr/bin/:$PATH rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/hydra.spec
 
-	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_filedump.spec
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/age15.spec
 
-el89: zhparser pg_roaringbitmap pg_tle pgsql-http pgjwt vault pointcloud imgsmlr pg_similarity pg_bigm hydra pg_net pg_filedump age
+	#rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_filedump.spec
+
+el89: zhparser pg_roaringbitmap pg_tle pgsql_http pgjwt vault pointcloud imgsmlr pg_similarity pg_bigm hydra pg_net pg_filedump age
 
 
 #---------------------------------------------#
@@ -483,7 +484,7 @@ srpm:
 	rpmbuild --define "pgmajorversion 15"  -bs ~/rpmbuild/SPECS/pg_embedding.spec
 	rpmbuild --define "pgmajorversion 15"  -bs ~/rpmbuild/SPECS/pg_roaringbitmap.spec
 	rpmbuild --define "pgmajorversion 15"  -bs ~/rpmbuild/SPECS/pg_tle.spec
-	rpmbuild --define "pgmajorversion 15"  -bs ~/rpmbuild/SPECS/pgsql-http.spec
+	rpmbuild --define "pgmajorversion 15"  -bs ~/rpmbuild/SPECS/pgsql_http.spec
 	rpmbuild --define "pgmajorversion 15"  -bs ~/rpmbuild/SPECS/age.spec
 
 ls-srpm:
