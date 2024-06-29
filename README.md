@@ -3,28 +3,36 @@
 | Extension Name                                                       |              | SPEC                                                 | Comment             |
 |----------------------------------------------------------------------|--------------|------------------------------------------------------|---------------------|
 | [scws](https://github.com/hightman/scws)                             | v1.2.3       | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
-| [libduckdb](https://github.com/duckdb/duckdb)                        | v0.10.2      | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
+| [libduckdb](https://github.com/duckdb/duckdb)                        | v1.0.0       | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
+| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                 | v1.0.0       | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
 | [zhparser](https://github.com/amutu/zhparser)                        | v2.2         | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
 | [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)   | v0.5.4       | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
-| [pg_tle](https://github.com/aws/pg_tle)                              | v1.3.4       | [pg_tle.spec](SPECS/pg_tle.spec)                     |                     |
-| [pgsql-http](https://github.com/pramsey/pgsql-http)                  | v1.6.0       | [pgsql-http.spec](SPECS/pgsql-http.spec)             |                     |
-| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                  | v1.0.0       | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)             |                     |
 | [pgjwt](https://github.com/michelp/pgjwt)                            | v0.0.1       | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
 | [vault](https://github.com/supabase/vault)                           | v0.2.9       | [vault.spec](SPECS/vault.spec)                       |                     |
-| [pointcloud](https://github.com/pgpointcloud/pointcloud)             | v1.2.5       | [pointcloud.spec](SPECS/pointcloud.spec)             |                     |
 | [imgsmlr](https://github.com/postgrespro/imgsmlr)                    | v1.0.0       | [imgsmlr.spec](SPECS/imgsmlr.spec)                   | 12 - 15             |
 | [pg_similarity](https://github.com/eulerto/pg_similarity)            | v1.0.0       | [pg_similarity.spec](SPECS/pg_similarity.spec)       | 12 - 15             |
-| [pg_bigm](https://github.com/pgbigm/pg_bigm)                         | v1.2         | [pg_bigm.spec](SPECS/pg_bigm.spec)                   | 12 - 15             |
-| [hydra](https://github.com/hydradatabase/)                           | v1.1.1       | [hydra.spec](SPECS/hydra.spec)                       |                     |
-| [pg_net](https://github.com/supabase/pg_net)                         | v0.9.1       | [pg_net.spec](SPECS/pg_net.spec)                     | no el7, el9 fix     |
-| [pg_filedump](https://github.com/df7cb/pg_filedump)                  | v16.0        | [pg_filedump.spec](SPECS/pg_filedump.spec)           | el7 build with PG15 |
+| [hydra](https://github.com/hydradatabase/)                           | v1.1.2       | [hydra.spec](SPECS/hydra.spec)                       |                     |
 | [age](https://github.com/apache/age)                                 | v1.5.0       | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
-| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                 | v1.1         | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
-| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse) | v0.6.1       | [pg_sparse.spec](SPECS/pg_svector.spec)              | *Obsolete*          |
 | [plv8](https://github.com/plv8/plv8)                                 | v3.2.2       | [plv8.spec](SPECS/plv8)                              |                     |
 | [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-alpha)     | v1.0.0-alpha | [pg_tde.spec](SPECS/pg_tde)                          |                     |
 | [md5hash](https://github.com/tvondra/md5hash)                        | v1.0.1       | [md5hash.spec](SPECS/md5hash)                        |                     |
-| [pg_dirtyread](https://github.com/df7cb/pg_dirtyread)                | v2.6         | [pg_dirtyread.spec](SPECS/pg_dirtyread)              |                     |
+
+
+> Extensions not work on el7: libduckdb, duckdb_fdw,
+
+Obsolete due to included in PGDG repo:
+
+| Extension Name                                                       |        | SPEC                                       | Comment             |
+|----------------------------------------------------------------------|--------|--------------------------------------------|---------------------|
+| [pg_sparse](https://github.com/paradedb/paradedb/tree/dev/pg_sparse) | v0.6.1 | [pg_sparse.spec](SPECS/pg_svector.spec)    | *Obsolete*          |
+| [pg_tle](https://github.com/aws/pg_tle)                              | v1.3.4 | [pg_tle.spec](SPECS/pg_tle.spec)           |                     |
+| [pg_bigm](https://github.com/pgbigm/pg_bigm)                         | v1.2   | [pg_bigm.spec](SPECS/pg_bigm.spec)         | 12 - 15             |
+| [pgsql-http](https://github.com/pramsey/pgsql-http)                  | v1.6.0 | [pgsql-http.spec](SPECS/pgsql-http.spec)   |                     |
+| [pgsql-gzip](https://github.com/pramsey/pgsql-gzip)                  | v1.0.0 | [pgsql-gzip.spec](SPECS/pgsql-gzip.spec)   |                     |
+| [pg_net](https://github.com/supabase/pg_net)                         | v0.9.1 | [pg_net.spec](SPECS/pg_net.spec)           | no el7, el9 fix     |
+| [pg_filedump](https://github.com/df7cb/pg_filedump)                  | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec) | el7 build with PG15 |
+| [pg_dirtyread](https://github.com/df7cb/pg_dirtyread)                | v2.7   | [pg_dirtyread.spec](SPECS/pg_dirtyread)    | for el7 only        |
+| [pointcloud](https://github.com/pgpointcloud/pointcloud)             | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)   | for el7 only        |
 
 
 Check [`pgrx`](pgrx.md) for RUST extensions
@@ -176,7 +184,8 @@ sudo yum makecache
 Finally, install compiling tools, build deps and PG major versions
 
 ```bash
-sudo yum groupinstall --skip-broken -y 'Development Tools';    # skip broken on EL8 
+sudo yum groupinstall --nobest -y 'Development Tools';    # skip broken on EL8 
+rpmdev-setuptree;
 sudo yum install -y pgdg-srpm-macros clang ccache rpm-build rpmdevtools postgresql1*-server flex bison postgresql1*-devel readline-devel zlib-devel lz4-devel libzstd-devel openssl-devel krb5-devel libcurl-devel libxml2-devel gd-devel CUnit cmake;
 sudo yum install -y python3.11 python3.11-devel python3-virtualenv openssl openssl-devel cmake pkg-config libomp libomp-devel openblas* llvm llvm-devel lld openblas* ;
 sudo yum install -y createrepo_c createrepo modulemd-tools dnf-utils dnf-plugins-core yum-utils;

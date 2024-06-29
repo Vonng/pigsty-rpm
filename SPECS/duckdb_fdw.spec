@@ -13,20 +13,20 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.1
+Version:	1.0.0
 Release:	1PIGSTY%{?dist}
-Summary:	duckdb_fdw extension for PostgreSQL.
+Summary:	DuckDB Foreign data wrapper extension for PostgreSQL.
 License:	MIT License
 URL:		https://github.com/alitrack/%{sname}
-Source0:	https://github.com/alitrack/%{sname}/archive/refs/tags/duckdb_fdw-1.1.tar.gz
+Source0:	https://github.com/alitrack/%{sname}/archive/refs/tags/duckdb_fdw-1.0.0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
-Requires:	postgresql%{pgmajorversion}-server libduckdb >= 0.10.2
+Requires:	postgresql%{pgmajorversion}-server libduckdb = 1.0.0
 
 %description
 DuckDB Foreign Data Wrapper for PostgreSQL
 This is a foreign data wrapper (FDW) to connect PostgreSQL to DuckDB database file.
-This FDW works with PostgreSQL 9.6 ... 16 and confirmed with some versions of DuckDB.
+This FDW works with PostgreSQL 9.6 ... 16 and compiled with exact same version of libduckdb.
 
 %if %llvm
 %package llvmjit
@@ -81,5 +81,7 @@ USE_PGXS=1 PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR
 %exclude %{pginstdir}/lib/bitcode/*
 
 %changelog
+* Sat Jun 29 2024 Vonng <rh@vonng.com> - 1.0.0
+- Changing version schema to keep in sync with libduckdb
 * Mon Jan 29 2024 Vonng <rh@vonng.com> - 1.1
 - Initial RPM release, used by Pigsty <https://pigsty.io>

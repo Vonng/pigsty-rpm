@@ -16,4 +16,3 @@ RPMS/el8.x86_64/*.rpm
 RPMS/el9.x86_64/*.rpm
 
 STASH/
-SOURCES/libduckdb*

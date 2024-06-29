@@ -249,7 +249,12 @@ el89: zhparser pg_roaringbitmap pg_tle pgsql-http pgjwt vault pointcloud imgsmlr
 #---------------------------------------------#
 libduckdb:
 	rm -rf ~/rpmbuild/RPMS/x86_64/libduckdb*.rpm;
-	rpmbuild -ba ~/rpmbuild/SPECS/libduckdb.spec
+	rpmbuild --without debuginfo -ba ~/rpmbuild/SPECS/libduckdb.spec
+
+# scws is required when building zhparser
+libduckdb-install:
+	sudo yum remove -y libduckdb || /bin/true
+	sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/libduckdb-1.0.0-1PIGSTY.el*.x86_64.rpm
 
 duckdb_fdw:
 	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/duckdb_fdw.spec
