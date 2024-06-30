@@ -302,6 +302,7 @@ plv8:
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/plv8.spec
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/plv8.spec
 	rpmbuild --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/plv8.spec
+	rpmbuild --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/plv8.spec
 
 #---------------------------------------------#
 # libarrow-s3
@@ -333,6 +334,9 @@ pg_search:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_search*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_search.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_search.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_search.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_search.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_search.spec
 
 #---------------------------------------------#
 # pg_analytics [RUST]

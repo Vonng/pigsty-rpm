@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.8.0
+Version:	0.8.1
 Release:	1PIGSTY%{?dist}
 Summary:	Full text search over SQL tables using the BM25 algorithm
 License:	GNU Affero General Public License v3.0
@@ -33,7 +33,7 @@ install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversi
 %exclude /usr/lib/.build-id
 
 %changelog
-* Sat Jun 29 2024 Vonng <rh@vonng.com> - 0.8.0
+* Sun Jun 30 2024 Vonng <rh@vonng.com> - 0.8.1
 * Sat May 15 2024 Vonng <rh@vonng.com> - 0.7.0
 * Sat Apr 27 2024 Vonng <rh@vonng.com> - 0.6.1
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.5.6

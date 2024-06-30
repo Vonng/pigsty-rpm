@@ -12,7 +12,7 @@ URL:		https://github.com/timescale/pgvectorscale
 #           https://github.com/timescale/pgvectorscale
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
-Requires:	postgresql%{pgmajorversion}-server
+Requires:	postgresql%{pgmajorversion}-server pgvector_%{pgmajorversion} >= 0.7.0
 
 %description
 pgvectorscale builds on pgvector with higher performance embedding search and cost-efficient storage for AI applications.

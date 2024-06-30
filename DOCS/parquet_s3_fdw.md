@@ -40,7 +40,9 @@ sudo yum install libcurl-devel openssl-devel libuuid-devel pulseaudio-libs-devel
 git clone --recurse-submodules https://github.com/aws/aws-sdk-cpp
 git clone --recurse-submodules git@github.com:aws/aws-sdk-cpp.git
 
-cd aws-sdk-cpp; mkdir release; cd release;
+cd ~/aws-sdk-cpp; mkdir release; cd release;
+
+mkdir -p ~/aws-sdk-cpp/release; cd ~/aws-sdk-cpp/release;
 cmake .. -DBUILD_ONLY="s3"
 make -j8
 ```

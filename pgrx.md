@@ -60,6 +60,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
 ```
 
+<details>
+
 Setup Mirror in Mainland China:
 
 ```bash
@@ -75,6 +77,8 @@ env RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup instal
 ```
 
 Install the *latest* version of [`pgrx`](https://github.com/pgcentralfoundation/pgrx) and perform `cargo init`
+
+</details>
 
 YOU **MUST** Pass `HTTPS_PROXY` as following:
 
@@ -92,7 +96,7 @@ HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init
 ```bash
 cd ~;
 cd ~; git clone --recursive git@github.com:postgresml/postgresml.git  ; cd ~/postgresml     && git checkout v2.9.1                 
-cd ~; git clone --recursive https://github.com/paradedb/paradedb.git  ; cd ~/paradedb       && git checkout v0.8.0               
+cd ~; git clone --recursive https://github.com/paradedb/paradedb.git  ; cd ~/paradedb       && git checkout v0.8.1
 cd ~; git clone git@github.com:supabase/pg_graphql.git                ; cd ~/pg_graphql     && git checkout v1.5.6                 
 cd ~; git clone git@github.com:supabase/pg_jsonschema.git             ; cd ~/pg_jsonschema  && git checkout v0.3.1                    
 cd ~; git clone git@github.com:supabase/wrappers.git                  ; cd ~/wrappers       && git checkout v0.3.1               
@@ -334,33 +338,3 @@ shared_preload_libraries = 'pgml,pg_stat_statements'
 pgml.venv = '/absolute/path/to/your/pgml-venv'
 ```
 
-
-<details><summary>EL 8.9 Ad Hoc Building Steps</summary>
-
-PostgresML Use C++ 17 features, you have to use GCC 10+ with static link to compile it on RockyLinux 7.x
-
-```bash
-sudo dnf install gcc-toolset-13
-source /opt/rh/gcc-toolset-13/enable
-export CC=/opt/rh/gcc-toolset-13/root/usr/bin/gcc
-export CXX=/opt/rh/gcc-toolset-13/root/usr/bin/g++
-export LD_LIBRARY_PATH=/opt/rh/gcc-toolset-13/root/usr/lib64:$LD_LIBRARY_PATH
-```
-
-Change `build.rs`:
-
-```bash
-fn main() {
-    println!("cargo:rustc-link-lib=static=stdc++fs");
-    println!("cargo:rustc-link-search=native=/opt/rh/gcc-toolset-13/root/usr/lib/gcc/x86_64-redhat-linux/13");
-}
-```
-
-Change `Cargo.toml`
-
-```bash
-[build-dependencies]
-+++ cc = "1.0"
-```
-
-</details>
