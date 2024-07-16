@@ -339,20 +339,20 @@ pg_search:
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_search.spec
 
 #---------------------------------------------#
-# pg_analytics [RUST]
-#---------------------------------------------#
-pg_analytics:
-	rm -rf ~/rpmbuild/RPMS/x86_64/pg_analytics*.rpm;
-	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
-	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
-
-#---------------------------------------------#
 # pg_lakehouse [RUST]
 #---------------------------------------------#
 pg_lakehouse:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_lakehouse*.rpm;
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_lakehouse.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_lakehouse.spec
+
+#---------------------------------------------#
+# pg_analytics [RUST] (Obsolete)
+#---------------------------------------------#
+pg_analytics:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_analytics*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_analytics.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_analytics.spec
 
 #---------------------------------------------#
 # pg_graphql [RUST]

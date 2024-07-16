@@ -26,15 +26,15 @@ pushss: push-sv
 #---------------------------------------------#
 push: spec srcd
 spec:
-	rsync -avc --delete ./SPECS/   build-el7:~/rpmbuild/SPECS/
+	#rsync -avc --delete ./SPECS/   build-el7:~/rpmbuild/SPECS/
 	rsync -avc --delete ./SPECS/   build-el8:~/rpmbuild/SPECS/
 	rsync -avc --delete ./SPECS/   build-el9:~/rpmbuild/SPECS/
 src:
-	rsync -avc ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
+	#rsync -avc ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
 	rsync -avc ./SOURCES/ build-el8:~/rpmbuild/SOURCES/
 	rsync -avc ./SOURCES/ build-el9:~/rpmbuild/SOURCES/
 srcd:
-	rsync -avc --delete ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
+	#rsync -avc --delete ./SOURCES/ build-el7:~/rpmbuild/SOURCES/
 	rsync -avc --delete ./SOURCES/ build-el8:~/rpmbuild/SOURCES/
 	rsync -avc --delete ./SOURCES/ build-el9:~/rpmbuild/SOURCES/
 push7:

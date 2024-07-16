@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.8.1
+Version:	0.8.2
 Release:	1PIGSTY%{?dist}
 Summary:	Query engine over object stores like S3 and table formats like Delta Lake
 License:	GNU Affero General Public License v3.0
@@ -32,6 +32,7 @@ install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversi
 %exclude /usr/lib/.build-id
 
 %changelog
+* Fri Jul 05 2024 Vonng <rh@vonng.com> - 0.8.2
 * Sun Jun 30 2024 Vonng <rh@vonng.com> - 0.8.1
 * Sat May 15 2024 Vonng <rh@vonng.com> - 0.7.0
 - Initial RPM release, used by Pigsty <https://pigsty.io>
