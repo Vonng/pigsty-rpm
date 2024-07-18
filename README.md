@@ -132,13 +132,12 @@ Obsolete extension:
 - parquet_fdw: https://github.com/adjust/parquet_fdw
 - hunspell https://github.com/postgrespro/hunspell_dicts
 
-https://github.com/asotolongo/jx_io
+
 https://github.com/kouber/pg_sqlog
 https://gitlab.com/pg_proctab/pg_proctab
 https://github.com/dverite/postgres-shacrypt
 https://github.com/postgrespro/pg_variables
 https://github.com/postgrespro/aqo
-
 https://github.com/iCyberon/pg_hashids
 https://github.com/dverite/permuteseq
 

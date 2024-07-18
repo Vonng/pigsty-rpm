@@ -164,6 +164,17 @@ pgjwt:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pgjwt.spec
 
 #---------------------------------------------#
+# pg_sqlog
+#---------------------------------------------#
+pg_sqlog:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_sqlog*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_sqlog.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_sqlog.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_sqlog.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_sqlog.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_sqlog.spec
+
+#---------------------------------------------#
 # vault
 #---------------------------------------------#
 vault:
