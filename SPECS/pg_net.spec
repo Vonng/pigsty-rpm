@@ -79,6 +79,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} %{?_smp_mflags} install DESTDIR=%{buildroo
 %exclude /usr/lib/.build-id/*
 
 %changelog
+* Thu Jul 18 2024 Vonng <rh@vonng.com> - 0.9.2
 * Thu May 09 2024 Vonng <rh@vonng.com> - 0.9.1
 * Sat Feb 17 2024 Vonng <rh@vonng.com> - 0.8.0
 * Mon Sep 18 2023 Vonng <rh@vonng.com> - 0.7.3
