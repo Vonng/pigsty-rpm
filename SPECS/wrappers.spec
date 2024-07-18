@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.3.1
+Version:	0.4.1
 Release:	1PIGSTY%{?dist}
 Summary:	Postgres Foreign Data Wrappers by Supabase
 License:	Apache-2.0
@@ -45,5 +45,6 @@ install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversi
 %exclude /usr/lib/.build-id
 
 %changelog
+* Thu Jul 18 2024 Vonng <rh@vonng.com> - 0.4.1
 * Sun May 5 2024 Vonng <rh@vonng.com> - 0.3.1
 - Initial RPM release, used by Pigsty <https://pigsty.io>

@@ -99,6 +99,16 @@ vault:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/vault.spec
 
 #---------------------------------------------#
+# supautils
+#---------------------------------------------#
+supautils:
+	rm -rf ~/rpmbuild/RPMS/x86_64/supautils*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/supautils.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/supautils.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/supautils.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/supautils.spec
+
+#---------------------------------------------#
 # pointcloud
 #---------------------------------------------#
 pointcloud:

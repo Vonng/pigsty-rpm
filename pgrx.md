@@ -15,7 +15,7 @@ Check [`pgrx`](pgrx.md) for RUST extensions
 | ParadeDB      | [pg_lakehouse](https://github.com/paradedb/paradedb/tree/dev/pg_lakehouse) | v0.8.0  | v0.11.3                                                                                         | [AGPLv3](https://github.com/paradedb/paradedb/blob/dev/LICENSE)             | 16,15          |                      |
 | Supabase      | [pg_graphql](https://github.com/supabase/pg_graphql)                       | v1.5.6  | [v0.11.3](https://github.com/supabase/pg_graphql/blob/master/Cargo.toml#L17)                    | [Apache-2.0](https://github.com/supabase/pg_graphql/blob/master/LICENSE)    | 16,15          |                      |
 | Supabase      | [pg_jsonschema](https://github.com/supabase/pg_jsonschema)                 | v0.3.1  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/supabase/pg_jsonschema/blob/master/LICENSE) | 16,15,14,13,12 |                      |
-| Supabase      | [wrappers](https://github.com/supabase/wrappers)                           | v0.3.1  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/supabase/wrappers/blob/main/LICENSE)        | 16,15,14       |                      |
+| Supabase      | [wrappers](https://github.com/supabase/wrappers)                           | v0.4.1  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/supabase/wrappers/blob/main/LICENSE)        | 16,15,14       |                      |
 | Tembo         | [pgmq](https://github.com/tembo-io/pgmq)                                   | v1.2.1  | v0.11.3                                                                                         | [PostgreSQL](https://github.com/tembo-io/pgmq)                              | 16,15,14,13,12 |                      |
 | Tembo         | [pg_tier](https://github.com/tembo-io/pg_tier)                             | v0.0.4  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/tembo-io/pg_tier/blob/main/LICENSE)         | 16             | pgmq, parquet_s3_fdw |
 | Tembo         | [pg_vectorize](https://github.com/tembo-io/pg_vectorize)                   | v0.16.0 | v0.11.3                                                                                         | [PostgreSQL](https://github.com/tembo-io/pg_vectorize/blob/main/LICENSE)    | 16,15,14       | pgmq, pg_cron        |
@@ -96,8 +96,8 @@ HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx init
 ```bash
 cd ~;
 cd ~; git clone --recursive git@github.com:postgresml/postgresml.git  ; cd ~/postgresml     && git checkout v2.9.1                 
-cd ~; git clone --recursive https://github.com/paradedb/paradedb.git  ; cd ~/paradedb       && git checkout v0.8.1
-cd ~; git clone git@github.com:supabase/pg_graphql.git                ; cd ~/pg_graphql     && git checkout v1.5.6                 
+cd ~; git clone --recursive https://github.com/paradedb/paradedb.git  ; cd ~/paradedb       && git checkout v0.8.4
+cd ~; git clone git@github.com:supabase/pg_graphql.git                ; cd ~/pg_graphql     && git checkout v1.5.7                 
 cd ~; git clone git@github.com:supabase/pg_jsonschema.git             ; cd ~/pg_jsonschema  && git checkout v0.3.1                    
 cd ~; git clone git@github.com:supabase/wrappers.git                  ; cd ~/wrappers       && git checkout v0.3.1               
 cd ~; git clone git@github.com:tembo-io/pgmq.git                      ; cd ~/pgmq           && git checkout v1.2.1 #v1.3.3           
@@ -127,7 +127,7 @@ cd ~/pgmq/pgmq-rs; HTTPS_PROXY=http://192.168.0.104:8118 cargo update
 | Supabase      | [wrappers](https://github.com/supabase/wrappers)                           | v0.3.1  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/supabase/wrappers/blob/main/LICENSE)        | 16,15,14       |                      |
 | Tembo         | [pgmq](https://github.com/tembo-io/pgmq)                                   | v1.2.1  | v0.11.3                                                                                         | [PostgreSQL](https://github.com/tembo-io/pgmq)                              | 16,15,14,13,12 |                      |
 | Tembo         | [pg_tier](https://github.com/tembo-io/pg_tier)                             | v0.0.4  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/tembo-io/pg_tier/blob/main/LICENSE)         | 16             | pgmq, parquet_s3_fdw |
-| Tembo         | [pg_vectorize](https://github.com/tembo-io/pg_vectorize)                   | v0.16.0 | v0.11.3                                                                                         | [PostgreSQL](https://github.com/tembo-io/pg_vectorize/blob/main/LICENSE)    | 16,15,14       | pgmq, pg_cron        |
+| Tembo         | [pg_vectorize](https://github.com/tembo-io/pg_vectorize)                   | v0.17.0 | v0.11.3                                                                                         | [PostgreSQL](https://github.com/tembo-io/pg_vectorize/blob/main/LICENSE)    | 16,15,14       | pgmq, pg_cron        |
 | Tembo         | [pg_later](https://github.com/tembo-io/pg_later)                           | v0.1.1  | v0.11.3                                                                                         | [PostgreSQL](https://github.com/tembo-io/pg_later/blob/main/LICENSE)        | 16,15,14,13    | pgmq                 |
 | VADOSWARE     | [pg_idkit](https://github.com/VADOSWARE/pg_idkit)                          | v0.2.3  | v0.11.3                                                                                         | [Apache-2.0](https://github.com/VADOSWARE/pg_idkit/blob/main/LICENSE)       | 16,15,14,13,12 |                      |
 | pgsmcrypto    | [pgsmcrypto](https://github.com/zhuobie/pgsmcrypto)                        | v0.1.0  | v0.11.3                                                                                         | [MIT](https://github.com/zhuobie/pgsmcrypto/blob/main/LICENSE)              | 16,15,14,13,12 |                      |
@@ -145,6 +145,18 @@ alias pg14="export PATH=/usr/pgsql-14/bin:/root/.cargo/bin:/pg/bin:/usr/share/Mo
 alias pg13="export PATH=/usr/pgsql-13/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;"
 alias pg12="export PATH=/usr/pgsql-12/bin:/root/.cargo/bin:/pg/bin:/usr/share/Modules/bin:/usr/lib64/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/home/vagrant/.cargo/bin;"
 alias bd="HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v"
+
+
+```
+
+
+```bash
+alias pg16="export PATH=/usr/lib/postgresql/16/bin:/home/vagrant/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;"
+alias pg15="export PATH=/usr/lib/postgresql/15/bin:/home/vagrant/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;"
+alias pg14="export PATH=/usr/lib/postgresql/14/bin:/home/vagrant/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;"
+alias pg13="export PATH=/usr/lib/postgresql/13/bin:/home/vagrant/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;"
+alias pg12="export PATH=/usr/lib/postgresql/12/bin:/home/vagrant/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin;"
+alias build="HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package -v"
 
 
 # pgrx 0.11.3
@@ -183,8 +195,12 @@ rm -rf ~/rpmbuild/SOURCES/pgml_15; cp -r ~/postgresml/pgml-extension/target/rele
 rm -rf ~/rpmbuild/SOURCES/pgml_14; cp -r ~/postgresml/pgml-extension/target/release/pgml-pg14 ~/rpmbuild/SOURCES/pgml_14;
 
 rm -rf ~/rpmbuild/SOURCES/pg_search_16;     cp -r ~/paradedb/target/release/pg_search-pg16      ~/rpmbuild/SOURCES/pg_search_16;
-rm -rf ~/rpmbuild/SOURCES/pg_lakehouse_16;  cp -r ~/paradedb/target/release/pg_lakehouse-pg16   ~/rpmbuild/SOURCES/pg_lakehouse_16;
 rm -rf ~/rpmbuild/SOURCES/pg_search_15;     cp -r ~/paradedb/target/release/pg_search-pg15      ~/rpmbuild/SOURCES/pg_search_15;
+rm -rf ~/rpmbuild/SOURCES/pg_search_14;     cp -r ~/paradedb/target/release/pg_search-pg14      ~/rpmbuild/SOURCES/pg_search_14;
+rm -rf ~/rpmbuild/SOURCES/pg_search_13;     cp -r ~/paradedb/target/release/pg_search-pg13      ~/rpmbuild/SOURCES/pg_search_13;
+rm -rf ~/rpmbuild/SOURCES/pg_search_12;     cp -r ~/paradedb/target/release/pg_search-pg12      ~/rpmbuild/SOURCES/pg_search_12;
+
+rm -rf ~/rpmbuild/SOURCES/pg_lakehouse_16;  cp -r ~/paradedb/target/release/pg_lakehouse-pg16   ~/rpmbuild/SOURCES/pg_lakehouse_16;
 rm -rf ~/rpmbuild/SOURCES/pg_lakehouse_15;  cp -r ~/paradedb/target/release/pg_lakehouse-pg15   ~/rpmbuild/SOURCES/pg_lakehouse_15;
 
 rm -rf ~/rpmbuild/SOURCES/pg_graphql_16;    cp -r ~/pg_graphql/target/release/pg_graphql-pg16 ~/rpmbuild/SOURCES/pg_graphql_16;
@@ -259,6 +275,9 @@ make pgmq pg_later pg_vectorize pg_tier
 make pg_idkit pgsmcrypto plprql pgvectorscale
 make pgdd pg_tiktoken
 ```
+
+
+
 
 Example: build paradedb extensions
 
