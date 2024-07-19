@@ -8,16 +8,14 @@ Version:	0.3.1
 Release:	1PIGSTY%{?dist}
 Summary:	PostgreSQL extension providing JSON Schema validation
 License:	Apache-2.0
-URL:		https://github.com/supabase/%{sname}
+URL:		https://github.com/supabase/pg_jsonschema
 #           https://github.com/supabase/pg_jsonschema/archive/refs/tags/v0.3.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
 %description
-pg_jsonschema reflects a GraphQL schema from the existing SQL schema.
-The extension keeps schema translation and query resolution neatly contained on your database server.
-This enables any programming language that can connect to PostgreSQL to query the database via GraphQL with no additional servers, processes, or libraries.
+pg_jsonschema is a PostgreSQL extension adding support for JSON schema validation on json and jsonb data types.
 
 %install
 %{__rm} -rf %{buildroot}
