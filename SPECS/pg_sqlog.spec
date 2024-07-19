@@ -14,7 +14,8 @@ BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
 %description
-PostgreSQL implementation of JSON Web Tokens, pure SQL
+pg_sqlog allows to query a foreign table, pointing to a log, recorded in a CSV format.
+It has special functions to extract the query duration of each query, as well as to group similar queries together.
 
 %prep
 %setup -q -n %{sname}-%{version}

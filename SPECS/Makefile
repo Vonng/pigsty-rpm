@@ -175,6 +175,18 @@ pg_sqlog:
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_sqlog.spec
 
 #---------------------------------------------#
+# pg_proctab
+#---------------------------------------------#
+pg_proctab:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_proctab*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_proctab.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_proctab.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_proctab.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_proctab.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_proctab.spec
+
+
+#---------------------------------------------#
 # vault
 #---------------------------------------------#
 vault:
