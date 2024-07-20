@@ -7,7 +7,7 @@ Name:		%{sname}_%{pgmajorversion}
 Version:	0.1.0
 Release:	1PIGSTY%{?dist}
 Summary:	PostgreSQL SM Algorithm Extension
-License:	Apache-2.0
+License:	MIT
 URL:		https://github.com/zhuobie/pgsmcrypto
 #           https://github.com/zhuobie/pgsmcrypto
 
@@ -16,7 +16,6 @@ Requires:	postgresql%{pgmajorversion}-server
 
 %description
 China National SM algorithm extension for PostgreSQL. SM2 / SM3 / SM4
-
 
 %install
 %{__rm} -rf %{buildroot}

@@ -6,9 +6,9 @@
 Name:		%{sname}_%{pgmajorversion}
 Version:	0.0.3
 Release:	1PIGSTY%{?dist}
-Summary:	Postgres Extension written in Rust, to enable data tiering to AWS S3
+Summary:	Postgres Extension to enable data tiering to AWS S3
 License:	Apache-2.0
-URL:		https://github.com/tembo-io/pg_tier/%{sname}
+URL:		https://github.com/tembo-io/pg_tier
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
@@ -16,6 +16,7 @@ Recommends: parquet_s3_fdw_%{pgmajorversion}
 
 %description
 A Postgres extension to tier data to external storage
+Postgres Extension written in Rust, to enable data tiering to AWS S3
 
 %install
 %{__rm} -rf %{buildroot}

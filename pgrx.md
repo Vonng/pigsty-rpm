@@ -184,6 +184,23 @@ cd ~/pgdd;                     HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx 
 cd ~/pg_tiktoken;              HTTPS_PROXY=http://192.168.0.104:8118 cargo pgrx package  -v;   # 16,15,14
 ```
 
+```bash
+cd ~/paradedb/pg_search;       pg16 build;    pg15 build;    pg14 build;    pg13 build;  pg12 build; 
+cd ~/paradedb/pg_lakehouse;    pg16 build;    pg15 build;                    
+cd ~/pg_graphql;               pg16 build;    pg15 build;    pg14 build;     
+cd ~/pg_jsonschema;            pg16 build;    pg15 build;    pg14 build;    pg13 build;  pg12 build; 
+cd ~/wrappers/wrappers;        pg16 build;    pg15 build;    pg14 build;     
+cd ~/pgmq;                     pg16 build;    pg15 build;    pg14 build;    pg13 build;  pg12 build; 
+cd ~/pg_tier;                  pg16 build;                                   
+cd ~/pg_vectorize/extension;   pg16 build;    pg15 build;    pg14 build;                
+cd ~/pg_later;                 pg16 build;    pg15 build;    pg14 build;    pg13 build; 
+cd ~/pgsmcrypto;               pg16 build;    pg15 build;    pg14 build;    pg13 build;  pg12 build; 
+cd ~/pg_idkit;                 pg16 build;    pg15 build;    pg14 build;    pg13 build;  pg12 build; 
+cd ~/plprql/plprql;            pg16 build;    pg15 build;    pg14 build;    pg13 build;  pg12 build; 
+
+cd ~/postgresml/pgml-extension; pg16 build;    pg15 build;    pg14 build; 
+
+```
 
 ## Package
 

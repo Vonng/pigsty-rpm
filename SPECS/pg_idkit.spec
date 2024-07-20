@@ -16,6 +16,7 @@ Requires:	postgresql%{pgmajorversion}-server
 
 %description
 pg_idkit is a Postgres extension for generating many popular types of identifiers:
+uuidv6, uuidv7, nanoid, ksuid, ulid, timeflake, pushid, xid, cuid, cuid2
 
 %install
 %{__rm} -rf %{buildroot}

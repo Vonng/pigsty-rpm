@@ -7,9 +7,9 @@ Name:		%{sname}_%{pgmajorversion}
 Version:	1.2.1
 Release:	1PIGSTY%{?dist}
 Summary:	A lightweight message queue. Like AWS SQS and RSMQ but on Postgres.
-License:	Apache-2.0
-URL:		https://github.com/tembo-io/pgmq/%{sname}
-#           https://github.com/tembo-io/pgmq/archive/refs/tags/v1.1.1.tar.gz
+License:	PostgreSQL
+URL:		https://github.com/tembo-io/pgmq
+#           https://github.com/tembo-io/pgmq/archive/refs/tags/v1.2.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server

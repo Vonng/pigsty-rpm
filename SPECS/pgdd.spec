@@ -6,9 +6,9 @@
 Name:		%{sname}_%{pgmajorversion}
 Version:	0.5.2
 Release:	1PIGSTY%{?dist}
-Summary:	PostgreSQL Data Dictionary
+Summary:	PostgreSQL Data Dictionary, Inspect data dictionary via SQL
 License:	Apache-2.0
-URL:		https://github.com/rustprooflabs/%{sname}
+URL:		https://github.com/rustprooflabs/pgdd
 #           https://github.com/rustprooflabs/pgdd/archive/refs/tags/0.5.2.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27

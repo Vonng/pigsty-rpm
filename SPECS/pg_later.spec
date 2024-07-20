@@ -7,9 +7,9 @@ Name:		%{sname}_%{pgmajorversion}
 Version:	0.1.1
 Release:	1PIGSTY%{?dist}
 Summary:	Execute SQL now and get the results later.
-License:	Apache-2.0
-URL:		https://github.com/tembo-io/pg_later/%{sname}
-#           https://github.com/tembo-io/pg_later/archive/refs/tags/v0.1.0.tar.gz
+License:	PostgreSQL
+URL:		https://github.com/tembo-io/pg_later
+#           https://github.com/tembo-io/pg_later/archive/refs/tags/v0.1.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server pgmq_%{pgmajorversion} >= 1.1.1
