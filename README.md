@@ -5,21 +5,26 @@
 
 ## Common Extensions
 
-| Extension Name                                                       |             | SPEC                                                 | Comment             |
-|----------------------------------------------------------------------|-------------|------------------------------------------------------|---------------------|
-| [scws](https://github.com/hightman/scws)                             | v1.2.3      | [scws.spec](SPECS/scws.spec)                         | Deps of zhparser    |
-| [libduckdb](https://github.com/duckdb/duckdb)                        | v1.0.0      | [libduckdb.spec](SPECS/libduckdb.spec)               | Deps of duckdb_fdw  |
-| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)                 | v1.0.0      | [pg_graphql.spec](SPECS/duckdb_fdw.spec)             |                     |
-| [zhparser](https://github.com/amutu/zhparser)                        | v2.2        | [zhparser.spec](SPECS/zhparser.spec)                 |                     |
-| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap)   | v0.5.4      | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec) |                     |
-| [pgjwt](https://github.com/michelp/pgjwt)                            | v0.2.0      | [pgjwt.spec](SPECS/pgjwt.spec)                       |                     |
-| [vault](https://github.com/supabase/vault)                           | v0.2.9      | [vault.spec](SPECS/vault.spec)                       |                     |
-| [hydra](https://github.com/hydradatabase/)                           | v1.1.2      | [hydra.spec](SPECS/hydra.spec)                       |                     |
-| [age](https://github.com/apache/age)                                 | v1.5.0      | [age.spec](SPECS/age.spec)                           | 1.4 with PG15       |
-| [plv8](https://github.com/plv8/plv8)                                 | v3.2.2      | [plv8.spec](SPECS/plv8)                              |                     |
-| [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-alpha)     | v1.0.0-beta | [pg_tde.spec](SPECS/pg_tde)                          |                     |
-| [md5hash](https://github.com/tvondra/md5hash)                        | v1.0.1      | [md5hash.spec](SPECS/md5hash)                        |                     |
-
+| Extension Name                                                     |             | SPEC                                                   | Comment            |
+|--------------------------------------------------------------------|-------------|--------------------------------------------------------|--------------------|
+| [scws](https://github.com/hightman/scws)                           | v1.2.3      | [scws.spec](SPECS/scws.spec)                           | Deps of zhparser   |
+| [libduckdb](https://github.com/duckdb/duckdb)                      | v1.0.0      | [libduckdb.spec](SPECS/libduckdb.spec)                 | Deps of duckdb_fdw |
+| [duckdb_fdw](https://github.com/alitrack/duckdb_fdw)               | v1.0.0      | [pg_graphql.spec](SPECS/duckdb_fdw.spec)               |                    |
+| [zhparser](https://github.com/amutu/zhparser)                      | v2.2        | [zhparser.spec](SPECS/zhparser.spec)                   |                    |
+| [pg_roaringbitmap](https://github.com/ChenHuajun/pg_roaringbitmap) | v0.5.4      | [pg_roaringbitmap.spec](SPECS/pg_roaringbitmap.spec)   |                    |
+| [pgjwt](https://github.com/michelp/pgjwt)                          | v0.2.0      | [pgjwt.spec](SPECS/pgjwt.spec)                         |                    |
+| [vault](https://github.com/supabase/vault)                         | v0.2.9      | [vault.spec](SPECS/vault.spec)                         |                    |
+| [hydra](https://github.com/hydradatabase/)                         | v1.1.2      | [hydra.spec](SPECS/hydra.spec)                         |                    |
+| [age](https://github.com/apache/age)                               | v1.5.0      | [age.spec](SPECS/age.spec)                             | 1.4 with PG15      |
+| [plv8](https://github.com/plv8/plv8)                               | v3.2.2      | [plv8.spec](SPECS/plv8)                                |                    |
+| [pg_tde](https://github.com/Percona-Lab/pg_tde/tree/1.0.0-beta)    | v1.0.0-beta | [pg_tde.spec](SPECS/pg_tde)                            |                    |
+| [md5hash](https://github.com/tvondra/md5hash)                      | v1.0.1      | [md5hash.spec](SPECS/md5hash)                          |                    |
+| [hunspell](https://github.com/postgrespro/hunspell_dicts)          | v1.0        | [hunspell.spec](SPECS/hunspell.spec)                   |                    |                 
+| [pg_sqlog](https://github.com/kouber/pg_sqlog)                     | v1.6        | [pg_sqlog.spec](SPECS/pg_sqlog.spec)                   |                    |      
+| [pg_proctab](https://gitlab.com/pg_proctab/pg_proctab)             | v0.0.10     | [pg_proctab.spec](SPECS/pg_proctab.spec)               |                    |              
+| [pg_hashids](https://github.com/iCyberon/pg_hashids)               | v1.3        | [pg_hashids.spec](SPECS/pg_hashids.spec)               |                    |            
+| [postgres_shacrypt](https://github.com/dverite/postgres-shacrypt)  | v1.1        | [postgres_shacrypt.spec](SPECS/postgres_shacrypt.spec) |                    |                         
+| [permuteseq](https://github.com/dverite/permuteseq)                | v1.2.2      | [permuteseq.spec](SPECS/permuteseq.spec)               |                    |           
 
 Obsolete due to included in PGDG repo:
 
@@ -127,21 +132,12 @@ Obsolete extension:
 
 ## TODOLIST
 
-- hunspell: https://github.com/postgrespro/hunspell_dicts
-- pg_sqlog: https://github.com/kouber/pg_sqlog
-- pg_proctab: https://gitlab.com/pg_proctab/pg_proctab
-
-- pg_hashids: https://github.com/iCyberon/pg_hashids
-- postgres_shacrypt: https://github.com/dverite/postgres-shacrypt
-- permuteseq: https://github.com/dverite/permuteseq
-- https://github.com/postgrespro/aqo
-
 
 - zombodb: https://github.com/zombodb/zombodb
 - orioledb: https://github.com/orioledb/orioledb
 - parquet_fdw: https://github.com/adjust/parquet_fdw
-- https://github.com/postgrespro/pg_variables/ (PG12 only)
-
+- pg_variables: https://github.com/postgrespro/pg_variables/ (PG12 only)
+- AQO: https://github.com/postgrespro/aqo
 
 ------
 
@@ -150,6 +146,9 @@ Obsolete extension:
 pg_sqlog
 pg_proctab
 pg_hashids
+postgres_shacrypt
+permuteseq
+supautils
 
 pgml 2.9.2
 pg_search & pg_lakehouse 0.8.4

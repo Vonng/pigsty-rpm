@@ -13,12 +13,12 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.0.0
+Version:	1.0
 Release:	1PIGSTY%{?dist}
-Summary:	set of functions and operators for executing similarity queries
-License:	BSD-3-Clause
+Summary:	Functions and operators for executing similarity queries
+License:	BSD-3-Clause Like
 URL:		https://github.com/eulerto/%{sname}
-Source0:	https://github.com/eulerto/%{sname}/archive/refs/tags/pg_similarity-1.0.0.tar.gz
+Source0:	pg_similarity-1.0.tar.gz
 #           https://github.com/eulerto/pg_similarity/archive/refs/tags/pg_similarity_1_0.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
@@ -80,5 +80,5 @@ PATH=%{pginstdir}/bin:$PATH %{__make} USE_PGXS=1 %{?_smp_mflags} install DESTDIR
 %exclude /usr/lib/.build-id/*
 
 %changelog
-* Mon Oct 16 2023 Vonng <rh@vonng.com> - 1.0.0
+* Mon Oct 16 2023 Vonng <rh@vonng.com> - 1.0
 - Initial RPM release, used by Pigsty <https://pigsty.io>
