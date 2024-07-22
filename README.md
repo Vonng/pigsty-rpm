@@ -24,7 +24,10 @@
 | [pg_proctab](https://gitlab.com/pg_proctab/pg_proctab)             | v0.0.10     | [pg_proctab.spec](SPECS/pg_proctab.spec)               |                    |              
 | [pg_hashids](https://github.com/iCyberon/pg_hashids)               | v1.3        | [pg_hashids.spec](SPECS/pg_hashids.spec)               |                    |            
 | [postgres_shacrypt](https://github.com/dverite/postgres-shacrypt)  | v1.1        | [postgres_shacrypt.spec](SPECS/postgres_shacrypt.spec) |                    |                         
-| [permuteseq](https://github.com/dverite/permuteseq)                | v1.2.2      | [permuteseq.spec](SPECS/permuteseq.spec)               |                    |           
+| [permuteseq](https://github.com/dverite/permuteseq)                | v1.2.2      | [permuteseq.spec](SPECS/permuteseq.spec)               |                    |
+| [supautils](https://github.com/supabase/supautils)                 | v2.2.1      | [supautils.spec](SPECS/supautils.spec)                 |                    |
+| [pg_similarity](https://github.com/eulerto/pg_similarity)          | v1.0        | [pg_similarity.spec](SPECS/pg_similarity.spec)         |                    |
+| [imgsmlr](https://github.com/postgrespro/imgsmlr)                  | v1.0        | [imgsmlr.spec](SPECS/imgsmlr.spec)                     |                    |
 
 Obsolete due to included in PGDG repo:
 
@@ -39,8 +42,44 @@ Obsolete due to included in PGDG repo:
 | [pg_filedump](https://github.com/df7cb/pg_filedump)                  | v16.0  | [pg_filedump.spec](SPECS/pg_filedump.spec)     | el7 build with PG15 |
 | [pg_dirtyread](https://github.com/df7cb/pg_dirtyread)                | v2.7   | [pg_dirtyread.spec](SPECS/pg_dirtyread)        | for el7 only        |
 | [pointcloud](https://github.com/pgpointcloud/pointcloud)             | v1.2.5 | [pointcloud.spec](SPECS/pointcloud.spec)       | for el7 only        |
-| [imgsmlr](https://github.com/postgrespro/imgsmlr)                    | v1.0.0 | [imgsmlr.spec](SPECS/imgsmlr.spec)             | 12 - 15             |
-| [pg_similarity](https://github.com/eulerto/pg_similarity)            | v1.0.0 | [pg_similarity.spec](SPECS/pg_similarity.spec) | 12 - 15             |
+
+
+
+
+**EL8/9 building list**
+
+https://download.postgresql.org/pub/repos/yum/16/redhat/rhel-8-x86_64
+https://download.postgresql.org/pub/repos/yum/16/redhat/rhel-9-x86_64
+
+```bash
+make scws scws-install
+make zhparser
+make pg_roaringbitmap
+make pgjwt
+make vault
+make imgsmlr
+
+make hydra
+make age age15
+make md5hash
+make pg_tde
+
+make hunspell
+make permuteseq
+make pg_hashids
+make pg_proctab
+make pg_similarity
+make pg_sqlog
+make postgres_shacrypt
+make supautils
+
+# obsolete
+# make pointcloud
+# make pg_bigm
+# make pg_dirtyread
+# make pg_tle
+```
+
 
 
 
@@ -66,33 +105,6 @@ make pg_dirtyread
 make pgsql_http
 make pgsql_gzip
 ```
-
-**EL8/9 building list**
-
-https://download.postgresql.org/pub/repos/yum/16/redhat/rhel-8-x86_64
-https://download.postgresql.org/pub/repos/yum/16/redhat/rhel-9-x86_64
-
-```bash
-make scws scws-install
-make zhparser
-make pg_roaringbitmap
-make pgjwt
-make vault
-make imgsmlr
-make pg_similarity
-make hydra
-make age age15
-make md5hash
-make pg_tde
-
-# obsolete
-# make pointcloud
-# make pg_bigm
-# make pg_dirtyread
-# make pg_tle
-```
-
-
 
 --------
 

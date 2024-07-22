@@ -13,12 +13,12 @@
 %endif
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	1.0.0
-Release:	1PIGSTY%{?dist}
+Version:	1.0
+Release:	2PIGSTY%{?dist}
 Summary:	PostgreSQL extension which implements similar images searching functionality.
 License:	PostgreSQL License
-URL:		https://github.com/postgrespro/%{sname}
-Source0:	https://github.com/postgrespro/%{sname}/archive/refs/tags/imgsmlr-1.0.0.tar.gz
+URL:		https://github.com/postgrespro/imgsmlr
+Source0:	imgsmlr-1.0.tar.gz
 #           https://github.com/postgrespro/imgsmlr/archive/refs/heads/master.zip
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
@@ -80,5 +80,7 @@ PATH=%{pginstdir}/bin:$PATH %{__make} USE_PGXS=1 %{?_smp_mflags} install DESTDIR
 %exclude /usr/lib/.build-id/*
 
 %changelog
+* Mon Jul 22 2024 Vonng <rh@vonng.com> - 1.0-1PIGSTY
+- patch for PostgreSQL 16
 * Mon Oct 16 2023 Vonng <rh@vonng.com> - 1.0.0
 - Initial RPM release, used by Pigsty <https://pigsty.io>

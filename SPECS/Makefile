@@ -252,7 +252,7 @@ pointcloud:
 	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pointcloud.spec
 
 #---------------------------------------------#
-# imgsmlr (12-15)
+# imgsmlr
 #---------------------------------------------#
 imgsmlr:
 	rm -rf ~/rpmbuild/RPMS/x86_64/imgsmlr*.rpm;
@@ -260,9 +260,10 @@ imgsmlr:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/imgsmlr.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/imgsmlr.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/imgsmlr.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/imgsmlr.spec
 
 #---------------------------------------------#
-# pg_similarity (12-15)
+# pg_similarity
 #---------------------------------------------#
 pg_similarity:
 	rm -rf ~/rpmbuild/RPMS/x86_64/pg_similarity*.rpm;
@@ -270,6 +271,7 @@ pg_similarity:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_similarity.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_similarity.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_similarity.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_similarity.spec
 
 #---------------------------------------------#
 # pg_bigm (12-15)
@@ -301,7 +303,6 @@ pg_net:
 	rpmbuild --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_net.spec
 	rpmbuild --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_net.spec
 	rpmbuild --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_net.spec
-
 
 #---------------------------------------------#
 # pg_filedump (lz4-devel libzstd-devel)
