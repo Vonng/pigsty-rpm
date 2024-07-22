@@ -185,6 +185,28 @@ pg_proctab:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_proctab.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_proctab.spec
 
+#---------------------------------------------#
+# pg_hashids
+#---------------------------------------------#
+pg_hashids:
+	rm -rf ~/rpmbuild/RPMS/x86_64/pg_hashids*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/pg_hashids.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/pg_hashids.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/pg_hashids.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/pg_hashids.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/pg_hashids.spec
+
+#---------------------------------------------#
+# postgres_shacrypt
+#---------------------------------------------#
+postgres_shacrypt:
+	rm -rf ~/rpmbuild/RPMS/x86_64/postgres_shacrypt*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
+
 
 #---------------------------------------------#
 # vault
