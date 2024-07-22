@@ -4,7 +4,7 @@
 %global pginstdir /usr/pgsql-%{pgmajorversion}
 
 Name:		%{sname}_%{pgmajorversion}
-Version:	0.8.4
+Version:	0.8.5
 Release:	1PIGSTY%{?dist}
 Summary:	Query engine over object stores like S3 and table formats like Delta Lake
 License:	GNU Affero General Public License v3.0
@@ -32,6 +32,7 @@ install -m 644 %{_sourcedir}/%{pname}_%{pgmajorversion}/usr/pgsql-%{pgmajorversi
 %exclude /usr/lib/.build-id
 
 %changelog
+* Mon Jul 22 2024 Vonng <rh@vonng.com> - 0.8.5
 * Thu Jul 18 2024 Vonng <rh@vonng.com> - 0.8.4
 * Fri Jul 05 2024 Vonng <rh@vonng.com> - 0.8.2
 * Sun Jun 30 2024 Vonng <rh@vonng.com> - 0.8.1
