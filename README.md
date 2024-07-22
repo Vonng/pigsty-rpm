@@ -127,18 +127,21 @@ Obsolete extension:
 
 ## TODOLIST
 
-- zombodb: https://github.com/zombodb/zombodb
-- orioledb: https://github.com/orioledb/orioledb
-- parquet_fdw: https://github.com/adjust/parquet_fdw
 - hunspell: https://github.com/postgrespro/hunspell_dicts
 - pg_sqlog: https://github.com/kouber/pg_sqlog
 - pg_proctab: https://gitlab.com/pg_proctab/pg_proctab
 
 - pg_hashids: https://github.com/iCyberon/pg_hashids
-- https://github.com/dverite/postgres-shacrypt
-- https://github.com/postgrespro/pg_variables/
+- postgres_shacrypt: https://github.com/dverite/postgres-shacrypt
+- permuteseq: https://github.com/dverite/permuteseq
 - https://github.com/postgrespro/aqo
-- https://github.com/dverite/permuteseq
+
+
+- zombodb: https://github.com/zombodb/zombodb
+- orioledb: https://github.com/orioledb/orioledb
+- parquet_fdw: https://github.com/adjust/parquet_fdw
+- https://github.com/postgrespro/pg_variables/ (PG12 only)
+
 
 ------
 

@@ -207,6 +207,17 @@ postgres_shacrypt:
 	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
 	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/postgres_shacrypt.spec
 
+#---------------------------------------------#
+# pg_variables
+#---------------------------------------------#
+permuteseq:
+	rm -rf ~/rpmbuild/RPMS/x86_64/permuteseq*.rpm;
+	rpmbuild --without debuginfo --define "pgmajorversion 16" -ba ~/rpmbuild/SPECS/permuteseq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 15" -ba ~/rpmbuild/SPECS/permuteseq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 14" -ba ~/rpmbuild/SPECS/permuteseq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 13" -ba ~/rpmbuild/SPECS/permuteseq.spec
+	rpmbuild --without debuginfo --define "pgmajorversion 12" -ba ~/rpmbuild/SPECS/permuteseq.spec
+
 
 #---------------------------------------------#
 # vault
