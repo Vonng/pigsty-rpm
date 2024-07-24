@@ -16,16 +16,15 @@ Name:		%{sname}_%{pgmajorversion}
 Version:	1.0.1
 Release:	1PIGSTY%{?dist}
 Summary:	A custom data type for storing MD5 hashes (instead of the native TEXT varlena type).
-License:	BSD 2-Claus
-URL:		https://github.com/tvondra/%{sname}
-Source0:	https://github.com/dftvondra/%{sname}/nosuchdownload/md5hash-1.0.1.tar.gz
+License:	BSD 2-Clause
+URL:		https://github.com/tvondra/md5hash
+Source0:	md5hash-1.0.1.tar.gz
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server
 
 %description
 This extension provides a simple data type storing 128-bit values (e.g. MD5 hashes) in a bit more efficient way - in a fixed-length columns and inline.
-
 The extension defines the 'md5hash' type itself, casts, operators and an operator class for btree indexes. It's fairly straightforward and simple to add more operators or classes.
 
 %if %llvm

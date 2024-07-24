@@ -53,7 +53,9 @@ https://download.postgresql.org/pub/repos/yum/16/redhat/rhel-9-x86_64
 
 ```bash
 make scws scws-install
-make zhparser
+make libduckdb libduckdb-install
+
+make zhparser duckdb_fdw
 make pg_roaringbitmap pgjwt vault
 make hydra age age15
 make md5hash postgres_shacrypt pg_tde
@@ -61,36 +63,8 @@ make libduckdb duckdb_fdw
 
 make hunspell
 make permuteseq pg_hashids imgsmlr pg_similarity pg_sqlog pg_proctab supautils
-
-# manual build
-# plv8 parquet_s3_fdw libarrow-s3
 ```
 
-
-
-
-**EL7 building list**
-
-https://download.postgresql.org/pub/repos/yum/15/redhat/rhel-7.9-x86_64/
-
-```bash
-make scws scws-install
-make zhparser
-make pg_roaringbitmap
-make pg_tle
-make pgjwt
-make vault
-make pointcloud
-make imgsmlr
-make pg_similarity
-make pg_bigm
-make hydra
-make age15
-make md5hash
-make pg_dirtyread
-make pgsql_http
-make pgsql_gzip
-```
 
 --------
 

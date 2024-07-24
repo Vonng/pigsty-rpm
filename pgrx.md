@@ -290,6 +290,7 @@ make pg_search pg_lakehouse
 make pg_graphql pg_jsonschema wrappers
 make pgmq pg_later pg_vectorize pg_tier 
 make pg_idkit pgsmcrypto plprql pgvectorscale
+
 make pgdd pg_tiktoken
 ```
 
