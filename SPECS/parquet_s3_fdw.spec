@@ -18,8 +18,8 @@ Version:	1.1.0
 Release:	1PIGSTY%{?dist}
 Summary:	ParquetS3 Foreign Data Wrapper for PostgresSQL
 License:	BSD 2-Clause
-URL:		https://github.com/pgspider/%{sname}
-Source0:	https://github.com/pgspider/%{sname}/parquet_s3_fdw-1.1.0.tar.gz
+URL:		https://github.com/pgspider/parquet_s3_fdw
+Source0:	parquet_s3_fdw-1.1.0.tar.gz
 #           https://github.com/pgspider/parquet_s3_fdw/archive/refs/tags/v1.1.0.tar.gz
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server libarrow-s3
