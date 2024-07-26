@@ -8,7 +8,7 @@ Version:	0.0.1
 Release:	1PIGSTY%{?dist}
 Summary:	OpenAI tiktoken tokenizer for postgres
 License:	Apache-2.0
-URL:		https://github.com/tembo-io/pg_tiktoken/%{sname}
+URL:		https://github.com/kelvich/pg_tiktoken
 
 BuildRequires:	postgresql%{pgmajorversion}-devel pgdg-srpm-macros >= 1.0.27
 Requires:	postgresql%{pgmajorversion}-server

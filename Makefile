@@ -12,6 +12,10 @@ pushd-sv:
 	rsync -avc --delete ./ sv:/data/pigsty-rpm/
 repo-sv:
 	ssh sv 'cd /data/pigsty-rpm && make create'
+push-rpm:
+	rsync -avc  ./RPMS/ sv:/data/pigsty-rpm/RPMS/
+pushd-rpm:
+	rsync -avc --delete ./RPMS/ sv:/data/pigsty-rpm/RPMS/
 pull-sv:
 	rsync -avc sv:/data/pigsty-rpm/RPMS/ ./RPMS/
 pulld-sv:
